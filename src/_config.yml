@@ -1,6 +1,6 @@
-name: Basic Template
+name: ICS 211 Fall 2014
 highlighter: pygments
 safe: false
-baseurl: /basic-template
+baseurl: /ics211-fall2014
 exclude: [morea]
 morea_theme: cerulean

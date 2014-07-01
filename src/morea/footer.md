@@ -4,5 +4,5 @@ morea_id: footer
 morea_type: footer
 ---
 
-Example Name | Example Department | Example University <br>
-email@example.com<br>
+William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br>
+walbritt AT hawaii.edu<br>

@@ -3,7 +3,6 @@ title: "Introduction to the Class"
 published: true
 morea_id: introduction
 morea_outcomes:
- - outcome-understand-course-structure
 morea_readings:
  - reading-syllabus
 morea_experiences:

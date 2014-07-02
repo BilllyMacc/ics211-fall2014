@@ -9,17 +9,16 @@ morea_labels:
 ---
 
 
-# Course Syllabus
+# Course Syllabus - ICS 211: Introduction to Computer Science II
 
-Leeward Community College
-Information & Computer Sciences
-Course Syllabus - FALL 2014 (CRN: 50593) Online
-ICS 211: Introduction to Computer Science II (3.0 credits)
-Instructor:	William McDaniel Albritton
-Office Hours:	MW 1:15-3:15pm
-Office Location:	DA 211
-Contact:	(808) 455-0319 (walbritt AT Hawai'i DOT EDU)
-Catalog Course Description:
+## FALL 2014 (CRN: 50593) Online (3.0 credits):
+
+Instructor:	William McDaniel Albritton<br>
+Office Hours:	MW 1:15-3:15pm<br>
+Office Location:	DA 211<br>
+Contact:	(808) 455-0319 (walbritt AT Hawai'i DOT EDU)<br>
+
+## Catalog Course Description:
 
 Reinforce and strengthen problem-solving skills using more advanced features of programming languages and algorithms such as abstract data types, recursion, pointers, and memory management. Emphasize the use of data structures such as arrays, lists, stacks, queues and trees.
 
@@ -63,7 +62,7 @@ Two (2) points are deducted for late assignments. Two (2) points are deducted fo
 
 ## Student with Disabilities Statement:
 
-Leeward Community College abides by Section 504 of the Rehabilitation Act of 1973 and the Americans with Disabilities Act of 1990, which stipulate that no student shall be denied the benefits of an education "solely by reason of a handicap." Students with documented disabilities who believe that they may need accommodations in this class are encouraged to contact the Coordinator of the KAKO‘O ‘IKE (KI) program as soon as possible to ensure that such accommodations are implemented in a timely fashion. The KI office is on second floor mauka side of Learning Commons. Call for information at 455-0421.
+Leeward Community College abides by Section 504 of the Rehabilitation Act of 1973 and the Americans with Disabilities Act of 1990, which stipulate that no student shall be denied the benefits of an education "solely by reason of a handicap." Students with documented disabilities who believe that they may need accommodations in this class are encouraged to contact the Coordinator of the KAKO'O 'IKE (KI) program as soon as possible to ensure that such accommodations are implemented in a timely fashion. The KI office is on second floor mauka side of Learning Commons. Call for information at 455-0421.
 
 ## Assessment for Student Work:
 
@@ -75,11 +74,11 @@ Discrimination in the classroom based on race, ethnicity, national origin, relig
 
 ## Academic Honesty:
 
-Students are required to complete and submit their own work. Sharing files, duplicating disks, using another student’s disk, copying, plagiarism, or other such acts will not be tolerated and are subject to penalties including a grade of “F” for the course. Refer to Academic Dishonesty in the Student Conduct Code for additional information.
+Students are required to complete and submit their own work. Sharing files, duplicating disks, using another student's disk, copying, plagiarism, or other such acts will not be tolerated and are subject to penalties including a grade of "F" for the course. Refer to Academic Dishonesty in the Student Conduct Code for additional information.
 
-## The Maka‘ala Program:
+## The Maka'ala Program:
 
-At Leeward CC we want every student to be successful. The Maka‘ala Program is a campus-wide effort that seeks to support students early in the semester when they first begin experiencing difficulty in a class. If I feel that you are having difficulty in my class within the first few weeks of the semester (e.g. missing class, missing assignments, or low test scores) I may refer you to the program. I will notify you about my intention to refer you to the program. Once referred, the Maka‘ala Program will:
+At Leeward CC we want every student to be successful. The Maka'ala Program is a campus-wide effort that seeks to support students early in the semester when they first begin experiencing difficulty in a class. If I feel that you are having difficulty in my class within the first few weeks of the semester (e.g. missing class, missing assignments, or low test scores) I may refer you to the program. I will notify you about my intention to refer you to the program. Once referred, the Maka'ala Program will:
 
 Send an email to your hawaii.edu account to let you know about my referral; and
 Have a counselor follow up with you by phone or by email to find out what kinds of help you might need, to connect you with the necessary resources, and to help you devise a strategy for success.
@@ -104,19 +103,30 @@ Top of your assignment file:
     */ 
 
 
-Filename of your assignment: LastnameFirstnameX.java. (Note: For example, SuzukiBubba1.java would be submitted for the first assignment if Bubba Suzuki were submitting it.)
-"To" field of e-mail: The instructor's e-mail address: W Albritt at Hawai'i DOT edu
-"Cc" field of e-mail: Your UH UNIX e-mail address (That way, if the instructor does not get your email for some reason, you have proof that it was sent.)
-Subject of email: ics 211 #x (where 'x' is the assignment number) For example, the first assignment would be: ics 211 #1
-Body of email: Copy and paste the latest version of your program. That way, we have your program even if you forgot to attach it.
-Attachments: Attach your LastnameFirstnameX.java file. (DO NOT submit the LastnameFirstnameX.class file or a zip file.)
-After you send your e-mail: Be sure to double-check your assignment submission by opening the e-mail that you sent to the instructor, downloading the attached program, and compiling and running the program to make sure it works, and that it is the program that you intended to submit. YOU ARE RESPONSIBLE FOR SENDING THE CORRECT PROGRAM. No excuses will be accepted.
-Multiple submissions: You may submit an assignment more than one time. Only the most recent assignment submitted before the deadline will be graded. If you cannot make the deadline, then turn in what you have before the deadline for partial credit. After the deadline, at least two (2) points will be subtracted from your assignment grade.
-Assignment grading guidelines (assigments are graded out of 10 points)
+Filename of your assignment: 
 
-(-1 point) Miscellaneous mistakes/problems.
-(-1 point) Assignment not submitted according to specifications. For example, your name is missing, incorrect email subject, hardcopy not turned in, etc.
-(-1 point) Bad interface. For example, output is not displayed for long enough for the user to read it, user has to guess what the input is, etc.
+LastnameFirstnameX.java. (Note: For example, SuzukiBubba1.java would be submitted for the first assignment if Bubba Suzuki were submitting it.)<br>
+"To" field of e-mail: 
+
+The instructor's e-mail address: W Albritt at Hawai'i DOT edu<br>
+"Cc" field of e-mail: 
+Your UH UNIX e-mail address (That way, if the instructor does not get your email for some reason, you have proof that it was sent.)<br>
+Subject of email: 
+ics 211 #x (where 'x' is the assignment number) For example, the first assignment would be: ics 211 #1<br>
+Body of email: 
+Copy and paste the latest version of your program. That way, we have your program even if you forgot to attach it.<br>
+Attachments: 
+Attach your LastnameFirstnameX.java file. (DO NOT submit the LastnameFirstnameX.class file or a zip file.)<br>
+After you send your e-mail: Be sure to double-check your assignment submission by opening the e-mail that you sent to the instructor, downloading the attached program, and compiling and running the program to make sure it works, and that it is the program that you intended to submit. YOU ARE RESPONSIBLE FOR SENDING THE CORRECT PROGRAM. No excuses will be accepted.<br>
+
+## Multiple submissions: 
+You may submit an assignment more than one time. Only the most recent assignment submitted before the deadline will be graded. If you cannot make the deadline, then turn in what you have before the deadline for partial credit. After the deadline, at least two (2) points will be subtracted from your assignment grade.
+
+## Assignment grading guidelines (assigments are graded out of 10 points):
+
+  *(-1 point) Miscellaneous mistakes/problems.
+  *(-1 point) Assignment not submitted according to specifications. For example, your name is missing, incorrect email subject, hardcopy not turned in, etc.
+  *(-1 point) Bad interface. For example, output is not displayed for long enough for the user to read it, user has to guess what the input is, etc.
 (-1 point) The program doesn't work as expected for some values.
 (-2 points) Program crashes with bad user input. We will test boundary conditions and bad conditions when testing your programs. For instance, if your program asks for a number between 1-10, we will try inputting things like: -3, abc, 11, and 99999 to see if your program handles it, and asks for input again.
 (-2 points) Assignment is late.

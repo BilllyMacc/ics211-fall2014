@@ -9,9 +9,11 @@ morea_labels:
 ---
 
 
-# Course Syllabus - ICS 211: Introduction to Computer Science II
+# Course Syllabus - ICS 211: Introduction to Computer Science II 
 
-## FALL 2014 (CRN: 50593) Online (3.0 credits):
+FALL 2014 - CRN: 50593 (3 credits)
+
+## Contact Information:
 
 Instructor:	William McDaniel Albritton<br>
 Office Hours:	MW 1:15-3:15pm<br>
@@ -48,9 +50,13 @@ Data Structures: Abstraction and Design Using Java by Elliot B. Koffman, Publish
 ## Grading Policy:
 
 Assignments: 10 points each, 25 total 
+
 Discussion and Private Messages Postings: 1 point each, 30 points total 
+
 Final Project: 50 points each , 1 total 
+
 Optional Assignments: 5 points each, roughly 3 total
+
 Grade calculation: (sum of your scores) / (total points)
 
 ## Course grades: 
@@ -92,53 +98,42 @@ Your program must compile and run using the jGRASP IDE.
 
 ## Assignment submission instructions:
 
-Top of your assignment file: 
-
-
+1. Top of your assignment file: 
+<pre>
     /**
     * Short description of program.
     * @author Last Name, First Name
     * @assignment ICS 211 Assignment X 
     * @date Today's Date
     */ 
-
-
-Filename of your assignment: 
-
-LastnameFirstnameX.java. (Note: For example, SuzukiBubba1.java would be submitted for the first assignment if Bubba Suzuki were submitting it.)<br>
-"To" field of e-mail: 
-
-The instructor's e-mail address: W Albritt at Hawai'i DOT edu<br>
-"Cc" field of e-mail: 
-Your UH UNIX e-mail address (That way, if the instructor does not get your email for some reason, you have proof that it was sent.)<br>
-Subject of email: 
-ics 211 #x (where 'x' is the assignment number) For example, the first assignment would be: ics 211 #1<br>
-Body of email: 
-Copy and paste the latest version of your program. That way, we have your program even if you forgot to attach it.<br>
-Attachments: 
-Attach your LastnameFirstnameX.java file. (DO NOT submit the LastnameFirstnameX.class file or a zip file.)<br>
-After you send your e-mail: Be sure to double-check your assignment submission by opening the e-mail that you sent to the instructor, downloading the attached program, and compiling and running the program to make sure it works, and that it is the program that you intended to submit. YOU ARE RESPONSIBLE FOR SENDING THE CORRECT PROGRAM. No excuses will be accepted.<br>
+</pre>
+2. Filename of your assignment: LastnameFirstnameX.java. (Note: For example, SuzukiBubba1.java would be submitted for the first assignment if Bubba Suzuki were submitting it.)<br>
+3. "To" field of e-mail: The instructor's e-mail address: W Albritt at Hawai'i DOT edu<br>
+4. "Cc" field of e-mail: Your UH UNIX e-mail address (That way, if the instructor does not get your email for some reason, you have proof that it was sent.)<br>
+5. Subject of email: ics 211 #x (where 'x' is the assignment number) For example, the first assignment would be: ics 211 #1<br>
+6. Body of email: Copy and paste the latest version of your program. That way, we have your program even if you forgot to attach it.<br>
+7. Attachments: Attach your LastnameFirstnameX.java file. (DO NOT submit the LastnameFirstnameX.class file or a zip file.)<br>
+8. After you send your e-mail: Be sure to double-check your assignment submission by opening the e-mail that you sent to the instructor, downloading the attached program, and compiling and running the program to make sure it works, and that it is the program that you intended to submit. YOU ARE RESPONSIBLE FOR SENDING THE CORRECT PROGRAM. No excuses will be accepted.<br>
 
 ## Multiple submissions: 
 You may submit an assignment more than one time. Only the most recent assignment submitted before the deadline will be graded. If you cannot make the deadline, then turn in what you have before the deadline for partial credit. After the deadline, at least two (2) points will be subtracted from your assignment grade.
 
 ## Assignment grading guidelines (assigments are graded out of 10 points):
 
-  *(-1 point) Miscellaneous mistakes/problems.
-  *(-1 point) Assignment not submitted according to specifications. For example, your name is missing, incorrect email subject, hardcopy not turned in, etc.
-  *(-1 point) Bad interface. For example, output is not displayed for long enough for the user to read it, user has to guess what the input is, etc.
-(-1 point) The program doesn't work as expected for some values.
-(-2 points) Program crashes with bad user input. We will test boundary conditions and bad conditions when testing your programs. For instance, if your program asks for a number between 1-10, we will try inputting things like: -3, abc, 11, and 99999 to see if your program handles it, and asks for input again.
-(-2 points) Assignment is late.
-(-2 points) Assignment is submitted on time, and re-submitted for re-grading after the due date.
-(-3 points) The program doesn't compile or crashes (has runtime errors), because of a small syntax error.
-(-3 points) The program doesn't work as expected for any values.
-(-3 points) Code not commented. Comments should be IN YOUR OWN WORDS. You should comment at every 3-5 lines of code.
-(-3 points) Not following the ICS Java Coding Standard.
-(-5 points) The program doesn't compile or crashes (has runtime errors), because of numerous syntax errors.
-(-5 points) Copying the instructor's code or comments. All your code and comments should be in your own words.
-(-10 points) Assignment is submitted after last day of classes.
-(-10 points) Copying another student's code or comments. All your code and comments should be in your own words.
-Click to validate the HTML code 
+1. (-1 point) Miscellaneous mistakes/problems.
+2. (-1 point) Assignment not submitted according to specifications. For example, your name is missing, incorrect email subject, hardcopy not turned in, etc.
+3. (-1 point) Bad interface. For example, output is not displayed for long enough for the user to read it, user has to guess what the input is, etc.
+4. (-1 point) The program doesn't work as expected for some values.
+5. (-2 points) Program crashes with bad user input. We will test boundary conditions and bad conditions when testing your programs. For instance, if your program asks for a number between 1-10, we will try inputting things like: -3, abc, 11, and 99999 to see if your program handles it, and asks for input again.
+6. (-2 points) Assignment is late.
+7. (-2 points) Assignment is submitted on time, and re-submitted for re-grading after the due date.
+8. (-3 points) The program doesn't compile or crashes (has runtime errors), because of a small syntax error.
+9. (-3 points) The program doesn't work as expected for any values.
+10. (-3 points) Code not commented. Comments should be IN YOUR OWN WORDS. You should comment at every 3-5 lines of code.
+11. (-3 points) Not following the ICS Java Coding Standard.
+12. (-5 points) The program doesn't compile or crashes (has runtime errors), because of numerous syntax errors.
+13. (-5 points) Copying the instructor's code or comments. All your code and comments should be in your own words.
+14. (-10 points) Assignment is submitted after last day of classes.
+15. (-10 points) Copying another student's code or comments. All your code and comments should be in your own words.
 
-Click to validate the CSS code 
+

@@ -1,10 +1,11 @@
 ---
-title: "Introduction to the Class"
+title: "Introduction to our Class"
 published: true
 morea_id: introduction
 morea_outcomes:
 morea_readings:
  - reading-syllabus
+ - reading-materials01 
 morea_experiences:
 morea_assessments:
 morea_type: module

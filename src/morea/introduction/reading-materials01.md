@@ -8,7 +8,7 @@ morea_sort_order: 2
 morea_labels:
 ---
 
-[Link to the slides for Lecture 1](/morea/slides/lecture01.pptx).
+[Link to the slides for Lecture 1](/morea/introduction/lecture01.pptx)
 
 [Textbook's Website](http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0470128704&bcsId=5643)
 

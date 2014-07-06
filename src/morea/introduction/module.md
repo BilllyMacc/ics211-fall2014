@@ -7,6 +7,7 @@ morea_readings:
  - reading-syllabus
  - reading-materials01 
 morea_experiences:
+ - experience01
 morea_assessments:
 morea_type: module
 morea_icon_url: /morea/introduction/introduction.jpg

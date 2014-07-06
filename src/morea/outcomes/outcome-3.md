@@ -1,7 +1,7 @@
 ---
 title: "Object-oriented Programming"
 published: true
-morea_id: outcome3
+morea_id: outcome-3
 morea_type: outcome
 morea_sort_order: 3
 ---

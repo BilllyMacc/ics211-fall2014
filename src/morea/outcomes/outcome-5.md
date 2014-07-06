@@ -1,7 +1,7 @@
 ---
 title: "Abstract Data Types"
 published: true
-morea_id: outcome5
+morea_id: outcome-5
 morea_type: outcome
 morea_sort_order: 5
 ---

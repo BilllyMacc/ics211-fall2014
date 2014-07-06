@@ -1,12 +1,14 @@
 ---
-title: "Slides and resources"
+title: "Lecture, slides and resources"
 published: true
 morea_id: reading-materials01
-morea_summary: "Links to slides and other resources"
+morea_summary: "Links to lecture, slides and other resources"
 morea_type: reading
 morea_sort_order: 2
 morea_labels:
 ---
+
+[Link to Lecture #1](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/Session01_Introduction%20_2_.mov)
 
 [Link to the slides for Lecture #1](lecture01.pptx)
 

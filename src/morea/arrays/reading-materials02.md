@@ -14,9 +14,9 @@ morea_labels:
 
 [Java Platform Standard Edition 8 API Specification](http://docs.oracle.com/javase/8/docs/api/)
 
-[InitializingArrays.java](InitializingArrays.java)
+[InitializingArrays.java](/morea/examples/InitializingArrays.java)
 
-[ArraysLoopsModulus.java](ArraysLoopsModulus.java)
+[ArraysLoopsModulus.java](/morea/examples/ArraysLoopsModulus.java)
 
 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

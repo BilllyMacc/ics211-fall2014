@@ -1,0 +1,37 @@
+---
+title: "Lecture, slides, and examples"
+published: true
+morea_id: reading-materials03
+morea_summary: "Links to lecture, slides, and examples"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+[Link to Lecture #3](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session03_Arrays%20II.mov)
+
+[Link to the slides for Lecture #3](lecture03.pptx)
+
+[ArraysAndMethods.java](/morea/examples/ArraysAndMethods.java)
+
+[UNIX Commands](/morea/arrays2/unix.htm)
+
+[Emacs Commands](/morea/arrays2/emacs.htm)
+
+[Repeat.java](/morea/examples/Repeat.java)
+
+[TryCatchBlocks.java](/morea/examples/TryCatchBlocks.java)
+
+[ASCII](http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters)
+
+[Unicode](http://www.unicode.org/charts/)
+
+[ReadFromFile.java](/morea/examples/ReadFromFile.java)
+
+
+
+
+
+
+
+

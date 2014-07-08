@@ -10,7 +10,7 @@ morea_labels:
 
 [Link to Lecture #1](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/Session01_Introduction%20_2_.mov)
 
-[Link to the slides for Lecture #1](lecture01.pptx)
+[Link to the slides for Lecture #1](/morea/slides/lecture01.pptx)
 
 [Textbook's Website](http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0470128704&bcsId=5643)
 

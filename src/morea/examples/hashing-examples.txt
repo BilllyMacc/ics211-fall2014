@@ -1,0 +1,264 @@
+1. Draw the corresponding hash table using linear probing to resolve collisions:
+h(key) = key mod 31
+keys = 1234, 4055, 3962, 5853, 1766, 1270
+
+Calculations:
+h(1234) = 1234 mod 31 = 25		
+insert record 1234 at array index 25
+table[25]=1234
+
+h(4055) = 4055 mod 31 = 25
+there is a collision with the record at index 25, so add one
+25+1 = 26
+array index 26 is open, so insert record 4055 at array index 26
+table[26]=4055
+
+h(3962) = 3962 mod 31 = 25
+there is a collision with the record at index 25, so add one
+25+1 = 26
+there is a collision with the record at index 26, so add one
+26+1 = 27
+array index 27 is open, so insert record 3962 at array index 27
+table[27] = 3962
+
+h(5853) = 5853 mod 31 = 25
+there is a collision with the record at index 25, so add one
+25+1 = 26
+there is a collision with the record at index 26, so add one
+26+1 = 27
+there is a collision with the record at the next 27, so add one
+27+1 = 28
+array index 28 is open, so insert record 5853 at array index 28
+table[28] = 5853
+
+h(1766) = 1766 mod 31 = 30
+insert record 1766 at array index 30
+table[30] = 1766
+
+h(1270) = 1270 mod 31 = 30
+there is a collision with the record at index 30, so add one
+30+1 = 31
+the range of array elements is 0-30, because we are using modulus 31 to calculate the index numbers
+31 mod 31 = 0
+array index 0 is open, so insert record 1270 at array index 0
+table[0] = 1270   
+
+Final table:
+table[0]= 1270
+elements 1-24 are empty
+table[25]= 1234
+table[26]= 4055
+table[27]= 3962
+table[28]= 5853
+table[29]= empty
+table[30]= 1766
+
+
+2. Draw the corresponding hash table using quadratic probing to resolve collisions:
+h(key) = key mod 31
+keys = 1234, 4055, 3962, 5853, 1766, 1270
+
+For quadratic probing, the step size should be a series of squares, added  to the original index.
+In other words, if table[i] is occupied, check table[i+1*1], table[i+2*2], table[i+3*3], table[i+4*4], table[i+5*5], …
+
+Calculations:
+h(1234) = 1234 mod 31 = 25		
+insert record 1234 at array index 25
+table[25]=1234
+
+h(4055) = 4055 mod 31 = 25
+there is a collision with the record at index 25, so add one
+25+1 = 26
+array index 26 is open, so insert record 4055 at array index 26
+table[26]=4055
+
+h(3962) = 3962 mod 31 = 25
+there is a collision with the record at index 25, so add one
+25+1 = 26
+there is a collision with the record at index 26, so add 4 
+25+4 = 29
+array index 29 is open, so insert record 3962 at array index 29
+table[29] = 3962
+
+h(5853) = 5853 mod 31 = 25
+there is a collision with the record at index 25, so add one
+25+1 = 26
+there is a collision with the record at index 26, so add 4
+25+4 = 29
+there is a collision with the record at the next 29, so add 9
+25+9 = 34
+the range of array elements is 0-30, because we are using modulus 31 to calculate the index numbers
+34 mod 31 = 3
+array index 3 is open, so insert record 5853 at array index 3
+table[3] = 5853
+
+h(1766) = 1766 mod 31 = 30
+insert record 1766 at array index 30
+table[30] = 1766
+
+h(1270) = 1270 mod 31 = 30
+there is a collision with the record at index 30, so add one
+30+1 = 31
+the range of array elements is 0-30, because we are using modulus 31 to calculate the index numbers
+31 mod 31 = 0
+array index 0 is open, so insert record 1270 at array index 0
+table[0] = 1270   
+
+Final table:
+table[0]= 1270
+table[1]= empty
+table[2]= empty
+table[3]= 5853
+elements 4-24 are empty
+table[25]= 1234
+table[26]= 4055
+table[27]= empty
+table[28]= empty
+table[29]= 3962
+table[30]= 1766
+
+
+3. Draw the corresponding hash table using double hashing to resolve collisions:
+h1(key) = key mod 31 
+h2(key) = 23 – (key mod 23)
+keys = 1234, 4055, 3962, 5853, 1766, 1270
+
+Calculations:
+h(1234) = 1234 mod 31 = 25		
+insert record 1234 at array index 25
+table[25]=1234
+
+h(4055) = 4055 mod 31 = 25
+there is a collision with the record at index 25, so calculate the second hash function for the step size to the next index
+h2(4055) = 23 – (4055 mod 23) = 16
+16 is the step size to the next index
+25+16 = 41
+41 mod 31 = 10
+array index 10 is open, so insert record 4055 at array index 10
+table[10]=4055
+
+h(3962) = 3962 mod 31 = 25
+there is a collision with the record at index 25, so calculate the second hash function
+h2(3962) = 23 – (3962 mod 23) = 17
+17 is the step size to the next element
+25+17 = 42
+42 mod 31 = 11
+array index 11 is open, so insert record 3962 at array index 11
+table[11] = 3962
+
+h(5853) = 5853 mod 31 = 25
+there is a collision with the record at index 25, so calculate the second hash function
+h2(5853) = 23 – (5853 mod 23) = 12
+12 is the step size to the next element
+25+12 = 37
+37 mod 31 = 6
+array index 6 is open, so insert record 5853 at array index 6
+table[6] = 5853
+
+h(1766) = 1766 mod 31 = 30
+insert record 1766 at array index 30
+table[30] = 1766
+
+h(1270) = 1270 mod 31 = 30
+there is a collision with the record at index 30, so calculate the second hash function
+h2(1270) = 23 – (5853 mod 23) = 18
+18 is the step size to the next element
+30+18 = 48
+48 mod 31 = 17
+array index 17 is open, so insert record 1270 at array index 17
+table[17] = 1270   
+
+Final table:
+elements 0-5 are empty
+table[6]= 5853
+elements 7-9 are empty
+table[10]= 4055
+table[11]= 3962
+elements 12-16 are empty
+table[17]= 1270
+elements 18-24 are empty
+table[25]= 1234
+elements 26-29 are empty
+table[30]= 1766
+
+
+4. Draw the corresponding hash table using bucket hashing to resolve collisions:
+h(key) = key mod 31
+keys = 1234, 4055, 3962, 5853, 1766, 1270
+
+Calculations:
+h(1234) = 25	
+insert record 1234 at row 25, column 0 in the two-dimensional array
+table[25][0] = 1234
+
+h(4055) = 25	
+insert record 4055 at row 25, column 1 in the two-dimensional array
+table[25][1] = 4055
+
+h(3962) = 25	
+insert record 3962 at row 25, column 2 in the two-dimensional array
+table[25][2] = 3962
+
+h(5853) = 25	
+insert record 5853 at row 25, column 3 in the two-dimensional array
+table[25][3] = 5853
+
+h(1766) = 30	
+insert record 1766 at row 30, column 0 in the two-dimensional array
+table[30][0] = 1766
+
+
+h(1270) = 30	
+insert record 1270 at row 30, column 1 in the two-dimensional array
+table[30][1] = 1270
+
+
+Final table:
+elements 0-24 are empty
+table[25][0] = 1234	table[25][1] = 4055	table[25][2] = 3962	table[25][3] = 5853
+elements 26-29 are empty
+table[30][0] = 1766	table[30][1] = 1270
+
+
+5. Draw the corresponding hash table using separate chaining to resolve collisions:
+h(key) = key mod 31
+keys = 1234, 4055, 3962, 5853, 1766, 1270
+
+For separate chaining, elements are added to the beginning of the linked list, so it is O(1), which is very fast.
+If you add to the end of the linked list, it is O(n), which is much slower.
+
+Calculations:
+h(1234) = 25
+add record 1234 to the front of the linked list at index 25
+table[25]=>1234
+
+h(4055) = 25
+add record 4055 to the front of the linked list at index 25
+table[25]=>4055=>1234
+
+h(3962) = 25
+add record 3962 to the front of the linked list at index 25
+table[25]=>3962=>4055=>1234
+
+h(5853) = 25
+add record 5853 to the front of the linked list at index 25
+table[25]=>5853=>3962=>4055=>1234
+
+h(1766) = 30
+add record 1766 to the front of the linked list at index 30
+table[30]=>1766
+
+h(1270) = 30
+add record 1270 to the front of the linked list at index 30
+table[30]=>1270=>1766
+
+Final table:
+elements 0-24 are empty
+table[25]=>5853=>3962=>4055=>1234
+elements 26-29 are empty
+table[30]=>1270=>1766
+
+
+
+
+

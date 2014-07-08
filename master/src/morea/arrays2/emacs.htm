@@ -1,0 +1,430 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="emacs_files/filelist.xml">
+<title>Basic Emacs Commands</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>William Albritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>William Albritton</o:LastAuthor>
+  <o:Revision>6</o:Revision>
+  <o:TotalTime>22</o:TotalTime>
+  <o:Created>2007-01-17T21:21:00Z</o:Created>
+  <o:LastSaved>2007-01-17T21:23:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>480</o:Words>
+  <o:Characters>2740</o:Characters>
+  <o:Company>University of Hawaii</o:Company>
+  <o:Lines>22</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3214</o:CharactersWithSpaces>
+  <o:Version>11.8107</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:DocumentVariables>
+   <w:dgnword-docGUID>{6D22B404-51B7-4F99-BDBC-2F90E3614538}</w:dgnword-docGUID>
+   <w:dgnword-eventsink>12280024</w:dgnword-eventsink>
+  </w:DocumentVariables>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"MS Mincho";}
+span.spelle
+	{mso-style-name:spelle;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+<meta http-equiv=Content-Language content=en-us>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p align=center style='text-align:center'><b><span style='font-size:24.0pt;
+color:red'>Basic emacs Commands</span></b></p>
+
+<table class=MsoNormalTable border=1 cellpadding=0 width="100%"
+ style='width:100.0%;mso-cellspacing:1.5pt;border:outset white 1.0pt;
+ mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes;height:13.2pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:13.2pt'>
+  <p align=center style='text-align:center'><b><span style='color:blue'>Command</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:13.2pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p align=center style='text-align:center'><b><span style='color:blue'>Description</span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>(Customize your emacs)</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+  style='font-family:"Courier New"'>To enable the backspace key, disable tabs,
+  and customize the indention, put the following statements in your .emacs
+  file:<br style='mso-special-character:line-break'>
+  <![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+  <![endif]></span></b></p>
+  <pre><span style='font-size:12.0pt'>; disable the binding that has backspace call &quot;help&quot;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>; enable it do the same as delete<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; (global-set-key [?\C-h] 'delete-backward-char)<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; (global-set-key [?\C-x ?h] 'help-command) ;; overrides mark-whole-buffer<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>;disallow tabs<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; (<span class=SpellE><span
+  class=spelle>setq</span></span>-default indent-tabs-mode nil)<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>;set indenting to 4 places instead of default 2<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; (<span class=SpellE><span
+  class=spelle>defun</span></span> <span class=SpellE><span class=spelle>indentk</span></span> ()<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; (<span class=SpellE><span
+  class=spelle>setq</span></span> c-basic-offset 4))<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt'>&nbsp;&nbsp;&nbsp;&nbsp; (add-hook 'c-mode-hook '<span
+  class=SpellE><span class=spelle>indentk</span></span>)<o:p></o:p></span></pre><pre><span
+  style='font-size:12.0pt;font-family:"Times New Roman"'>&nbsp;</span></pre></td>
+ </tr>
+ <tr style='mso-yfti-irow:2;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>emacs</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>The
+  best way to get started with emacs is to do the tutorial. If you start emacs
+  with no file name in the command line, you will get instructions on how to
+  run the tutorial. </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>M-x help</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Help
+  (Note: M-x means to first hit the escape key and then hit x.)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-x C-c</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Quit
+  emacs (Note: C-x means to press the control key and while you are holding it
+  down, press x. Other places use the notation ^X or ctrl-X.)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-x C-f</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Find
+  a file (<span class=SpellE>i</span>. e. open a file)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-x C-s</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Save
+  a file (the one you see)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-g</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Get
+  out of the command that you are in - try this when you don't know what is
+  going on</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-x u</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Undo
+  (you can repeat this to undo several previous commands)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>Arrow keys</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>You
+  can use the arrow keys and also page up and page down to move the cursor.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-d</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Delete
+  the character by the cursor</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>delete key (or backspace key)</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Delete
+  the character preceding the cursor</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-k</span></b><o:p></o:p></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Delete
+  from the cursor to the end of the line</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>Multiple Windows</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>With
+  SSH, you can have any number of windows. I recommend that you start by
+  opening one window in which you run a program and another window for editing.
+  Edit a program in the edit window. Then save it--use C-x C-s--and then
+  compile it and run it in the other window. Just click in a window to make it
+  active. Note that you don't have to exit the editor--you have to save, but
+  you can leave the editor there while you run the program. It is convenient to
+  be able to see the program while you run it. It is also convenient to be able
+  to start editing by just clicking in the edit window. Sometimes it helps to
+  be able to see the execution output while you are editing. This is especially
+  true if you compile and get a bunch of error messages--you can see the error
+  messages while you edit the program to make the corrections. </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-v</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Scroll-up:
+  program itself moves &quot;up&quot; - will finally end up at bottom of screen</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>M-v</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Scroll-down:
+  program itself moves &quot;down&quot; - will finally end up at top of screen
+  (Note: M is escape key)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-s</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>It
+  does an &quot;incremental search&quot;, <span class=SpellE>i</span>. e. if
+  you are looking for &quot;hello&quot;, you type h and it looks for the first
+  h. Then you type e and it looks for &quot;he&quot;. etc.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-space, C-@</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Select
+  text. You put the cursor at the beginning of the text and do C-Space or C-@
+  to mark that place, and then move the cursor to the other end of the desired
+  region. (This is called the Mark Set&quot; command.)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-w<o:p></o:p></span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Copies
+  and removes the text.<span style='mso-spacerun:yes'>  </span>(The text is removed
+  from the work buffer into the &quot;Kill Ring&quot; – the &quot;Kill
+  Region&quot; command.)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19;mso-yfti-lastrow:yes;height:11.4pt'>
+  <td width="21%" style='width:21.12%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt' bordercolorlight="#008000" bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'><b><span
+  style='font-family:"Courier New"'>C-y</span></b></p>
+  </td>
+  <td width="78%" style='width:78.42%;border:inset white 1.0pt;padding:1.8pt 1.8pt 1.8pt 1.8pt;
+  height:11.4pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt;tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt'>Pastes
+  (inserts) the text from the clipboard to where the cursor is. (This is called
+  the &quot;Yank&quot; command.)</p>
+  </td>
+ </tr>
+</table>
+
+<p>Notes by Dr. Wes Peterson and William Albritton</p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,523 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="unix_files/filelist.xml">
+<title>Basic UNIX Commands</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>William Albritton</o:Author>
+  <o:Template>Normal</o:Template>
+  <o:LastAuthor>William Albritton</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>22</o:TotalTime>
+  <o:Created>2005-08-23T02:47:00Z</o:Created>
+  <o:LastSaved>2006-08-24T01:01:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>501</o:Words>
+  <o:Characters>2857</o:Characters>
+  <o:Company>University of Hawaii</o:Company>
+  <o:Lines>23</o:Lines>
+  <o:Paragraphs>6</o:Paragraphs>
+  <o:CharactersWithSpaces>3352</o:CharactersWithSpaces>
+  <o:Version>11.8036</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:Zoom>75</w:Zoom>
+  <w:DontDisplayPageBoundaries/>
+  <w:DisplayBackgroundShape/>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:DocumentVariables>
+   <w:dgnword-docGUID>{C2E6C7D7-B540-40F2-8F5E-79F884F09A88}</w:dgnword-docGUID>
+   <w:dgnword-eventsink>12278784</w:dgnword-eventsink>
+  </w:DocumentVariables>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-pitch:fixed;
+	mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"MS Mincho";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:24.0pt;color:red'>Basic UNIX Commands</span><span
+style='color:red'><br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></b></p>
+
+<table class=MsoTableGrid border=1 cellpadding=0 width="100%" style='width:
+ 100.0%;mso-cellspacing:1.4pt;border:outset white 1.0pt;mso-border-alt:outset white .75pt;
+ mso-yfti-tbllook:480;mso-padding-alt:0in 5.75pt 0in 5.75pt;mso-border-insideh:
+ .75pt outset white;mso-border-insidev:.75pt outset white'>
+ <tr style='mso-yfti-irow:0;mso-yfti-firstrow:yes'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p align=center style='text-align:center'><b><span style='color:blue'>Command</span></b><o:p></o:p></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p align=center style='text-align:center'><b><span style='color:blue'>&nbsp;Description</span></b></p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:1'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>*, ?</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Many commands allow
+  wild card characters in the file names. An * (asterisk) stands for any string
+  of 0 or more characters, and <span class=GramE>a ?</span> (<span class=GramE>question</span>
+  mark) stands for any single character. For example, *.c means all files that
+  end with .c and pr1.* means all files that start pr1. If you use * alone, it
+  means all files (which is different from MS-DOS). </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:2'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>cat file </span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Copy a file to standard
+  output (can be used as a filter) e. g. &quot;% cat pr1.c&quot; will display
+  the file pr1.c on your screen.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:3'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>cd</span></b></span><b><span
+  style='font-family:"Courier New"'> pathname</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Change directory e. g.
+  &quot;% <span class=SpellE>cd</span> ~<span class=SpellE>wes</span>&quot;
+  will change to my home directory.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:4'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>chmod</span></b></span><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Change file permission
+  mode (wild cards OK)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:5'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>cp file target</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Copy file(s) (wild
+  cards ok) If target is a <span class=GramE>directory,</span> file(s) are
+  copied to that directory with same name. If target is a name, file copied
+  with that as name of copy e. g. &quot;% cp /home/3/wes/ics211/<span
+  class=GramE>* .</span>&quot; will copy all the files from the directory
+  wes~/ics211 to your default directory. (&quot;.&quot; is an abbreviation for
+  the directory where you are, &quot;<span class=GramE>..&quot;</span> for your
+  parent directory.) Note that the cp command always needs both a source and a
+  destination operand.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:6'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>date</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Display date </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:7'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>diff file1 file2</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Compare two text files
+  and display where they differ </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:8'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>du</span></b><span style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Display disk usage </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:9'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>man command</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Display on-line manual
+  for command. For example, &quot;% man <span class=SpellE>ls</span>&quot; will
+  display a short manual on the &quot;<span class=SpellE>ls</span>&quot;
+  command. </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:10'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>ls</span></b></span><b><span
+  style='font-family:"Courier New"'> [-l] [-a] directory</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Lists contents of
+  directory. Including the option -l gives more detail (protection, size, and
+  date) -a causes <span class=SpellE>ls</span> to include files whose name
+  starts with a period--they are not normally listed (wild cards OK) e. g.
+  &quot;<span class=SpellE>ls</span> ics211&quot; lists all the files in the
+  directory called ics211. &quot;<span class=SpellE><span class=GramE>ls</span></span>
+  -a -l&quot; lists all the files in your current directory, including files
+  whose names start with . <span class=GramE>and</span> this gives many details
+  about the files. (Files whose names start <span class=GramE>with .</span> are
+  &quot;hidden&quot; files.)</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:11'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>mkdir</span></b></span><b><span
+  style='font-family:"Courier New"'> pathname</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Make a new directory e.
+  g. &quot;% <span class=SpellE>mkdir</span> pr2&quot; makes a directory called
+  pr2</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:12'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>more</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Display file in
+  controlled increments e. g.&quot;% cat pr1.c | more&quot; displays pr1.c in
+  one page increments. <span class=GramE>( &quot;</span>|&quot; is a
+  &quot;pipe&quot;--we will discuss pipes a little later.) Hit return to get
+  the next page.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:13'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>mv</span></b></span><b><span
+  style='font-family:"Courier New"'> name1 name2</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Rename file name1 to
+  name2 </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:14'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>passwd</span></b></span><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Change your login
+  password </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:15'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>pwd</span></b></span><b><span
+  style='font-family:"Courier New"'> </span></b><span style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Print working directory
+  (your current directory) </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:16'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>rm</span></b></span><b><span
+  style='font-family:"Courier New"'> file</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Remove (delete, erase)
+  a file or files (wild cards OK) </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:17'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><span class=SpellE><b><span
+  style='font-family:"Courier New"'>rmdir</span></b></span><b><span
+  style='font-family:"Courier New"'> pathname</span></b><span style='font-family:
+  "Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Remove a directory </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:18'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>repeat a command</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>To recall and
+  re-execute previous commands, use the up-arrow key. Keep pressing this key
+  until you find the command you want to reuse, then press the return/enter
+  key. Note that you need to be in the &quot;<span class=SpellE>tcsh</span>&quot;
+  shell for this to work. This is done by simply typing &quot;<span
+  class=SpellE>tcsh</span>&quot; at the command line. &quot;<span class=SpellE><span
+  class=GramE>tcsh</span></span>&quot; stands for <span class=SpellE>Tenex</span>-C-shell.</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:19'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>(web tutorials)</span></b><span
+  style='font-family:"Courier New"'><o:p></o:p></span></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt' bordercolorlight="#008000"
+  bordercolordark="#008000">
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>For more information on
+  scripts and other UNIX shortcuts, see <a
+  href="http://www.eng.hawaii.edu/Tutor/csh.html">The C Shell Tutorial</a>. See
+  also <a href="http://www.hawaii.edu/itsdocs/category.html">ITS Documents</a>
+  for useful information on UH UNIX and many other related topics. </p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:20'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>(textbooks)<o:p></o:p></span></b></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><i style='mso-bidi-font-style:
+  normal'>Just Enough UNIX, 5th Edition,</i> Paul K. Andersen, McGraw-Hill, 2005
+  (ISBN 0072952970).</p>
+  </td>
+ </tr>
+ <tr style='mso-yfti-irow:21;mso-yfti-lastrow:yes'>
+  <td width=187 style='width:140.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'><b><span
+  style='font-family:"Courier New"'>(history)<o:p></o:p></span></b></p>
+  </td>
+  <td width=681 style='width:511.1pt;border:inset white 1.0pt;mso-border-alt:
+  inset white .75pt;padding:0in 5.75pt 0in 5.75pt'>
+  <p class=MsoNormal style='mso-line-height-alt:11.4pt'>Believe it or not, UNIX
+  has its origins in a videogame called &quot;Space Travel&quot;. See the <a
+  href="http://en.wikipedia.org/wiki/Unix">Wikipedia</a> for details. </p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal align=center style='text-align:center'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Notes by Dr. Wes Peterson and William Albritton</p>
+
+</div>
+
+</body>
+
+</html>

@@ -46,6 +46,7 @@
           <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
         
         
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
       </ul>
     </div>
   </div>
@@ -89,7 +90,7 @@
 
 <h2 id="outline-of-program">Outline of Program</h2>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Outline3</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Outline3</span> <span class="o">{</span>
       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[</span> <span class="o">]</span> <span class="n">commandlineArguments</span><span class="o">){</span>
          <span class="n">Integer</span><span class="o">[</span> <span class="o">]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">Outline3</span><span class="o">.</span><span class="na">readFileReturnIntegers</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
          <span class="n">Outline3</span><span class="o">.</span><span class="na">printArrayAndIntegerCount</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
@@ -110,7 +111,7 @@
 
 <p>Here is example output for input file <a href="/morea/examples/electricity.txt">electricity.txt</a></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">number</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">in</span> <span class="n">file</span> <span class="s">&quot;electricity.txt&quot;</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight"><pre><code class="java"><span class="n">number</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">in</span> <span class="n">file</span> <span class="s">&quot;electricity.txt&quot;</span> <span class="o">=</span> <span class="mi">4</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1877</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1923</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1879</span>
@@ -118,7 +119,7 @@
 
 <p>Here is example output for input file <a href="/morea/examples/groceries.csv">groceries.csv</a></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">number</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">in</span> <span class="n">file</span> <span class="s">&quot;groceries.csv&quot;</span> <span class="o">=</span> <span class="mi">6</span>
+<div class="highlight"><pre><code class="java"><span class="n">number</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">in</span> <span class="n">file</span> <span class="s">&quot;groceries.csv&quot;</span> <span class="o">=</span> <span class="mi">6</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">3</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">12</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span>
@@ -128,7 +129,7 @@
 
 <p>Here is example output for input file <a href="/morea/examples/1000.txt">1000.txt</a></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">number</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">in</span> <span class="n">file</span> <span class="s">&quot;1000.txt&quot;</span> <span class="o">=</span> <span class="mi">1001</span>
+<div class="highlight"><pre><code class="java"><span class="n">number</span> <span class="n">of</span> <span class="n">integers</span> <span class="n">in</span> <span class="n">file</span> <span class="s">&quot;1000.txt&quot;</span> <span class="o">=</span> <span class="mi">1001</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1000</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">index</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">3</span>
@@ -1144,7 +1145,7 @@ walbritt AT hawaii.edu<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2014-07-09 11:25:12 -1000</span></p>
+       Last update on: <span>2014-07-09 12:37:22 -1000</span></p>
     <p style="margin: 0">
       4 modules
       

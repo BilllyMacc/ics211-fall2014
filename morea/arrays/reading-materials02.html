@@ -46,6 +46,7 @@
           <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
         
         
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
       </ul>
     </div>
   </div>
@@ -88,7 +89,7 @@
 
 <p>Source code:</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/** </span>
+<div class="highlight"><pre><code class="java"><span class="cm">/** </span>
 <span class="cm"> *  Array Initialization Examples.</span>
 <span class="cm"> *  @author William Albritton </span>
 <span class="cm"> */</span>
@@ -116,12 +117,12 @@
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
       
       <span class="c1">//Initialize An Array.</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="mi">77</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="mi">92</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="mi">63</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Integer</span><span class="o">(</span><span class="mi">95</span><span class="o">);</span>
+      <span class="n">examScores</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
+      <span class="n">examScores</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">77</span><span class="o">);</span>
+      <span class="n">examScores</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">92</span><span class="o">);</span>
+      <span class="n">examScores</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
+      <span class="n">examScores</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">63</span><span class="o">);</span>
+      <span class="n">examScores</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">95</span><span class="o">);</span>
       
       <span class="c1">//Display An Array.</span>
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores: &quot;</span><span class="o">);</span>
@@ -132,8 +133,8 @@
       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
       
       <span class="c1">//Initializer List (Declare, Instantiate, &amp; Initialize An Array)</span>
-      <span class="n">Double</span><span class="o">[]</span> <span class="n">finalGrades</span> <span class="o">=</span> <span class="o">{</span><span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">),</span> <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">73.56</span><span class="o">),</span> <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">91.29</span><span class="o">),</span>
-        <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">55.55</span><span class="o">),</span> <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">67.02</span><span class="o">),</span> <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">)};</span>
+      <span class="n">Double</span><span class="o">[]</span> <span class="n">finalGrades</span> <span class="o">=</span> <span class="o">{</span><span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">73.56</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">91.29</span><span class="o">),</span>
+        <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">55.55</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">67.02</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">)};</span>
       
       <span class="c1">//Print Both Arrays.</span>
        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores       final grades&quot;</span><span class="o">);</span>
@@ -175,7 +176,7 @@ walbritt AT hawaii.edu<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2014-07-09 11:25:12 -1000</span></p>
+       Last update on: <span>2014-07-09 12:37:22 -1000</span></p>
     <p style="margin: 0">
       4 modules
       

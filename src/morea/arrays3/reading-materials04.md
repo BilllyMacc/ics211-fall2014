@@ -10,9 +10,9 @@ morea_labels:
 
 [Link to Lecture #4](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session03_Arrays%20II.mov)
 
-[Link to the slides for Lecture #4](lecture04.pptx)
+[Link to the slides for Lecture #4](../slides/lecture04.pptx)
 
-[ArraysAndMethods.java](/morea/examples/ArraysAndMethods.java)
+[ArraysAndMethods.java](../examples/ArraysAndMethods.java)
 
 
 

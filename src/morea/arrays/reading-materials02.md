@@ -10,13 +10,13 @@ morea_labels:
 
 [Link to Lecture #2](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/Session02_Arrays.mov)
 
-[Link to the slides for Lecture #2](lecture02.pptx)
+[Link to the slides for Lecture #2](../slides/lecture02.pptx)
 
 [Java Platform Standard Edition 8 API Specification](http://docs.oracle.com/javase/8/docs/api/)
 
-[InitializingArrays.java](/morea/examples/InitializingArrays.java)
+[InitializingArrays.java](../examples/InitializingArrays.java)
 
-[ArraysLoopsModulus.java](/morea/examples/ArraysLoopsModulus.java)
+[ArraysLoopsModulus.java](../examples/ArraysLoopsModulus.java)
 
 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

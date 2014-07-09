@@ -10,23 +10,23 @@ morea_labels:
 
 [Link to Lecture #3](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session03_Arrays%20II.mov)
 
-[Link to the slides for Lecture #3](lecture03.pptx)
+[Link to the slides for Lecture #3](../slides/lecture03.pptx)
 
-[ArraysAndMethods.java](/morea/examples/ArraysAndMethods.java)
+[ArraysAndMethods.java](../examples/ArraysAndMethods.java)
 
-[UNIX Commands](/morea/arrays2/unix.htm)
+[UNIX Commands](unix.htm)
 
-[Emacs Commands](/morea/arrays2/emacs.htm)
+[Emacs Commands](emacs.htm)
 
-[Repeat.java](/morea/examples/Repeat.java)
+[Repeat.java](../examples/Repeat.java)
 
-[TryCatchBlocks.java](/morea/examples/TryCatchBlocks.java)
+[TryCatchBlocks.java](../examples/TryCatchBlocks.java)
 
 [ASCII](http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters)
 
 [Unicode](http://www.unicode.org/charts/)
 
-[ReadFromFile.java](/morea/examples/ReadFromFile.java)
+[ReadFromFile.java](../examples/ReadFromFile.java)
 
 
 

@@ -1,0 +1,27 @@
+---
+layout: default
+title: Schedule
+---
+
+<!-- Load FullCalendar for schedule page. -->
+<!-- Documentation available at: http://arshaw.com/fullcalendar/docs/google_calendar/ -->
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/gcal.js"></script>
+<div style="margin-bottom: 10px" class="container">
+  <h1>Schedule</h1>
+  <div id='calendar'></div>
+</div>
+<script>
+  $(document).ready(function () {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+      events: 'http://www.google.com/calendar/feeds/hawaii.edu_c7ni08u2n1vtt3j9sj5bpu2esc%40group.calendar.google.com/public/basic'
+    })
+
+    $('#calendar').fullCalendar('gotoDate', 2014, 7, 1)
+
+  });
+</script>

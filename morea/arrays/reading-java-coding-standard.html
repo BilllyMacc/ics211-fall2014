@@ -81,11 +81,11 @@ software).</li>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">sumOfSquares</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span></code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">sumOfSquares</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span></code></pre></div>
 
 <p><strong>Counter Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">Sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">Sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">sumofsquares</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">sum_of_squares</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kt">float</span> <span class="n">qw</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span></code></pre></div>
@@ -96,13 +96,13 @@ software).</li>
 
 <ul>
   <li>Every class should be preceded with a descriptive comment using the
-&#8220;JavaDoc&#8221; notational convention. The comment should name the class,
+“JavaDoc” notational convention. The comment should name the class,
 describe its purpose, and name the author.</li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
 <span class="cm"> * Haiku, prints a haiku.</span>
 <span class="cm"> * @author Suzuki, Susan</span>
 <span class="cm"> */</span>
@@ -116,7 +116,7 @@ describe its purpose, and name the author.</li>
 
 <ul>
   <li>Every method should be preceded with a descriptive comment using the
-&#8220;JavaDoc&#8221; notational convention. The comment should name the method,
+“JavaDoc” notational convention. The comment should name the method,
 describe its purpose, comment all arguments, the return value, and
 any exceptions using JavaDoc keywords. (Omit @return and @exception,
 if the return value is void or there are no exceptions thrown.) </li>
@@ -124,7 +124,7 @@ if the return value is void or there are no exceptions thrown.) </li>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**</span>
 <span class="cm"> * Attempts to print a word. Indicates whether printing was possible.</span>
 <span class="cm"> * @param word to print, must not contain spaces</span>
 <span class="cm"> * @return true if printer is available, false otherwise</span>
@@ -140,13 +140,13 @@ if the return value is void or there are no exceptions thrown.) </li>
 
 <ul>
   <li>Every public variable should be preceded with a descriptive comment
-using the &#8220;JavaDoc&#8221; notational convention. The comment should
+using the “JavaDoc” notational convention. The comment should
 describe the purpose for the public variable. </li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/** Toggles between Frame and NoFrame mode. */</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/** Toggles between Frame and NoFrame mode. */</span>
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">frameMode</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span></code></pre></div>
 
 <h2 id="comments-in-line">Comments: In-line</h2>
@@ -162,7 +162,7 @@ language. </li>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="c1">// Do a 3D transmogrification on the matrix.</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Do a 3D transmogrification on the matrix.</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
   <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
     <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
@@ -173,7 +173,7 @@ language. </li>
 
 <p><strong>Counter Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="n">i</span><span class="o">++;</span> <span class="c1">// increments i</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">i</span><span class="o">++;</span> <span class="c1">// increments i</span>
 <span class="c1">// the variable &quot;i&quot; loops from 0 to the length of matrix</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">matrix</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
   <span class="c1">// ...</span>
@@ -191,7 +191,7 @@ within a method. </li>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
   <span class="o">}</span>
 
@@ -204,19 +204,19 @@ within a method. </li>
 <p><strong>Guidelines</strong></p>
 
 <ul>
-  <li>Put a single space before every &#8220;{&#8220;.</li>
-  <li>Separate all operators such as &#8220;+&#8221; with a single space.</li>
+  <li>Put a single space before every “{“.</li>
+  <li>Separate all operators such as “+” with a single space.</li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="s">&quot;World&quot;</span><span class="o">);</span>
   <span class="o">}</span></code></pre></div>
 
 <p><strong>Counter Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="o">){</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arg</span><span class="o">){</span>
     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="s">&quot;World&quot;</span><span class="o">);</span>
   <span class="o">}</span></code></pre></div>
 
@@ -226,25 +226,25 @@ within a method. </li>
 
 <ul>
   <li>Indent two spaces when beginning a new block.</li>
-  <li>Open braces (i.e. &#8220;{&#8220;) do not start a new line.</li>
-  <li>Close braces (i.e. &#8220;}&#8221;) do start a new line, and are indented with
+  <li>Open braces (i.e. “{“) do not start a new line.</li>
+  <li>Close braces (i.e. “}”) do start a new line, and are indented with
 the code they close.</li>
   <li>Comments line up with the block they comment.</li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
-  <span class="n">vals</span><span class="o">.</span><span class="na">insertElementAt</span><span class="o">(</span><span class="k">new</span> <span class="n">Float</span> <span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">i</span><span class="o">]),</span> <span class="n">i</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">vals</span><span class="o">.</span><span class="na">insertElementAt</span><span class="o">(</span><span class="k">new</span> <span class="nf">Float</span> <span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">i</span><span class="o">]),</span> <span class="n">i</span><span class="o">);</span>
   <span class="c1">// Transmogrify is incremental and more efficient inside the loop.</span>
   <span class="n">vals</span><span class="o">.</span><span class="na">transmogrify</span><span class="o">();</span>
 <span class="o">}</span></code></pre></div>
 
 <p><strong>Counter Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">args</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
 <span class="o">{</span>
-  <span class="n">vals</span><span class="o">.</span><span class="na">insertElementAt</span><span class="o">(</span><span class="k">new</span> <span class="n">Float</span> <span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">i</span><span class="o">]),</span> <span class="n">i</span><span class="o">);</span>
+  <span class="n">vals</span><span class="o">.</span><span class="na">insertElementAt</span><span class="o">(</span><span class="k">new</span> <span class="nf">Float</span> <span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="n">i</span><span class="o">]),</span> <span class="n">i</span><span class="o">);</span>
 <span class="c1">// Transmogrify is incremental and more efficient inside the loop.</span>
   <span class="n">vals</span><span class="o">.</span><span class="na">transmogrify</span><span class="o">();</span>
   <span class="o">}</span></code></pre></div>
@@ -262,13 +262,13 @@ the code they close.</li>
 
 <p><strong>Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">foo</span><span class="o">.</span><span class="na">bar</span><span class="o">.</span><span class="na">baz</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">foo</span><span class="o">.</span><span class="na">bar</span><span class="o">.</span><span class="na">baz</span><span class="o">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MeanStandardDeviation</span>
 <span class="kd">private</span> <span class="n">Vector</span> <span class="nf">getNewVector</span><span class="o">(</span><span class="n">Vector</span> <span class="n">oldVector</span><span class="o">)</span> <span class="o">{</span></code></pre></div>
 
 <p><strong>Counter Example</strong></p>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">Foo</span><span class="o">.</span><span class="na">Bar</span><span class="o">.</span><span class="na">Baz</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">Foo</span><span class="o">.</span><span class="na">Bar</span><span class="o">.</span><span class="na">Baz</span><span class="o">;</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Meanstandarddeviation</span>
 <span class="kd">private</span> <span class="n">Vector</span> <span class="nf">GetNewVector</span><span class="o">(</span><span class="n">Vector</span> <span class="n">oldVector</span><span class="o">)</span> <span class="o">{</span></code></pre></div>
 
@@ -303,7 +303,7 @@ walbritt AT hawaii.edu<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2014-07-09 11:11:54 -1000</span></p>
+       Last update on: <span>2014-07-09 11:25:12 -1000</span></p>
     <p style="margin: 0">
       4 modules
       

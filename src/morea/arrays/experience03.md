@@ -1,19 +1,19 @@
 ---
-title: "Assignment #3"
+title: "Session #3 Assignment"
 published: true
 morea_id: experience03
 morea_type: experience
-morea_summary: "Write a program using arrays"
+morea_summary: "Write a program to store data from a file into an array and catch exceptions"
 morea_sort_order: 3
 ---
 
-## Instructions 123
+## Instructions 
 
 1. Write a Java application that does the following.
 2. Use the first argument of commandline input as the input file name.  
-    1. For example, args[0] will be the name of your input file. (The first line of your main method is: public static void main(String [ ] args), so array element args[0] contains a string which is the name of your input file.)
-    1. The name of your input file should be typed into the Run Arguments text box at the top of jGRASP. (You should test your program with all three of the input files listed at the bottom of this webpage. Therefore, the name of your input file is: electricity.txt, groceries.csv, or 1000.txt.)
-    1. Make sure that your error-checking includes checking for commandline arguments. If the user does not enter the commandline arguments, your program should show an error message. Your program should not crash.
+1. For example, args[0] will be the name of your input file. (The first line of your main method is: public static void main(String [ ] args), so array element args[0] contains a string which is the name of your input file.)
+1. The name of your input file should be typed into the Run Arguments text box at the top of jGRASP. (You should test your program with all three of the input files listed at the bottom of this webpage. Therefore, the name of your input file is: electricity.txt, groceries.csv, or 1000.txt.)
+1. Make sure that your error-checking includes checking for commandline arguments. If the user does not enter the commandline arguments, your program should show an error message. Your program should not crash.
 6. Store each integer in the input file in an array of integers.
 7. Write a method to accomplish this.
 8. The parameter of the method is the input file name.

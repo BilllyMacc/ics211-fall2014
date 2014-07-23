@@ -1,9 +1,9 @@
 ---
-title: "Assignment #2"
+title: "Session #2 Assignment"
 published: true
 morea_id: experience02
 morea_type: experience
-morea_summary: "Write a program using arrays"
+morea_summary: "Write a program to create, initialize, and print out an array"
 morea_sort_order: 2
 ---
 

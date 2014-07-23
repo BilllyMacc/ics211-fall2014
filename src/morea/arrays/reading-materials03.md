@@ -1,8 +1,8 @@
 ---
-title: "Lecture, slides, and examples"
+title: "Session #3 materials"
 published: true
 morea_id: reading-materials03
-morea_summary: "Links to lecture, slides, and examples"
+morea_summary: "Links to lecture #3, slides #3, and examples"
 morea_type: reading
 morea_sort_order: 3
 morea_labels:

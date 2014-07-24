@@ -11,7 +11,7 @@ morea_experiences:
  - experience04
 morea_assessments:
 morea_type: module
-morea_icon_url: /morea/arrays/bento.jpg
+morea_icon_url: /morea/modularity/bento.jpg
 morea_labels:
 morea_sort_order: 4
 ---

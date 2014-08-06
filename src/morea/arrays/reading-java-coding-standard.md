@@ -59,10 +59,11 @@ private static float qw = 0;
 {% highlight java %}
 /**
  * Haiku, prints a haiku.
+ *
  * @author Suzuki, Susan
  */
 public class Haiku {
-  // ...
+    // ...
 }
 {% endhighlight %}
 
@@ -81,6 +82,7 @@ public class Haiku {
 {% highlight java %}
 /**
  * Attempts to print a word. Indicates whether printing was possible.
+ *
  * @param word to print, must not contain spaces
  * @return true if printer is available, false otherwise
  * @exception SpacesFoundException if there are any spaces in the word

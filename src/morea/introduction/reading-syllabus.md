@@ -100,8 +100,9 @@ Your program must compile and run using the jGRASP IDE.
 
 1. Top of your assignment file: 
 <pre>
-    /**
+   /**
     * Short description of program.
+    *
     * @author Last Name, First Name
     * @assignment ICS 211 Assignment X 
     * @date Today's Date

@@ -8,32 +8,44 @@ morea_sort_order: 2
 morea_labels:
 ---
 
-[Link to Lecture #1](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/Session01_Introduction%20_2_.mov)
+# Lecture material
 
-[Link to the slides for Lecture #1](../slides/lecture01.pptx)
+  * [Link to view the podcast for Lecture #1](https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/Session01_Introduction%20_2_.mov)
 
-[Textbook's Website](http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0470128704&bcsId=5643)
+  * [Link to download the slides for Lecture #1](../slides/lecture01.pptx)
+  
+<script async class="speakerdeck-embed" data-id="5b6ddb30ffe30131a2450e095addab36" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+  
+# Online resources  
 
-[Broadcast Schedule](http://www.hawaii.edu/dl/courses/index.php?action=course_info&crse_id=11719)
+  * [Textbook's Website](http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0470128704&bcsId=5643)
+
+  * [Java Tutorials](http://download.oracle.com/javase/tutorial/)
+
+  * [Dr. Eck's Intro to Programming](http://math.hws.edu/javanotes/index.html)
+  
+  * [Laulima Login](https://laulima.hawaii.edu)
+
+  * [UH email](http://mail.google.com/a/hawaii.edu)
+
+  * [Broadcast Schedule](http://www.hawaii.edu/dl/courses/index.php?action=course_info&crse_id=11719)
     
-[Laulima Login](https://laulima.hawaii.edu)
+# Campus resources  
 
-[UH email](http://mail.google.com/a/hawaii.edu)
+  * [Computer Labs](http://www.leeward.hawaii.edu/learningcommons)
 
-[Computer Labs](http://www.leeward.hawaii.edu/learningcommons)
+  * [Learning Resource Center](http://emedia.leeward.hawaii.edu/lrc/)
 
-[Learning Resource Center](http://emedia.leeward.hawaii.edu/lrc/)
+  * [Ho&#39;oulu](http://hoouluprojectleeward.wix.com/hooulu)
 
-[Ho&#39;oulu](http://hoouluprojectleeward.wix.com/hooulu)
+  * [William's home page](http://www2.hawaii.edu/~walbritt/)
 
-[Training Tips](https://www2.hawaii.edu/~walbritt/dmed120/materials/tips.htm)
+# Sustainability
 
-[Recycling Computers](https://www2.hawaii.edu/~walbritt/dmed120/materials/recycling.htm)
+  * [Training Tips](https://www2.hawaii.edu/~walbritt/dmed120/materials/tips.htm)
 
-[Java Tutorials](http://download.oracle.com/javase/tutorial/)
+  * [Recycling Computers](https://www2.hawaii.edu/~walbritt/dmed120/materials/recycling.htm)
 
-[Dr. Eck's Intro to Programming](http://math.hws.edu/javanotes/index.html)
 
-[William's home page](http://www2.hawaii.edu/~walbritt/)
           
 

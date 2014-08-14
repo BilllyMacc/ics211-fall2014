@@ -15,4 +15,4 @@ morea_labels:
 morea_sort_order: 1
 ---
 
-This contains important information about our class this semester.
+Important information about our class this semester.

@@ -1,3 +1,21 @@
+---
+title: "Assignment #5"
+published: true
+morea_id: experience05
+morea_type: experience
+morea_summary: "Use Big-O to estimate the time it takes for loops to process large amounts of data"
+morea_sort_order: 5
+---
+
+## Instructions
+
+1.    Please submit your answers to me by email.
+1.    Since this is not a program, you do not have to attach any code.
+1.    Just type your answers in the body of your email.
+1.    Problems 1-10: Write the Big-O for each group of loops in the program [BigOAssignment.java](/morea/examples/BigOAssignment.java)
+
+## [BigOAssignment.java](/morea/examples/BigOAssignment.java) source code
+{% highlight java %}
 /**
  * Big-O Notation Assignment
  * 
@@ -93,3 +111,4 @@ public class BigOAssignment {
     }
   }
 }
+{% endhighlight %}

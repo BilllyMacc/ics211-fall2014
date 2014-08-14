@@ -9,7 +9,7 @@ public class InitializingArrays {
     *
     * @param commandlineArguments Are Not Used.
     */                
-    public static void main(String [ ] commandlineArguments){
+   public static void main(String [ ] commandlineArguments){
       //Declare An Array.
       Integer[ ] examScores;
       
@@ -22,7 +22,7 @@ public class InitializingArrays {
       System.out.println("exam scores: ");
       System.out.println("index(subscript)  value(element)");
       for (int i=0; i < SIZE; i++){
-        System.out.println("     " + i + "              " + examScores[i]);
+         System.out.println("     " + i + "              " + examScores[i]);
       }
       System.out.println();
       
@@ -44,28 +44,27 @@ public class InitializingArrays {
       
       //Initializer List (Declare, Instantiate, & Initialize An Array)
       Double[] finalGrades = {new Double(83.33), new Double(73.56), new Double(91.29),
-        new Double(55.55), new Double(67.02), new Double(83.33)};
+         new Double(55.55), new Double(67.02), new Double(83.33)};
       
       //Print Both Arrays.
-       System.out.println("exam scores       final grades");
-       for (int i=0; i < SIZE; i++){
-          System.out.println("     " + examScores[i] + "              " + finalGrades[i]);
-       }
-       System.out.println();
+      System.out.println("exam scores       final grades");
+      for (int i=0; i < SIZE; i++){
+         System.out.println("     " + examScores[i] + "              " + finalGrades[i]);
+      }
+      System.out.println();
       
       //Out Of Bounds Error
-       try {
+      try {
          for (int i=0; i <= examScores.length; i++) {
-             System.out.print(examScores[i] + ", ");
-           }
+            System.out.print(examScores[i] + ", ");
          }
-        catch(ArrayIndexOutOfBoundsException exception){
-          String message = exception.toString();
-          System.out.println(message);
-          message = "ERROR: The array went out of bounds!";
-          System.out.println(message);
-        }
+      }
+      catch(ArrayIndexOutOfBoundsException exception){
+         String message = exception.toString();
+         System.out.println(message);
+         message = "ERROR: The array went out of bounds!";
+         System.out.println(message);
       }
    }
-   
+}
    

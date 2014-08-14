@@ -4,11 +4,11 @@
  *  @author William Albritton 
  */
 public class ArraysLoopsModulus{
-/**
- * The "main" Method Starts The Program.
- *
- * @param commandlineArguments Are Not Used.
- */      
+  /**
+   * The "main" Method Starts The Program.
+   *
+   * @param commandlineArguments Are Not Used.
+   */      
    public static void main(String [ ] commandlineArguments){ 
       //Declare  & Instatiate an Array of 10 integers
       Integer[ ] arrayOf10Integers = new Integer[10];

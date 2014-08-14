@@ -19,4 +19,4 @@ morea_labels:
 morea_sort_order: 2
 ---
 
-This module is an introduction to arrays, including creation, initialization, and exception handling.
+An introduction to arrays, including creation, initialization, and exception handling.

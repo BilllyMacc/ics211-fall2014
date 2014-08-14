@@ -26,7 +26,7 @@ Source code:
 
 {% highlight java %}
 /**
- * Calculates and displays the factorial for an number entered on the commandline
+ * Calculates and displays the factorial for a number entered on the commandline
  * 
  * @author William McDaniel Albritton
  */

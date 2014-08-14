@@ -4,8 +4,13 @@ published: true
 morea_id: big-o
 morea_outcomes:
  - outcome04
-morea_readings:
- - reading-materials05 
+morea_readings: 
+ - reading-materials05-lecture 
+ - reading-materials05-slides
+ - reading-materials05-FactorialProgram
+ - reading-materials05-BigOCode 
+ - reading-materials05-GroceryListProgram4 
+ - reading-materials05-MoreBigO 
 morea_experiences:
  - experience05
 morea_assessments:

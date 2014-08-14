@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> Lecture, slides, and examples | ICS 211 Fall 2014 </title>
+  <title> Session #4 materials | ICS 211 Fall 2014 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -54,11 +54,918 @@
 
 
 <div class="container">
-  <p><a href="https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session03_Arrays%20II.mov">Link to Lecture #4</a></p>
+  <h1 id="lecture-material">Lecture material</h1>
 
-<p><a href="../slides/lecture04.pptx">Link to the slides for Lecture #4</a></p>
+<ul>
+  <li>
+    <p><a href="https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session04_Arrays%20III.mov">Link to Lecture #4</a></p>
+  </li>
+  <li>
+    <p><a href="../slides/lecture04.pptx">Link to the slides for Lecture #4</a></p>
+  </li>
+</ul>
 
-<p><a href="../examples/ArraysAndMethods.java">ArraysAndMethods.java</a></p>
+<script async="" class="speakerdeck-embed" data-id="d6ff223005600132c57d062c6c3577e6" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+
+<h1 id="input-files">Input files</h1>
+
+<ul>
+  <li>
+    <p><a href="../examples/groceries.csv">groceries.csv</a></p>
+  </li>
+  <li>
+    <p><a href="../examples/badList.csv">badList.csv</a></p>
+  </li>
+</ul>
+
+<h1 id="example-programs">Example programs</h1>
+
+<p>File:</p>
+
+<ul>
+  <li><a href="../examples/WriteToFile.java">WriteToFile.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Shows How To Write to a File.</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WriteToFile</span> <span class="o">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * The main() Method Starts The Program.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param commandlineArguments The 1st Arugment Is The File Name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Error Checking For Command Line Arguments..</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">commandlineArguments</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot; the 1st commandline argument.&quot;</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// &quot;PrintWriter&quot; is a Class Used To Write to A File.</span>
+      <span class="n">PrintWriter</span> <span class="n">writeToFile</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="cm">/*</span>
+<span class="cm">         * Must use try-catch block, because PrintWriter may throw</span>
+<span class="cm">         * FileNotFoundException, which is a checked exception. This will</span>
+<span class="cm">         * connect to a file in the current directory. If the file does not</span>
+<span class="cm">         * exists, a new file will be created. If the file does exists, the file</span>
+<span class="cm">         * will be overwritten.</span>
+<span class="cm">         */</span>
+        <span class="n">writeToFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Print error message.</span>
+        <span class="c1">// In order to print double quotes(&quot;),</span>
+        <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: File not found for \&quot;&quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="c1">// if file opened successfuly, then below code executes..</span>
+      <span class="c1">// continue program if writeToFile is not &quot;null&quot;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">writeToFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Scanner is used to get input from keyboard</span>
+        <span class="n">Scanner</span> <span class="n">inputFromKeyboard</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter 5 lines of text:&quot;</span><span class="o">);</span>
+        <span class="c1">// loop 5 times</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+          <span class="c1">// read a line from the user..</span>
+          <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">inputFromKeyboard</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+          <span class="c1">// write same line to file..</span>
+          <span class="n">writeToFile</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// REMEMBER: always give feedback to the user!</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nWrote 5 lines of text to file \&quot;&quot;</span>
+            <span class="o">+</span> <span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+        <span class="c1">// WARNING: don&#39;t forget to close the file!</span>
+        <span class="c1">// will not write to file if not closed!</span>
+        <span class="n">writeToFile</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+      <span class="o">}</span><span class="c1">// end of &quot;if&quot; statement for writeToFile</span>
+    <span class="o">}</span><span class="c1">// end of &quot;else&quot; for commandlineArguments</span>
+  <span class="o">}</span><span class="c1">// end of main() method</span>
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+<p>File:</p>
+
+<ul>
+  <li><a href="../examples/GroceryListProgram1.java">GroceryListProgram1.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Implements a Grocery List Version 1: Has code for main() and displayMenu() methods</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GroceryListProgram1</span> <span class="o">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * The main() Method Starts The Program.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param commandlineArguments 1st argument is INPUT File, 2nd argument is OUTPUT File</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Error Checking For 2 Command Line Arguments..</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">commandlineArguments</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the INPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot; the 1st commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the OUTPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot; the 2nd commandline argument.&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of if</span>
+     <span class="c1">// if no commandline argument errors, continue program</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// read grocery items from file &amp; store in array for grocery list</span>
+      <span class="n">String</span> <span class="n">groceryList</span><span class="o">[]</span> <span class="o">=</span> <span class="n">GroceryListProgram1</span>
+          <span class="o">.</span><span class="na">readFromFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+      <span class="c1">// size of grocery list</span>
+      <span class="n">Integer</span> <span class="n">size</span> <span class="o">=</span> <span class="n">groceryList</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+      <span class="c1">// user&#39;s choice</span>
+      <span class="n">Integer</span> <span class="n">choice</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="c1">// choice for ending program</span>
+      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">QUIT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="c1">// if the user does not want to QUIT, keep looping</span>
+      <span class="k">while</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+        <span class="c1">// get the user&#39;s choice</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">GroceryListProgram1</span><span class="o">.</span><span class="na">displayMenu</span><span class="o">();</span>
+        <span class="c1">// add grocery item</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// delete grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram1</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// display grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">GroceryListProgram1</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span><span class="c1">// end of &quot;while&quot;</span>
+       <span class="c1">// write to from grocery list array to OUTPUT file</span>
+      <span class="n">GroceryListProgram1</span><span class="o">.</span><span class="na">writeToFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">groceryList</span><span class="o">,</span>
+          <span class="n">size</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;else&quot;</span>
+  <span class="o">}</span><span class="c1">// end of main() method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays the menu for the program and returns user&#39;s choice</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the choice of the user</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">displayMenu</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// display menu</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\tGROCERY LIST MENU&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 1 to Add&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 2 to Delete&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 3 to Display&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 4 to Quit&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\tEnter your choice: &quot;</span><span class="o">);</span>
+    <span class="c1">// get input from user</span>
+    <span class="n">Scanner</span> <span class="n">keyboardInput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="n">keyboardInput</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">choiceOfUser</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Reads grocery items from a file and stores items in an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param inputFile is the INPUT File</span>
+<span class="cm">   * @return an array of grocery items</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">readFromFile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// method stub</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;readFromFile method&quot;</span><span class="o">);</span>
+    <span class="c1">// return empty array</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Adds a grocery item to an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">add</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// method stub</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;add method&quot;</span><span class="o">);</span>
+    <span class="c1">// we add one to the size (one item to end of list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Deletes a grocery item from an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">delete</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// method stub</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;delete method&quot;</span><span class="o">);</span>
+    <span class="c1">// we subtract one from the size (one item deleted from list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays a grocery list</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// method stub</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;display method&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Write grocery list array to file</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">writeToFile</span><span class="o">(</span><span class="n">String</span> <span class="n">outputFile</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// method stub</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;writeToFile method&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+<p>File:</p>
+
+<ul>
+  <li><a href="../examples/GroceryListProgram2.java">GroceryListProgram2.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.InputMismatchException</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Implements a Grocery List Version 2: Has tested &amp; revised code for main() and</span>
+<span class="cm"> * displayMenu() methods</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GroceryListProgram2</span> <span class="o">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * The main() Method Starts The Program.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param commandlineArguments 1st argument is INPUT File, 2nd argument is OUTPUT File</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Error Checking For 2 Command Line Arguments..</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">commandlineArguments</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the INPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;the 1st commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the OUTPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;the 2nd commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter exactly &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;two (2) commandline arguments.&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of if</span>
+     <span class="c1">// if no commandline argument errors, continue program</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// read grocery items from file &amp; store in array for grocery list</span>
+      <span class="n">String</span> <span class="n">groceryList</span><span class="o">[]</span> <span class="o">=</span> <span class="n">GroceryListProgram2</span><span class="o">.</span><span class="na">readFromFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+      <span class="c1">// size of grocery list</span>
+      <span class="n">Integer</span> <span class="n">size</span> <span class="o">=</span> <span class="n">groceryList</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+      <span class="c1">// user&#39;s choice</span>
+      <span class="n">Integer</span> <span class="n">choice</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="c1">// choice for ending program</span>
+      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">QUIT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="c1">// if the user does not want to QUIT, keep looping</span>
+      <span class="k">while</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+        <span class="c1">// get the user&#39;s choice</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">GroceryListProgram2</span><span class="o">.</span><span class="na">displayMenu</span><span class="o">();</span>
+        <span class="c1">// add grocery item</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// delete grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram2</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// display grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">GroceryListProgram2</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// error message</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span>
+              <span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: Please enter an integer in the range from 1 to 4&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span><span class="c1">// end of &quot;while&quot;</span>
+       <span class="c1">// write to from grocery list array to OUTPUT file</span>
+      <span class="n">GroceryListProgram2</span><span class="o">.</span><span class="na">writeToFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">groceryList</span><span class="o">,</span>
+          <span class="n">size</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;else&quot;</span>
+  <span class="o">}</span><span class="c1">// end of main() method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays the menu for the program and returns user&#39;s choice</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the choice of the user (if error, returns 0)</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">displayMenu</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// display menu</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\tGROCERY LIST MENU&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 1 to Add&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 2 to Delete&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 3 to Display&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 4 to Quit&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\tEnter your choice: &quot;</span><span class="o">);</span>
+    <span class="c1">// get input from user</span>
+    <span class="n">Scanner</span> <span class="n">keyboardInput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// non-integer input will throw InputMismatchException</span>
+      <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="n">keyboardInput</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InputMismatchException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Already have error message in main() method,</span>
+      <span class="c1">// as choiceOfUser = 0</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">choiceOfUser</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Reads grocery items from a file and stores items in an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param inputFile is the INPUT File</span>
+<span class="cm">   * @return an array of grocery items</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">readFromFile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;readFromFile method&quot;</span><span class="o">);</span>
+    <span class="c1">// return empty array</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Adds a grocery item to an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">add</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;add method&quot;</span><span class="o">);</span>
+    <span class="c1">// we add one to the size (one item to end of list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Deletes a grocery item from an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">delete</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;delete method&quot;</span><span class="o">);</span>
+    <span class="c1">// we subtract one from the size (one item deleted from list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays a grocery list</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;display method&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Write grocery list array to file</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">writeToFile</span><span class="o">(</span><span class="n">String</span> <span class="n">outputFile</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;writeToFile method&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+<p>File:</p>
+
+<ul>
+  <li><a href="../examples/GroceryListProgram3.java">GroceryListProgram3.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.InputMismatchException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Implements a Grocery List Version 3: Has code for readFromFile() and</span>
+<span class="cm"> * writeToFile() methods</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GroceryListProgram3</span> <span class="o">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * The main() Method Starts The Program.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param commandlineArguments 1st argument is INPUT File, 2nd argument is OUTPUT File</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Error Checking For 2 Command Line Arguments..</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">commandlineArguments</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the INPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;the 1st commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the OUTPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;the 2nd commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter exactly &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;two (2) commandline arguments.&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of if</span>
+     <span class="c1">// if no commandline argument errors, continue program</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// Declare and instantiate array of 100 Strings</span>
+      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">MAX_SIZE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+      <span class="n">String</span> <span class="n">groceryList</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">MAX_SIZE</span><span class="o">];</span>
+      <span class="c1">// Set size of grocery list to zero (0) items</span>
+      <span class="n">Integer</span> <span class="n">size</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="c1">// read grocery items from file &amp; store in array for grocery list</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram3</span><span class="o">.</span><span class="na">readFromFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span>
+            <span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: Too many items in input file. &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please limit to &quot;</span> <span class="o">+</span> <span class="n">MAX_SIZE</span> <span class="o">+</span> <span class="s">&quot; items.&quot;</span><span class="o">);</span>
+        <span class="c1">// Immediately terminates program</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="c1">// user&#39;s choice for Menu</span>
+      <span class="n">Integer</span> <span class="n">choice</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="c1">// choice for ending program</span>
+      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">QUIT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="c1">// if the user does not want to QUIT, keep looping</span>
+      <span class="k">while</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+        <span class="c1">// get the user&#39;s choice</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">GroceryListProgram3</span><span class="o">.</span><span class="na">displayMenu</span><span class="o">();</span>
+        <span class="c1">// add grocery item</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram3</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// delete grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram3</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// display grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">GroceryListProgram3</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// error message</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span>
+              <span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: Please enter an integer in the range from 1 to 4&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span><span class="c1">// end of &quot;while&quot;</span>
+       <span class="c1">// write to from grocery list array to OUTPUT file</span>
+      <span class="n">GroceryListProgram3</span><span class="o">.</span><span class="na">writeToFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">groceryList</span><span class="o">,</span>
+          <span class="n">size</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;else&quot;</span>
+  <span class="o">}</span><span class="c1">// end of main() method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays the menu for the program and returns user&#39;s choice</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the choice of the user (if error, returns 0)</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">displayMenu</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// display menu</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\tGROCERY LIST MENU&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 1 to Add&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 2 to Delete&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 3 to Display&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 4 to Quit&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\tEnter your choice: &quot;</span><span class="o">);</span>
+    <span class="c1">// get input from user</span>
+    <span class="n">Scanner</span> <span class="n">keyboardInput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// non-integer input will throw InputMismatchException</span>
+      <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="n">keyboardInput</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InputMismatchException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Already have error message in main() method,</span>
+      <span class="c1">// as choiceOfUser = 0</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">choiceOfUser</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Reads grocery items from a file and stores items in an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param inputFile is the INPUT File</span>
+<span class="cm">   * @param array is the Grocery List array</span>
+<span class="cm">   * @param size is the number of items in Grocery List</span>
+<span class="cm">   * @return the new size of the grocery list</span>
+<span class="cm">   * @throws ArrayIndexOutOfBoundsException if array size is less than number of</span>
+<span class="cm">   *         items in input file</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">readFromFile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">size</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ArrayIndexOutOfBoundsException</span> <span class="o">{</span>
+    <span class="c1">// connect to file (does NOT create new file)</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">inputFile</span><span class="o">);</span>
+    <span class="n">Scanner</span> <span class="n">scanFile</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">scanFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Print error message.</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: File not found for \&quot;&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">inputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if made connection to file, read from file</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">scanFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// keeps looping if file has more lines..</span>
+      <span class="k">while</span> <span class="o">(</span><span class="n">scanFile</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">())</span> <span class="o">{</span>
+        <span class="c1">// get a line of text..</span>
+        <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">scanFile</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+        <span class="c1">// display a line of text to screen..</span>
+        <span class="c1">// System.out.println(line);</span>
+        <span class="c1">// array[0] stores the first row (headings) to table</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">;</span>
+        <span class="c1">// increment size</span>
+        <span class="o">++</span><span class="n">size</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Read from file \&quot;&quot;</span> <span class="o">+</span> <span class="n">inputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;\n&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;if&quot; for connecting to file</span>
+    <span class="k">return</span> <span class="n">size</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Adds a grocery item to an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">add</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;add method&quot;</span><span class="o">);</span>
+    <span class="c1">// we add one to the size (one item to end of list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Deletes a grocery item from an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">delete</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;delete method&quot;</span><span class="o">);</span>
+    <span class="c1">// we subtract one from the size (one item deleted from list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays a grocery list</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;display method&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Write grocery list array to file</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">writeToFile</span><span class="o">(</span><span class="n">String</span> <span class="n">outputFile</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// &quot;PrintWriter&quot; is a Class Used To Write to A File.</span>
+    <span class="n">PrintWriter</span> <span class="n">fileWriter</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="cm">/*</span>
+<span class="cm">       * Must use try-catch block, because PrintWriter may throw</span>
+<span class="cm">       * FileNotFoundException, which is a checked exception. This will connect</span>
+<span class="cm">       * to a file in the current directory. If the file does not exists, a new</span>
+<span class="cm">       * file will be created. If the file does exists, the file will be</span>
+<span class="cm">       * overwritten.</span>
+<span class="cm">       */</span>
+      <span class="n">fileWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="n">outputFile</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Print error message.</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: File not found for \&quot;&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">outputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if file opened successfully, then below code executes..</span>
+    <span class="c1">// continue program if writeToFile is not &quot;null&quot;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">fileWriter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// loop through list (grocery list) and write to file</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">listSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">fileWriter</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+      <span class="o">}</span>
+      <span class="c1">// REMEMBER: always give feedback to the user!</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\nWrote to file \&quot;&quot;</span> <span class="o">+</span> <span class="n">outputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+      <span class="c1">// WARNING: don&#39;t forget to close the file!</span>
+      <span class="c1">// will not write to file if not closed!</span>
+      <span class="n">fileWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span><span class="c1">// end of &quot;if&quot; statement for writeToFile</span>
+
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+<p>File:</p>
+
+<ul>
+  <li><a href="../examples/GroceryListProgram4.java">GroceryListProgram4.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.InputMismatchException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Implements a Grocery List Version 4: Has code for all methods (final version)</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GroceryListProgram4</span> <span class="o">{</span>
+  <span class="cm">/**</span>
+<span class="cm">   * The main() Method Starts The Program.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param commandlineArguments 1st argument is INPUT File, 2nd argument is OUTPUT File</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Error Checking For 2 Command Line Arguments..</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">commandlineArguments</span><span class="o">.</span><span class="na">length</span> <span class="o">!=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the INPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;the 1st commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the OUTPUT file name as &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;the 2nd commandline argument.&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter exactly &quot;</span>
+          <span class="o">+</span> <span class="s">&quot;two (2) commandline arguments.&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of if</span>
+     <span class="c1">// if no commandline argument errors, continue program</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// Declare and instantiate array of 100 Strings</span>
+      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">MAX_SIZE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+      <span class="n">String</span> <span class="n">groceryList</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">MAX_SIZE</span><span class="o">];</span>
+      <span class="c1">// Set size of grocery list to zero (0) items</span>
+      <span class="n">Integer</span> <span class="n">size</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="c1">// read grocery items from file &amp; store in array for grocery list</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram4</span><span class="o">.</span><span class="na">readFromFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span>
+            <span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: Too many items in input file. &quot;</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please limit to &quot;</span> <span class="o">+</span> <span class="n">MAX_SIZE</span> <span class="o">+</span> <span class="s">&quot; items.&quot;</span><span class="o">);</span>
+        <span class="c1">// Immediately terminates program</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+      <span class="o">}</span>
+
+      <span class="c1">// user&#39;s choice for Menu</span>
+      <span class="n">Integer</span> <span class="n">choice</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+      <span class="c1">// choice for ending program</span>
+      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">QUIT</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+      <span class="c1">// if the user does not want to QUIT, keep looping</span>
+      <span class="k">while</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+        <span class="c1">// get the user&#39;s choice</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="n">GroceryListProgram4</span><span class="o">.</span><span class="na">displayMenu</span><span class="o">();</span>
+        <span class="c1">// add grocery item</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram4</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// delete grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">2</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">size</span> <span class="o">=</span> <span class="n">GroceryListProgram4</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// display grocery item</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">GroceryListProgram4</span><span class="o">.</span><span class="na">display</span><span class="o">(</span><span class="n">groceryList</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="c1">// error message</span>
+        <span class="k">else</span> <span class="nf">if</span> <span class="o">(!</span><span class="n">choice</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">QUIT</span><span class="o">))</span> <span class="o">{</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: Please enter an integer in the range from 1 to 4&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span><span class="c1">// end of &quot;while&quot;</span>
+       <span class="c1">// write to from grocery list array to OUTPUT file</span>
+      <span class="n">GroceryListProgram4</span><span class="o">.</span><span class="na">writeToFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">1</span><span class="o">],</span> <span class="n">groceryList</span><span class="o">,</span>
+          <span class="n">size</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;else&quot;</span>
+  <span class="o">}</span><span class="c1">// end of main() method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays the menu for the program and returns user&#39;s choice</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the choice of the user (if error, returns 0)</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">displayMenu</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// display menu</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\tGROCERY LIST MENU&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 1 to Add&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 2 to Delete&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 3 to Display&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;\t Enter 4 to Quit&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\tEnter your choice: &quot;</span><span class="o">);</span>
+    <span class="c1">// get input from user</span>
+    <span class="n">Scanner</span> <span class="n">keyboardInput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// non-integer input will throw InputMismatchException</span>
+      <span class="n">choiceOfUser</span> <span class="o">=</span> <span class="n">keyboardInput</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InputMismatchException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Already have error message in main() method,</span>
+      <span class="c1">// as choiceOfUser = 0</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">choiceOfUser</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Reads grocery items from a file and stores items in an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param inputFile is the INPUT File</span>
+<span class="cm">   * @param array is the Grocery List array</span>
+<span class="cm">   * @param size is the number of items in Grocery List</span>
+<span class="cm">   * @return the new size of the grocery list</span>
+<span class="cm">   * @throws ArrayIndexOutOfBoundsException if array size is less than number of</span>
+<span class="cm">   *         items in input file</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">readFromFile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">size</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ArrayIndexOutOfBoundsException</span> <span class="o">{</span>
+    <span class="c1">// connect to file (does NOT create new file)</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">inputFile</span><span class="o">);</span>
+    <span class="n">Scanner</span> <span class="n">scanFile</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">scanFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Print error message.</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: File not found for \&quot;&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">inputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if made connection to file, read from file</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">scanFile</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// keeps looping if file has more lines..</span>
+      <span class="k">while</span> <span class="o">(</span><span class="n">scanFile</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">())</span> <span class="o">{</span>
+        <span class="c1">// get a line of text..</span>
+        <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">scanFile</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+        <span class="c1">// display a line of text to screen..</span>
+        <span class="c1">// System.out.println(line);</span>
+        <span class="c1">// array[0] stores the first row (headings) to table</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">]</span> <span class="o">=</span> <span class="n">line</span><span class="o">;</span>
+        <span class="c1">// increment size</span>
+        <span class="o">++</span><span class="n">size</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Read from file \&quot;&quot;</span> <span class="o">+</span> <span class="n">inputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;if&quot; for connecting to file</span>
+    <span class="k">return</span> <span class="n">size</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Adds a grocery item to an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">add</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// get item from user</span>
+    <span class="n">Scanner</span> <span class="n">keyboard</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Enter name of item: &quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">keyboard</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Enter number of items: &quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number</span> <span class="o">=</span> <span class="n">keyboard</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+    <span class="c1">// add to the end of the array</span>
+    <span class="n">list</span><span class="o">[</span><span class="n">listSize</span><span class="o">]</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">number</span><span class="o">;</span>
+    <span class="c1">// add one to the size (one item to end of list)</span>
+    <span class="k">return</span> <span class="n">listSize</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Deletes a grocery item from an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   * @return new size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">delete</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// get user input</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Enter the row number of the item you wish to delete: &quot;</span><span class="o">);</span>
+    <span class="n">Scanner</span> <span class="n">keyboard</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// throws an exception if not an integer</span>
+      <span class="n">Integer</span> <span class="n">row</span> <span class="o">=</span> <span class="n">keyboard</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
+      <span class="c1">// check for negative integers</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: The integer cannot be negative or zero.&quot;</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="c1">// check for integer too big</span>
+      <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">row</span> <span class="o">&gt;</span> <span class="n">listSize</span> <span class="o">-</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: The integer is too big for the list.&quot;</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="c1">// delete item by shifting items on the right of the item to the left</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">row</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">listSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+          <span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">list</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="c1">// subtract one from the size (one item deleted from list)</span>
+        <span class="o">--</span><span class="n">listSize</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">InputMismatchException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: You must enter an integer to delete an item.&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">listSize</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays a grocery list</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">display</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// loop through the array</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">listSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// display headings</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Row  &quot;</span> <span class="o">+</span> <span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+      <span class="o">}</span>
+      <span class="c1">// display grocery list items as a numbered list</span>
+      <span class="k">else</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="s">&quot;.   &quot;</span> <span class="o">+</span> <span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Write grocery list array to file</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param list is the grocery list</span>
+<span class="cm">   * @param listSize is the size of the grocery list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">writeToFile</span><span class="o">(</span><span class="n">String</span> <span class="n">outputFile</span><span class="o">,</span> <span class="n">String</span><span class="o">[]</span> <span class="n">list</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">listSize</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// &quot;PrintWriter&quot; is a Class Used To Write to A File.</span>
+    <span class="n">PrintWriter</span> <span class="n">fileWriter</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="cm">/*</span>
+<span class="cm">       * Must use try-catch block, because PrintWriter may throw</span>
+<span class="cm">       * FileNotFoundException, which is a checked exception. This will connect</span>
+<span class="cm">       * to a file in the current directory. If the file does not exists, a new</span>
+<span class="cm">       * file will be created. If the file does exists, the file will be</span>
+<span class="cm">       * overwritten.</span>
+<span class="cm">       */</span>
+      <span class="n">fileWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="n">outputFile</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Print error message.</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: File not found for \&quot;&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">outputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if file opened successfully, then below code executes..</span>
+    <span class="c1">// continue program if writeToFile is not &quot;null&quot;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">fileWriter</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// loop through list (grocery list) and write to file</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">listSize</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">fileWriter</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+      <span class="o">}</span>
+      <span class="c1">// REMEMBER: always give feedback to the user!</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Wrote to file \&quot;&quot;</span> <span class="o">+</span> <span class="n">outputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+      <span class="c1">// WARNING: don&#39;t forget to close the file!</span>
+      <span class="c1">// will not write to file if not closed!</span>
+      <span class="n">fileWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+    <span class="o">}</span><span class="c1">// end of &quot;if&quot; statement for writeToFile</span>
+
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
 
 
 </div>
@@ -74,17 +981,17 @@ walbritt AT hawaii.edu<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2014-08-06 12:32:39 -1000</span></p>
+       Last update on: <span>2014-08-13 15:18:29 -1000</span></p>
     <p style="margin: 0">
-      3 modules
+      4 modules
       
-        | 7 outcomes
-      
-      
-        | 6 readings
+        | 9 outcomes
       
       
-        | 4 experiences
+        | 7 readings
+      
+      
+        | 5 experiences
       
       
     </p>

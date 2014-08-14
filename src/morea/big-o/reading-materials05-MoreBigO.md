@@ -13,7 +13,7 @@ File:
   
   * [MoreBigO.java](../examples/MoreBigO.java)
   
-  * [MoreBigOAnswers.txt](../examples/MoreBigOAnswers.txt)
+  * [MoreBigOAnswers.txt](../examples/MoreBigOAnswers.txt) - example solution
 
 Source code:
 
@@ -196,7 +196,7 @@ public class MoreBigO {
 
 File:
 
-  * [MoreBigOAnswers.txt](../examples/MoreBigOAnswers.txt)
+  * [MoreBigOAnswers.txt](../examples/MoreBigOAnswers.txt) - example solution
 
 File content:
 

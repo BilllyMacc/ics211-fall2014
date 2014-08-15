@@ -5,6 +5,7 @@ morea_id: big-o
 morea_outcomes:
  - outcome04
 morea_readings: 
+ - reading-materials05-textbook
  - reading-materials05-lecture 
  - reading-materials05-slides
  - reading-materials05-FactorialProgram

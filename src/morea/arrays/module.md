@@ -6,6 +6,7 @@ morea_outcomes:
  - outcome01
  - outcome02 
 morea_readings:
+ - reading-materials02-textbook
  - reading-materials02-podcast 
  - reading-materials02-slides 
  - reading-materials02-java 

@@ -1,5 +1,5 @@
 ---
-title: "Session #3 Assignment"
+title: "Assignment on Arrays - Part II"
 published: true
 morea_id: experience03
 morea_type: experience

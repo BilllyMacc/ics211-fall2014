@@ -1,10 +1,12 @@
 ---
-title: "Optional Assignment #1"
+title: "Assignment on Introduction"
 published: true
 morea_id: experience01
 morea_type: experience
 morea_summary: "Introduce yourself to our class"
 morea_sort_order: 1
+morea_labels:
+  - optional credit
 ---
 
 ## Instructions:

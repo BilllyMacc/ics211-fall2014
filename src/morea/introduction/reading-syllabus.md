@@ -51,7 +51,7 @@ Data Structures: Abstraction and Design Using Java by Elliot B. Koffman, Publish
 
 Assignments: 10 points each, 25 total 
 
-Discussion and Private Messages Postings: 1 point each, 30 points total 
+Discussion and Private Messages Postings: 1 point each, 10 points total 
 
 Final Project: 50 points each , 1 total 
 

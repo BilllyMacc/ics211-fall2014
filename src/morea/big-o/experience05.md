@@ -1,5 +1,5 @@
 ---
-title: "Assignment #5"
+title: "Assignment on Big-O (asmt #5)"
 published: true
 morea_id: experience05
 morea_type: experience

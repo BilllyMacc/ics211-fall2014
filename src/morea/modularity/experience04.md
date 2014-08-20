@@ -1,5 +1,5 @@
 ---
-title: "Assignment #4"
+title: "Assignment on Grocery List (asmt #4)"
 published: true
 morea_id: experience04
 morea_type: experience

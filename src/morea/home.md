@@ -12,8 +12,8 @@ Instructor:	William McDaniel Albritton
   * Office Hours:	MW 1:15-3:15pm
   * Office Location: 	DA 211
   * Contact:	(808) 455-0319 (walbritt AT hawaii.edu)
-  * Traditional website's URL: [https://www2.hawaii.edu/~walbritt/ics211/](https://www2.hawaii.edu/~walbritt/ics211/)
-  * New website's URL: [http://billlymacc.github.io/ics211-fall2014/](https://billlymacc.github.io/ics211-fall2014/)
+  * Traditional website's URL: <a href="https://www2.hawaii.edu/~walbritt/ics211/" target="_blank">https://www2.hawaii.edu/~walbritt/ics211/</a>
+  * New website's URL: <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank">http://billlymacc.github.io/ics211-fall2014/</a>
 
 ## Two Websites
 

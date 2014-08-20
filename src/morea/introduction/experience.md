@@ -1,5 +1,5 @@
 ---
-title: "Assignment on Introduction (asmt #1)"
+title: "Optional Assignment on Self Introduction (asmt #1)"
 published: true
 morea_id: experience01
 morea_type: experience

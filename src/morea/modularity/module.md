@@ -3,9 +3,9 @@ title: "Modularity"
 published: true
 morea_id: modularity
 morea_outcomes:
- - outcome01
- - outcome02
- - outcome03
+ - outcome-arrays
+ - outcome-exception
+ - outcome-modularity
 morea_readings:
  - reading-materials04 
  - reading-java-coding-standard

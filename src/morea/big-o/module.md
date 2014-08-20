@@ -3,7 +3,7 @@ title: "Big-O"
 published: true
 morea_id: big-o
 morea_outcomes:
- - outcome04
+ - outcome-big-o
 morea_readings: 
  - reading-materials05-textbook
  - reading-materials05-lecture 

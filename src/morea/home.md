@@ -12,18 +12,20 @@ Instructor:	William McDaniel Albritton
   * Office Hours:	MW 1:15-3:15pm
   * Office Location: 	DA 211
   * Contact:	(808) 455-0319 (walbritt AT hawaii.edu)
-  * Traditional website's URL: <a href="https://www2.hawaii.edu/~walbritt/ics211/" target="_blank">https://www2.hawaii.edu/~walbritt/ics211/</a>
-  * New website's URL: <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank">https://billlymacc.github.io/ics211-fall2014/</a>
+  * Table format website: <a href="https://www2.hawaii.edu/~walbritt/ics211/" target="_blank">https://www2.hawaii.edu/~walbritt/ics211/</a>
+  * Morea format website: <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank">https://billlymacc.github.io/ics211-fall2014/</a>
 
 ## Two Websites
 
 This semester, we are running two website for ICS 211:  
 
-1. the "traditional website" (a table layout that I have been using for years) 
-2. this "new website" (a new layout that I am trying out for the first time)
+1. Table format website: a table layout that I have been using for years 
+2. Morea format website: a new layout that I am trying out for the first time
 
 Both websites <b>should</b> have the same material, but 
-use the "traditional website" if there is anything missing or different on the "new website."
+if there is anything missing or different on the Morea format website,
+use the table format website. 
+
 
 ## Pedagogy
 

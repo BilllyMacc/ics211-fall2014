@@ -1,3 +1,20 @@
+---
+title: "Counting.java"
+published: true
+morea_id: reading-materials06-Counting
+morea_summary: "Count 1 to 5 using iteration & recursion"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [Counting.java](../examples/Counting.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * Count 1 to 5 using iteration & recursion
  * 
@@ -53,3 +70,7 @@ public class Counting {
 
 }// end of class
 
+
+{% endhighlight %}
+  
+  

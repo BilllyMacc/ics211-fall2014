@@ -1,3 +1,20 @@
+---
+title: "Powers.java"
+published: true
+morea_id: reading-materials07-Powers
+morea_summary: "Calculates and displays the result of x to y power for two integers entered on the command line. Both Iterative and Recursive methods are used."
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [Powers.java](../examples/Powers.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * Calculates and displays the result of x to y power for two integers entered on the command line.
  * Both Iterative and Recursive methods are used.
@@ -109,3 +126,7 @@ public class Powers {
   }// end of recursive
 
 }// end of class
+
+{% endhighlight %}
+  
+  

@@ -1,3 +1,22 @@
+---
+title: "Factorials.java"
+published: true
+morea_id: reading-materials07-Factorials
+morea_summary: "Calculates and displays the factorial for an number entered on the command line. Both Iterative and Recursive methods are used."
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# Factorials.java
+
+File:
+
+[Factorials.java](../examples/Factorials.java)
+
+Source: 
+
+{% highlight java %}
 /**
  * Calculates and displays the factorial for an number entered on the command line. 
  * Both Iterative and Recursive methods are used.
@@ -99,3 +118,11 @@ public class Factorials {
   }// end of recursive
 
 }// end of class
+
+{% endhighlight %}
+
+
+
+
+
+

@@ -16,7 +16,7 @@ FALL 2014 - CRN: 50593 (3 credits)
 ## Contact Information:
 
 Instructor:	William McDaniel Albritton<br>
-Office Hours:	MW 1:15-3:15pm<br>
+Office Hours:	MWF 11am-12noon<br>
 Office Location:	DA 211<br>
 Contact:	(808) 455-0319 (walbritt AT Hawai'i DOT EDU)<br>
 

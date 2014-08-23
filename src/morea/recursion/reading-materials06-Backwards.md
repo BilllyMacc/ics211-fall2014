@@ -1,6 +1,23 @@
+---
+title: "Backwards.java"
+published: true
+morea_id: reading-materials06-Backwards
+morea_summary: "Writes a word backwards using iteration & recursion. The results are returned to the main() method and printed there"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [Backwards.java](../examples/Backwards.java)
+
+Source code:
+
+{% highlight java %}
 /**
- * Writes a word backwards using iteration & recursion. 
- * The results are returned to the main() method and printed there
+ * Writes a word backwards using iteration & recursion The results are returned to the main() method
+ * and printed there
  * 
  * @author William McDaniel Albritton
  */
@@ -85,3 +102,7 @@ public class Backwards {
   }// end of recursiveBack2()
 
 }// end of class
+
+{% endhighlight %}
+  
+  

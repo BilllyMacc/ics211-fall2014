@@ -2,30 +2,21 @@
 title: "Home"
 morea_id: home
 morea_type: home
-morea_icon_url: /morea/paia.jpg
 ---
 
 ## ICS 211: Introduction to Computer Science II
 
 Instructor:	William McDaniel Albritton
 
-  * Office Hours:	MW 1:15-3:15pm
+  * Office Hours:	MWF 11am-12noon
   * Office Location: 	DA 211
   * Contact:	(808) 455-0319 (walbritt AT hawaii.edu)
-  * Table format website: <a href="https://www2.hawaii.edu/~walbritt/ics211/" target="_blank">https://www2.hawaii.edu/~walbritt/ics211/</a>
-  * Morea format website: <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank">https://billlymacc.github.io/ics211-fall2014/</a>
 
-## Two Websites
+## Website URL
 
-This semester, we are running two website for ICS 211:  
+To view the website outside of the Laulima window, click on the following link:
 
-1. Table format website: a table layout that I have been using for years 
-2. Morea format website: a new layout that I am trying out for the first time
-
-Both websites <b>should</b> have the same material, but 
-if there is anything missing or different on the Morea format website,
-use the table format website. 
-
+  * <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank">https://billlymacc.github.io/ics211-fall2014/</a>
 
 ## Pedagogy
 

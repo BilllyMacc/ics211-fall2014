@@ -1,3 +1,22 @@
+---
+title: "Fibonacci.java"
+published: true
+morea_id: reading-materials07-Fibonacci
+morea_summary: "Calculates and displays the Fibbonaci value for an number entered on the command line. Both Iterative and Recursive methods are used."
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# Fibonacci.java
+
+File:
+
+[Fibonacci.java](../examples/Fibonacci.java)
+
+Source: 
+
+{% highlight java %}
 /**
  * Calculates and displays the Fibbonaci value for an number entered on the command line. Both
  * Iterative and Recursive methods are used.
@@ -102,3 +121,11 @@ public class Fibonacci {
   }// end of recursive()
 
 }// end of Fibonacci class
+
+{% endhighlight %}
+
+
+
+
+
+

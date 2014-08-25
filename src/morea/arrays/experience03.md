@@ -60,7 +60,7 @@ morea_sort_order: 3
 
 ## Output
 
-Here is example output for input file [electricity.txt](/morea/examples/electricity.txt)
+Here is example output for input file [electricity.txt](../examples/electricity.txt)
 {% highlight java %}
     number of integers in file "electricity.txt" = 4
     index = 0, element = 1877
@@ -69,7 +69,7 @@ Here is example output for input file [electricity.txt](/morea/examples/electric
     index = 3, element = 2000
 {% endhighlight %}
     
-Here is example output for input file [groceries.csv](/morea/examples/groceries.csv)
+Here is example output for input file [groceries.csv](../examples/groceries.csv)
 {% highlight java %}
     number of integers in file "groceries.csv" = 6
     index = 0, element = 3
@@ -80,7 +80,7 @@ Here is example output for input file [groceries.csv](/morea/examples/groceries.
     index = 5, element = 1
 {% endhighlight %}
     
-Here is example output for input file [1000.txt](/morea/examples/1000.txt)
+Here is example output for input file [1000.txt](../examples/1000.txt)
 {% highlight java %}
     number of integers in file "1000.txt" = 1001
     index = 0, element = 1000

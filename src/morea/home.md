@@ -16,7 +16,7 @@ Instructor:	William McDaniel Albritton
 
 To view the website outside of the Laulima window, click on the following link:
 
-  * <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank">https://billlymacc.github.io/ics211-fall2014/</a>
+  * <a href="https://billlymacc.github.io/ics211-fall2014/" target="_blank" >https://billlymacc.github.io/ics211-fall2014/</a>
 
 ## Pedagogy
 

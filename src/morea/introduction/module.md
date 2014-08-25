@@ -11,6 +11,7 @@ morea_readings:
  - reading-materials01-online
  - reading-materials01-campus
  - reading-materials01-sustainability
+ - reading-materials01-computer-guy 
 morea_experiences:
  - experience01
 morea_assessments:

@@ -1,3 +1,20 @@
+---
+title: "JOptionPaneExample.java"
+published: true
+morea_id: reading-materials08-JOptionPaneExample
+morea_summary: "Writes a word backwards using iteration & recursion. The results are returned to the main() method and printed there"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [JOptionPaneExample.java](../examples/JOptionPaneExample.java)
+
+Source code:
+
+{% highlight java %}
 import javax.swing.JOptionPane;
 
 /**
@@ -24,3 +41,7 @@ public class JOptionPaneExample {
   }
 }// end of class
 
+
+{% endhighlight %}
+  
+  

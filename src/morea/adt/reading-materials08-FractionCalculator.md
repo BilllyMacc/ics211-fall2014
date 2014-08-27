@@ -1,3 +1,20 @@
+---
+title: "FractionCalculator.java"
+published: true
+morea_id: reading-materials08-FractionCalculator
+morea_summary: "Does fraction addition, subtraction, multiplication, and division"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [FractionCalculator.java](../examples/FractionCalculator.java)
+
+Source code:
+
+{% highlight java %}
 //displays mini-windows
 import javax.swing.JOptionPane;
 
@@ -77,3 +94,7 @@ public class FractionCalculator {
 
 }// End of Class.
 
+
+{% endhighlight %}
+  
+  

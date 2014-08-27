@@ -1,3 +1,20 @@
+---
+title: "Name.java"
+published: true
+morea_id: reading-materials10-Name
+morea_summary: "Class Name is used to store a first and last name"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [Name.java](../examples/Name.java)
+
+Source code:
+
+{% highlight java %}
 //An interface used to compare two objects.
 //Must implement method compareTo()
 import java.lang.Comparable;
@@ -112,3 +129,5 @@ public class Name implements Comparable {
 
 }// End of Class.
 
+
+{% endhighlight %}

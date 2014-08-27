@@ -1,3 +1,20 @@
+---
+title: "NullPointerProgram.java"
+published: true
+morea_id: reading-materials09-NullPointerProgram
+morea_summary: "Demonstrates a NullPointerException"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [NullPointerProgram.java](../examples/NullPointerProgram.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * Demonstrates a NullPointerException
  * 
@@ -21,3 +38,7 @@ public class NullPointerProgram {
 
 }// End of Class.
 
+
+{% endhighlight %}
+  
+  

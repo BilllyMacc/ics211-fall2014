@@ -1,3 +1,20 @@
+---
+title: "ThreeNames.java"
+published: true
+morea_id: reading-materials10-ThreeNames
+morea_summary: "A class that stores first, middle & last name"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [ThreeNames.java](../examples/ThreeNames.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * A class that stores first, middle & last name
  * 
@@ -73,3 +90,5 @@ public class ThreeNames extends Name {
 
 }// end of class
 
+
+{% endhighlight %}

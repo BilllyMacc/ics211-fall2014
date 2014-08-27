@@ -1,15 +1,189 @@
+---
+title: "FractionCalculatorInOneFile.java"
+published: true
+morea_id: reading-materials08-FractionCalculatorInOneFile
+morea_summary: "SHOWS HOW TO PUT SEVERAL CLASSES IN ONE FILE"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [FractionCalculatorInOneFile.java](../examples/FractionCalculatorInOneFile.java)
+
+Source code:
+
+{% highlight java %}
+import javax.swing.JOptionPane;
 //An interface used to compare two objects.
 //Must implement method compareTo()
 import java.lang.Comparable;
 
 /**
- * Has data fields for the numerator and denominator of a Fraction. Has methods that do basic
- * arithmetic on Fractions. Implements the "FractionInterface" Interface. Syntax: public class
- * ClassName implements InterfaceName{
+ * SHOWS HOW TO PUT SEVERAL CLASSES IN ONE FILE. Ask user for numerator & denominator, output fraction
+ * addition & subtraction using the Fraction class
  * 
  * @author William McDaniel Albritton
  */
-public class Fraction implements FractionInterface, Comparable {
+
+// when we put multiple classes in one file,
+// the class with the main method is "public"
+public class FractionCalculatorInOneFile {
+
+  /**
+   * main() method: begins program
+   * 
+   * @param arguments is not used
+   */
+  public static void main(String[] arguments) {
+    // Create two Default Fraction object
+    // If A Class Implements an Interface,
+    // Then We Can Use The Interface To Declare A Variable.
+    // Syntax: InterfaceName variableName = new Constructor(parameters);
+    FractionInterface fraction1 = new Fraction(0, 1);
+    FractionInterface fraction2 = new Fraction(0, 1);
+    FractionInterface fraction3 = new Fraction(0, 1);
+    // get user input
+    String number1 = JOptionPane.showInputDialog("Please enter the numerator");
+    String number2 = JOptionPane.showInputDialog("Please enter the denominator");
+    String number3 = JOptionPane.showInputDialog("Please enter the 2nd numerator");
+    String number4 = JOptionPane.showInputDialog("Please enter the 2nd denominator");
+    try {
+      // Convert String To Integer.
+      Integer numerator = Integer.parseInt(number1);
+      Integer denominator = Integer.parseInt(number2);
+      // Set first Fraction object
+      fraction1.setNumerator(numerator);
+      fraction1.setDenominator(denominator);
+      // Convert String To Integer.
+      numerator = Integer.parseInt(number3);
+      denominator = Integer.parseInt(number4);
+      // Set second Fraction object
+      fraction2.setNumerator(numerator);
+      fraction2.setDenominator(denominator);
+      // calculate addition
+      fraction3 = fraction1.add(fraction2);
+      String message = fraction1.toString() + " + " + fraction2.toString() + " = "
+          + fraction3.toString();
+      // calculate subtraction
+      fraction3 = fraction1.subtract(fraction2);
+      message = message + "\n" + fraction1.toString() + " - " + fraction2.toString() + " = "
+          + fraction3.toString();
+      // multiply
+      fraction3 = fraction1.multiply(fraction2);
+      message = message + "\n" + fraction1.toString() + " * " + fraction2.toString() + " = "
+          + fraction3.toString();
+      // divide
+      fraction3 = fraction1.divide(fraction2);
+      message = message + "\n" + fraction1.toString() + " / " + fraction2.toString() + " = "
+          + fraction3.toString();
+      JOptionPane.showMessageDialog(null, message);
+    }
+    // if user does not enter an integer
+    catch (NumberFormatException exception1) {
+      JOptionPane.showMessageDialog(null, "Please enter a whole number.");
+    }// end of catch
+     // if user enters 0 for the denominator
+    catch (IllegalFractionException exception2) {
+      String message = exception2.toString();
+      JOptionPane.showMessageDialog(null, message);
+    }// end of catch
+
+    // will not compile because method greatestCommonDivisor() is "private"
+    // Fraction f = new Fraction(1,2);
+    // f.greatestCommonDivisor(1,2);
+
+  }// End of Main.
+
+}// End of Class.
+
+// *********************************************************************
+/**
+ * Interface is a list of method prototypes that other classes must implement (like a contract)
+ * 
+ * @author William McDaniel Albritton
+ */
+
+// for multiple classes & interfaces in one file,
+// interfaces MUST NOT have a "public" modifier
+interface FractionInterface {
+
+  /**
+   * This Adds Two Fractions Together.
+   * 
+   * @param fraction2 Is The 2nd Fraction.
+   * @return a 3rd Fraction The Is The Result
+   */
+  public FractionInterface add(FractionInterface fraction2);
+
+  /**
+   * This Subtracts Two Fractions Together.
+   * 
+   * @param fraction2 Is The 2nd Fraction.
+   * @return a 3rd Fraction The Is The Result
+   */
+  public FractionInterface subtract(FractionInterface fraction2);
+
+  /**
+   * This Multiplies Two Fractions .
+   * 
+   * @param fraction2 Is The 2nd Fraction.
+   * @return a 3rd Fraction The Is The Product
+   */
+  public FractionInterface multiply(FractionInterface fraction2);
+
+  /**
+   * This Divides Two Fractions .
+   * 
+   * @param fraction2 Is The 2nd Fraction.
+   * @return a 3rd Fraction The Is The Quotient
+   */
+  public FractionInterface divide(FractionInterface fraction2);
+
+  /** This method reduces a fraction to its lowest terms. */
+  public void reduceToLowestTerms();
+
+  /**
+   * This Is An "Accessor" Method - Used To Get A Data Field.
+   * 
+   * @return the numerator
+   */
+  public Integer getNumerator();
+
+  /**
+   * This Is An "Accessor" Method - Used To Get A Data Field.
+   * 
+   * @return the denominator
+   */
+  public Integer getDenominator();
+
+  /**
+   * This Is A "Mutator" Method - Used To Set A Data Field.
+   * 
+   * @param numeratorParameter is the first name.
+   */
+  public void setNumerator(Integer numeratorParameter);
+
+  /**
+   * This Is A "Mutator" Method - Used To Set A Data Field.
+   * 
+   * @param lastNameParameter is the last name.
+   * @exception IllegalFractionException if the denominator is zero
+   */
+  public void setDenominator(Integer denominatorParameter) throws IllegalFractionException;
+
+}// End of interface.
+
+// *********************************************************************
+
+/**
+ * Implements the "FractionInterface" Interface. Syntax: public class ClassName implements
+ * InterfaceName{
+ * 
+ * @author William McDaniel Albritton
+ */
+class Fraction implements FractionInterface, Comparable {
 
   // These Are The Data Fields.
   // Used to STore EACH Object's Data.
@@ -234,3 +408,26 @@ public class Fraction implements FractionInterface, Comparable {
 
 }// End of Class.
 
+// ******************************************************************
+
+/**
+ * An Exception for use with the Fraction class
+ * 
+ * @author William McDaniel Albritton
+ */
+
+// note that "public" is omitted, so that we can put many classes in one file
+class IllegalFractionException extends RuntimeException {
+
+  /**
+   * Constructor
+   * 
+   * @param message Describes the cause of the error
+   */
+  public IllegalFractionException(String message) {
+    super(message);
+  }
+}// end of class
+{% endhighlight %}
+  
+  

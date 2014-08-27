@@ -1,3 +1,20 @@
+---
+title: "SimpleClass.java"
+published: true
+morea_id: reading-materials08-SimpleClass
+morea_summary: "Shows an example of a constructor and the toString() method for a simple class"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [SimpleClass.java](../examples/SimpleClass.java)
+
+Source code:
+
+{% highlight java %}
 import javax.swing.JOptionPane;
 
 /**
@@ -49,3 +66,7 @@ class President {
     return output;
   }
 }
+
+{% endhighlight %}
+  
+  

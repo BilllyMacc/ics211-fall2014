@@ -1,3 +1,20 @@
+---
+title: "Fraction.java"
+published: true
+morea_id: reading-materials08-Fraction
+morea_summary: "Has data fields for the numerator and denominator of a Fraction and methods for Fraction operations"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [Fraction.java](../examples/Fraction.java)
+
+Source code:
+
+{% highlight java %}
 //An interface used to compare two objects.
 //Must implement method compareTo()
 import java.lang.Comparable;
@@ -234,3 +251,7 @@ public class Fraction implements FractionInterface, Comparable {
 
 }// End of Class.
 
+
+{% endhighlight %}
+  
+  

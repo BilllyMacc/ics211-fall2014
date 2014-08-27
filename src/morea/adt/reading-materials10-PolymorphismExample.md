@@ -1,3 +1,20 @@
+---
+title: "PolymorphismExample.java"
+published: true
+morea_id: reading-materials10-PolymorphismExample
+morea_summary: "Polymorphism Example Using Classes Name & ThreeNames"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [PolymorphismExample.java](../examples/PolymorphismExample.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * Polymorphism Example Using Classes Name & ThreeNames.
  * 
@@ -24,4 +41,5 @@ public class PolymorphismExample {
   }// End of Method.
 
 }// End of Class.
+{% endhighlight %}
 

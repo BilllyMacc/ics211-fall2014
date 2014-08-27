@@ -1,3 +1,20 @@
+---
+title: "FractionInterface.java"
+published: true
+morea_id: reading-materials08-FractionInterface
+morea_summary: "An interface is a list of method prototypes that other classes must implement (like a contract)"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [FractionInterface.java](../examples/FractionInterface.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * Interface is a list of method prototypes that other classes must implement (like a contract)
  * 
@@ -71,3 +88,7 @@ public interface FractionInterface {
 
 }// End of interface.
 
+
+{% endhighlight %}
+  
+  

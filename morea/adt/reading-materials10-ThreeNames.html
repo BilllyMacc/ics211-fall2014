@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> ThreeNames.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>File: </p>
+
+<ul>
+  <li><a href="../examples/ThreeNames.java">ThreeNames.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * A class that stores first, middle &amp; last name</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeNames</span> <span class="kd">extends</span> <span class="n">Name</span> <span class="o">{</span>
+
+  <span class="c1">// data fields</span>
+  <span class="c1">// last &amp; first are inherited from class Name</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">middle</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param aFirst is the first name</span>
+<span class="cm">   * @param aMiddle is the middle name</span>
+<span class="cm">   * @param aLast is the last name</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">ThreeNames</span><span class="o">(</span><span class="n">String</span> <span class="n">aFirst</span><span class="o">,</span> <span class="n">String</span> <span class="n">aMiddle</span><span class="o">,</span> <span class="n">String</span> <span class="n">aLast</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// must first called the superclass&#39;s constructor when using inheritance</span>
+    <span class="c1">// &quot;super&quot; is the constructor for the superclass (class Name)</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">aFirst</span><span class="o">,</span> <span class="n">aLast</span><span class="o">);</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="n">aMiddle</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Automatically called by println() or print() method!</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return a String in &quot;first last&quot; format</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// call the superclass&#39;s toString() method</span>
+    <span class="c1">// and add on the middle name</span>
+    <span class="c1">// syntax: super.method()</span>
+    <span class="n">String</span> <span class="n">fullName</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">middle</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">fullName</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Used to Display The Initials.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return The Initials For Someone&#39;s Name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">initials</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Create a Local VAriable For Initials.</span>
+    <span class="n">String</span> <span class="n">theInitials</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;. &quot;</span> <span class="o">+</span> <span class="n">middle</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;. &quot;</span>
+        <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">theInitials</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Accessor method</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return a middle name</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getMiddleName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">middle</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Mutator method</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param theMiddle is the middle name</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMiddleName</span><span class="o">(</span><span class="n">String</span> <span class="n">theMiddle</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="n">theMiddle</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Methods getFirstName, getLastName, setFirstName, setLastName are inherited from the superclass</span>
+<span class="cm">   * (class Name), so we do NOT need to rewrite them in the subclass</span>
+<span class="cm">   */</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-08-26 15:46:20 -1000</span></p>
+    <p style="margin: 0">
+      6 modules
+      
+        | 15 outcomes
+      
+      
+        | 73 readings
+      
+      
+        | 10 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

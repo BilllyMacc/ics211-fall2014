@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on ADT - Part I (asmt #8) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that does the following.</p>
+
+<ol>
+  <li>Takes a String, an Integer, a String, and an Integer as commandline input.</li>
+  <li>These four variables represent a name, an age (in years), a second name, and a second age (in years).</li>
+  <li>In the main method, the first name and age should be the two parameters for a constructor for a Person object. In other words, instantiate a Person object with the two variables for name and age.</li>
+  <li>In the main method, print out the Person object (person variable), using the toString() method. Do NOT use the System.out.println() method, instead use the JOptionPane.showMessageDialog() method.</li>
+  <li>Use the second name and age to instantiate another Person object. Use the toString() method, and the JOptionPane.showMessageDialog() method to output the information.</li>
+  <li>Below your LastnameFirstname8 class, create a second class in your LastnameFirstname8.java file.</li>
+  <li>Unlike your LastnameFirstname8 class, do NOT include the public modifier. In other words, the code for your Person class should look like this:</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">Person</span><span class="o">{</span>
+		<span class="c1">//data fields for name and age</span>
+		<span class="c1">//constructor</span>
+		<span class="c1">//toString() method</span>
+	<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>See LastnameFirstname08.java for a template for this assignment.</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Initialize Person objects to commmandline input and output Person object data</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author Your Name</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LastnameFirstname08</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// initialize first Person object to commmandline input</span>
+    <span class="c1">// initialize second Person object to commmandline input</span>
+    <span class="c1">// use toString() method to display first Person object with JOptionPane.showMessageDialog()</span>
+    <span class="c1">// use toString() method to display second Person object with JOptionPane.showMessageDialog()</span>
+  <span class="o">}</span>
+<span class="o">}</span><span class="c1">// end of class LastnameFirstname08</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Class Person stores and displays the name and age for a person</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author Your Name</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+  <span class="c1">// data field for name</span>
+  <span class="c1">// data field for age</span>
+  <span class="c1">// constructor</span>
+  <span class="c1">// toString() method</span>
+<span class="o">}</span><span class="c1">// end of class Person</span></code></pre></div>
+
+<ol>
+  <li>See JOptionPaneExample.java for an example of JOptionPane.showMessageDialog() and toString() methods.</li>
+  <li>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.</li>
+  <li>Create two data fields. One data field for name and a second data field for age in your Person class.</li>
+  <li>Write the constructor for your Person class. You should have a String and Integer (or int) parameters, which initialize your two data fields.</li>
+  <li>Write the toString() method for your Person class. The return value should have the format: &#8220;X is Y years old.&#8221;</li>
+  <li>Make sure your code follows the ICS 211 Java Coding Standard, in particular the Java documentation (Javadoc) comments that go above each method.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: In the edit method, do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+</ol>
+
+<h2 id="example-output">Example output</h2>
+
+<p>Here is example output for commandline arguments: <b>Nami 20 Nalu 25</b></p>
+
+<p>
+	<br />
+	<img style="border: #3c8dc5 solid 5px" src="output1.jpg" alt="Nami is 20 years old." />
+	<br />
+	<br />
+	<img style="border: #3c8dc5 solid 5px" src="output2.jpg" alt="Nalu is 25 years old." />
+</p>
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-08-26 15:46:20 -1000</span></p>
+    <p style="margin: 0">
+      6 modules
+      
+        | 15 outcomes
+      
+      
+        | 73 readings
+      
+      
+        | 10 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

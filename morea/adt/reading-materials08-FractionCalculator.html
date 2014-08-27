@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> FractionCalculator.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>File: </p>
+
+<ul>
+  <li><a href="../examples/FractionCalculator.java">FractionCalculator.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">//displays mini-windows</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Ask user for numerator &amp; denominator of two Fractions. Output fraction addition, subtraction,</span>
+<span class="cm"> * multiplication, and division using the Fraction class</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FractionCalculator</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * main() method: begins program</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param arguments is not used</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="c1">// Create two Default Fraction object</span>
+    <span class="c1">// If A Class Implements an Interface,</span>
+    <span class="c1">// Then We Can Use The Interface To Declare A Variable.</span>
+    <span class="c1">// Syntax: InterfaceName variableName = new Constructor(parameters);</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="c1">// get user input</span>
+    <span class="n">String</span> <span class="n">number1</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the numerator&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number2</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the denominator&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number3</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the 2nd numerator&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number4</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the 2nd denominator&quot;</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// Convert String To Integer.</span>
+      <span class="n">Integer</span> <span class="n">numerator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number1</span><span class="o">);</span>
+      <span class="n">Integer</span> <span class="n">denominator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number2</span><span class="o">);</span>
+      <span class="c1">// Set first Fraction object</span>
+      <span class="n">fraction1</span><span class="o">.</span><span class="na">setNumerator</span><span class="o">(</span><span class="n">numerator</span><span class="o">);</span>
+      <span class="n">fraction1</span><span class="o">.</span><span class="na">setDenominator</span><span class="o">(</span><span class="n">denominator</span><span class="o">);</span>
+      <span class="c1">// Convert String To Integer.</span>
+      <span class="n">numerator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number3</span><span class="o">);</span>
+      <span class="n">denominator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number4</span><span class="o">);</span>
+      <span class="c1">// Set second Fraction object</span>
+      <span class="n">fraction2</span><span class="o">.</span><span class="na">setNumerator</span><span class="o">(</span><span class="n">numerator</span><span class="o">);</span>
+      <span class="n">fraction2</span><span class="o">.</span><span class="na">setDenominator</span><span class="o">(</span><span class="n">denominator</span><span class="o">);</span>
+      <span class="c1">// calculate addition</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; + &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="c1">// calculate subtraction</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="c1">// multiply</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; * &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="c1">// divide</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; / &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if user does not enter an integer</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">exception1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="s">&quot;Please enter a whole number.&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of catch</span>
+    <span class="c1">// if user enters 0 for the denominator</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalFractionException</span> <span class="n">exception2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">exception2</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of catch</span>
+
+    <span class="c1">// will not compile because method greatestCommonDivisor() is &quot;private&quot;</span>
+    <span class="c1">// Fraction f = new Fraction(1,2);</span>
+    <span class="c1">// f.greatestCommonDivisor(1,2);</span>
+
+  <span class="o">}</span><span class="c1">// End of Main.</span>
+
+<span class="o">}</span><span class="c1">// End of Class.</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-08-26 15:46:20 -1000</span></p>
+    <p style="margin: 0">
+      6 modules
+      
+        | 15 outcomes
+      
+      
+        | 73 readings
+      
+      
+        | 10 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

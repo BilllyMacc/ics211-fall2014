@@ -3,13 +3,14 @@ title: "Java Coding Standard"
 published: true
 morea_id: reading-java-coding-standard
 morea_type: reading
-morea_summary: "Java Coding Standard"
+morea_summary: "Follow this standard for the Java code in your program assignments"
 morea_sort_order: 1
 morea_labels:
+ - use for each assignment
 
 ---
 
-# ICS Java Coding Standard
+# Java Coding Standard
 
 ## Basic Coding Rules to Follow
 

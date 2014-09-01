@@ -62,75 +62,76 @@
 
 <p>Source code:</p>
 
-<div class="highlight"><pre><code class="java"><span class="cm">/** </span>
-<span class="cm"> *  Array Initialization Examples.</span>
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * Array Initialization Examples.</span>
 <span class="cm"> *</span>
-<span class="cm"> *  @author William Albritton </span>
+<span class="cm"> * @author William Albritton</span>
 <span class="cm"> */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InitializingArrays</span> <span class="o">{</span>  
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InitializingArrays</span> <span class="o">{</span>
 
-   <span class="cm">/** The &quot;main&quot; Method Starts The Program.   </span>
-<span class="cm">    *</span>
-<span class="cm">    * @param commandlineArguments Are Not Used.</span>
-<span class="cm">    */</span>                
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[</span> <span class="o">]</span> <span class="n">commandlineArguments</span><span class="o">){</span>
-      <span class="c1">//Declare An Array.</span>
-      <span class="n">Integer</span><span class="o">[</span> <span class="o">]</span> <span class="n">examScores</span><span class="o">;</span>
-      
-      <span class="c1">//Instatiate An Array.</span>
-      <span class="c1">//Convenient To Use A Constant For Later Use In Loops.</span>
-      <span class="kd">final</span> <span class="n">Integer</span> <span class="n">SIZE</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span> 
-      <span class="n">examScores</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">SIZE</span><span class="o">];</span>
-      
-      <span class="c1">//Display An Array.</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores: &quot;</span><span class="o">);</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;index(subscript)  value(element)&quot;</span><span class="o">);</span>
-      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;     &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot;              &quot;</span> <span class="o">+</span> <span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+  <span class="cm">/**</span>
+<span class="cm">   * The &quot;main&quot; Method Starts The Program.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param commandlineArguments Are Not Used.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Declare An Array.</span>
+    <span class="n">Integer</span><span class="o">[]</span> <span class="n">examScores</span><span class="o">;</span>
+
+    <span class="c1">// Instatiate An Array.</span>
+    <span class="c1">// Convenient To Use A Constant For Later Use In Loops.</span>
+    <span class="kd">final</span> <span class="n">Integer</span> <span class="n">SIZE</span> <span class="o">=</span> <span class="mi">6</span><span class="o">;</span>
+    <span class="n">examScores</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">SIZE</span><span class="o">];</span>
+
+    <span class="c1">// Display An Array.</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores: &quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;index(subscript)  value(element)&quot;</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;     &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot;              &quot;</span> <span class="o">+</span> <span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// Initialize An Array.</span>
+    <span class="n">examScores</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
+    <span class="n">examScores</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">77</span><span class="o">);</span>
+    <span class="n">examScores</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">92</span><span class="o">);</span>
+    <span class="n">examScores</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
+    <span class="n">examScores</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">63</span><span class="o">);</span>
+    <span class="n">examScores</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">95</span><span class="o">);</span>
+
+    <span class="c1">// Display An Array.</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores: &quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;index(subscript)  value(element)&quot;</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">examScores</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;     &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot;              &quot;</span> <span class="o">+</span> <span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// Initializer List (Declare, Instantiate, &amp; Initialize An Array)</span>
+    <span class="n">Double</span><span class="o">[]</span> <span class="n">finalGrades</span> <span class="o">=</span> <span class="o">{</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">73.56</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">91.29</span><span class="o">),</span>
+        <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">55.55</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">67.02</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">)</span> <span class="o">};</span>
+
+    <span class="c1">// Print Both Arrays.</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores       final grades&quot;</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;     &quot;</span> <span class="o">+</span> <span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;              &quot;</span> <span class="o">+</span> <span class="n">finalGrades</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// Out Of Bounds Error</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">examScores</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">);</span>
       <span class="o">}</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-      
-      <span class="c1">//Initialize An Array.</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">77</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">92</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">80</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">63</span><span class="o">);</span>
-      <span class="n">examScores</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">95</span><span class="o">);</span>
-      
-      <span class="c1">//Display An Array.</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores: &quot;</span><span class="o">);</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;index(subscript)  value(element)&quot;</span><span class="o">);</span>
-      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">examScores</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;     &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot;              &quot;</span> <span class="o">+</span> <span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-      <span class="o">}</span>
-      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-      
-      <span class="c1">//Initializer List (Declare, Instantiate, &amp; Initialize An Array)</span>
-      <span class="n">Double</span><span class="o">[]</span> <span class="n">finalGrades</span> <span class="o">=</span> <span class="o">{</span><span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">73.56</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">91.29</span><span class="o">),</span>
-        <span class="k">new</span> <span class="nf">Double</span><span class="o">(</span><span class="mf">55.55</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">67.02</span><span class="o">),</span> <span class="k">new</span> <span class="n">Double</span><span class="o">(</span><span class="mf">83.33</span><span class="o">)};</span>
-      
-      <span class="c1">//Print Both Arrays.</span>
-       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;exam scores       final grades&quot;</span><span class="o">);</span>
-       <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="o">;</span> <span class="n">i</span><span class="o">++){</span>
-          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;     &quot;</span> <span class="o">+</span> <span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;              &quot;</span> <span class="o">+</span> <span class="n">finalGrades</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
-       <span class="o">}</span>
-       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
-      
-      <span class="c1">//Out Of Bounds Error</span>
-       <span class="k">try</span> <span class="o">{</span>
-         <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">examScores</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-             <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">examScores</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">);</span>
-           <span class="o">}</span>
-         <span class="o">}</span>
-        <span class="k">catch</span><span class="o">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">exception</span><span class="o">){</span>
-          <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">exception</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
-          <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;ERROR: The array went out of bounds!&quot;</span><span class="o">;</span>
-          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
-        <span class="o">}</span>
-      <span class="o">}</span>
-   <span class="o">}</span></code></pre></div>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">exception</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;ERROR: The array went out of bounds!&quot;</span><span class="o">;</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
 
 
 </div>
@@ -146,7 +147,7 @@ walbritt AT hawaii.edu<br /></p>
 
     
     <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
-       Last update on: <span>2014-08-28 10:58:32 -1000</span></p>
+       Last update on: <span>2014-08-31 14:14:37 -1000</span></p>
     <p style="margin: 0">
       6 modules
       

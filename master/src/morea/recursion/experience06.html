@@ -1,0 +1,47 @@
+<h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that executes the following 5 recursive methods (do NOT use for or while loops), each of which returns a value (do NOT use System.out.print() inside the method definitions), and prints that value in the main() method, where X is a positive integer on the commandline.</p>
+
+<ol>
+  <li>Method 1: Return and print in main() a row of X asterisks (<em>**</em>…)</li>
+  <li>Method 2: Return and print in main() the numbers from X to 0 (X, …, 4, 3, 2, 1, 0) by returning the numbers as a String.</li>
+  <li>Method 3: Return and print in main() the numbers from 0 to X incrementing by 1 (0 + 1 + 2 + 3 + 4 + … + X) by returning the numbers as a String.</li>
+  <li>Method 4: Return and print in main() the sum of the numbers from 0 to X incrementing by 1 (0 + 1 + 2 + 3 + 4 + … + X) and return the numbers as an Integer.</li>
+  <li>Method 5: Return and print in main() the sum of the powers of 2 up to the Xth power of 2 by multiplying by 2 and adding the numbers together (1 + 2 + 4 + 8 + 16 + … + 2X) and return the numbers as an Integer. Do NOT use the method Math.pow().</li>
+  <li>Use the commandline arguments to enter one positive integer argument.</li>
+  <li>X is the input for your methods.</li>
+  <li>You need to convert the commandline argument to an integer: Integer x = Integer.parseInt(args[0]);</li>
+  <li>You may find it useful to use more than one parameter for some of your methods.</li>
+  <li>At the beginning of the main method, check to make sure that the user entered the correct input.</li>
+  <li>If exactly one (1) positive integer argument is not entered on the commandline, then display an error message and end the program.</li>
+  <li>You also need to have a try-catch statement just in case a non-integer is inputted as a commandline argument.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: Do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Make sure your code follows the ICS 211 Java Coding Standard, in particular the Java documentation (Javadoc) comments that go above each method.</li>
+</ol>
+
+<h2 id="output">Output</h2>
+
+<p>Example output for commandline argument: 1</p>
+
+<div class="highlight"><pre><code class="java"><span class="o">*</span>
+<span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> 
+<span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> 
+<span class="mi">1</span>
+<span class="mi">3</span></code></pre></div>
+
+<p>Example output for commandline argument: 5</p>
+
+<div class="highlight"><pre><code class="java"><span class="o">*****</span>
+<span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> 
+<span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> 
+<span class="mi">15</span>
+<span class="mi">63</span></code></pre></div>
+
+<p>Example output for commandline argument: 10</p>
+
+<div class="highlight"><pre><code class="java"><span class="o">**********</span>
+<span class="mi">10</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> 
+<span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> 
+<span class="mi">55</span>
+<span class="mi">2047</span></code></pre></div>

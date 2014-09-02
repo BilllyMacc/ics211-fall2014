@@ -1,0 +1,121 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/Name.java">Name.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">//An interface used to compare two objects.</span>
+<span class="c1">//Must implement method compareTo()</span>
+<span class="kn">import</span> <span class="nn">java.lang.Comparable</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Class Name is used to store a first and last name</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Name</span> <span class="kd">implements</span> <span class="n">Comparable</span> <span class="o">{</span>
+
+  <span class="c1">// data fields.</span>
+  <span class="c1">// &quot;protected&quot; means that these data fields are visible in the subclass.</span>
+  <span class="c1">// &quot;protected&quot; also means that these data fields are NOT visible outside the class</span>
+  <span class="c1">// &quot;protected&quot; is halfway between &quot;private&quot; &amp; &quot;public&quot;.</span>
+  <span class="kd">protected</span> <span class="n">String</span> <span class="n">first</span><span class="o">;</span>
+  <span class="kd">protected</span> <span class="n">String</span> <span class="n">last</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor - Used To Create EAch Object &amp; Initialize DAta Fields.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param firstName is the first name.</span>
+<span class="cm">   * @param lastName is the last name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">Name</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// This Code Initializes The Data Fields.</span>
+    <span class="c1">// Syntax: dataField = parameter;</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">firstName</span><span class="o">;</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Used to Display The Data Stored In EAch Object&#39;s DAta Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return a String in format: LastName, FirstName</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Create a Local VAriable.</span>
+    <span class="n">String</span> <span class="n">fullName</span> <span class="o">=</span> <span class="n">last</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">first</span><span class="o">;</span>
+    <span class="c1">// Return the Local Variable.</span>
+    <span class="k">return</span> <span class="n">fullName</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Used to Display The Initials.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return The Initials For Someone&#39;s Name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">initials</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Create a Local VAriable For Initials.</span>
+    <span class="n">String</span> <span class="n">theInitials</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;. &quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">theInitials</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the First Name</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getFirstName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Return the Data Field.</span>
+    <span class="k">return</span> <span class="n">first</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the Last Name</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Return the Data Field.</span>
+    <span class="k">return</span> <span class="n">last</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is A &quot;Mutator&quot; Method - Used To Set A Data Field.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param firstNameParameter is the first name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFirstName</span><span class="o">(</span><span class="n">String</span> <span class="n">firstNameParameter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// SEt the Data Field.</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">firstNameParameter</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is A &quot;Mutator&quot; Method - Used To Set A Data Field.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param lastNameParameter is the last name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setLastName</span><span class="o">(</span><span class="n">String</span> <span class="n">lastNameParameter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// set the Data Field.</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">lastNameParameter</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Compares this object with the specified object for order. Returns a negative integer, zero, or</span>
+<span class="cm">   * a positive integer as this object is less than, equal to, or greater than the specified object.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param object The Object to be compared.</span>
+<span class="cm">   * @return A negative integer, zero, or a positive integer as this object is less than, equal to,</span>
+<span class="cm">   *         or greater than the specified object.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Object</span> <span class="n">object</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// get the string for 1st name to be compared (this class)</span>
+    <span class="n">String</span> <span class="n">name1</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="c1">// get the string for the 2nd name to be compared (parameter)</span>
+    <span class="n">String</span> <span class="n">name2</span> <span class="o">=</span> <span class="n">object</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="c1">// use the compareTo method of String class</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">name1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">name2</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// End of Class.</span></code></pre></div>

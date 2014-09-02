@@ -1,0 +1,31 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/NullPointerProgram.java">NullPointerProgram.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * Demonstrates a NullPointerException</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NullPointerProgram</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * main() method: begins program</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param arguments is not used</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="n">Integer</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span> <span class="c1">// initialize variable</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// set the address to nothing</span>
+    <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span> <span class="c1">// throws NullPointerException</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+
+  <span class="o">}</span><span class="c1">// End of Main.</span>
+
+<span class="o">}</span><span class="c1">// End of Class.</span></code></pre></div>
+

@@ -1,0 +1,60 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/SimpleClass.java">SimpleClass.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Shows an example of a constructor and the toString() method for a simple class</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SimpleClass</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// create three President objects</span>
+    <span class="n">President</span> <span class="n">president44</span> <span class="o">=</span> <span class="k">new</span> <span class="n">President</span><span class="o">(</span><span class="s">&quot;Barack&quot;</span><span class="o">,</span> <span class="s">&quot;Hussein&quot;</span><span class="o">,</span> <span class="s">&quot;Obama&quot;</span><span class="o">);</span>
+    <span class="n">President</span> <span class="n">president43</span> <span class="o">=</span> <span class="k">new</span> <span class="n">President</span><span class="o">(</span><span class="s">&quot;George&quot;</span><span class="o">,</span> <span class="s">&quot;Walker&quot;</span><span class="o">,</span> <span class="s">&quot;Bush&quot;</span><span class="o">);</span>
+    <span class="n">President</span> <span class="n">president42</span> <span class="o">=</span> <span class="k">new</span> <span class="n">President</span><span class="o">(</span><span class="s">&quot;William&quot;</span><span class="o">,</span> <span class="s">&quot;Jefferson&quot;</span><span class="o">,</span> <span class="s">&quot;Clinton&quot;</span><span class="o">);</span>
+
+    <span class="c1">// output three President objects</span>
+    <span class="n">String</span> <span class="n">programOutput</span> <span class="o">=</span> <span class="s">&quot;The three most recent presidents are:\n&quot;</span> <span class="o">+</span> <span class="n">president44</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span>
+        <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">president43</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">president42</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">programOutput</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span><span class="c1">// end of class</span>
+
+<span class="cm">/* Stores the first, middle, and last names for a president. */</span>
+<span class="kd">class</span> <span class="nc">President</span> <span class="o">{</span>
+  <span class="c1">// data fields that store each object&#39;s data</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">first</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">middle</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">last</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor - Used To Create EAch Object &amp; Initialize DAta Fields.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param n1 is the President&#39;s first name</span>
+<span class="cm">   * @param n2 is the President&#39;s middle name</span>
+<span class="cm">   * @param n3 is the President&#39;s last name</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">President</span><span class="o">(</span><span class="n">String</span> <span class="n">n1</span><span class="o">,</span> <span class="n">String</span> <span class="n">n2</span><span class="o">,</span> <span class="n">String</span> <span class="n">n3</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">n1</span><span class="o">;</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="n">n2</span><span class="o">;</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="n">n3</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Used to Display The Data Stored In EAch Object&#39;s DAta Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return a President&#39;s name in format: Mr. President First M. Last</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">output</span> <span class="o">=</span> <span class="s">&quot;Mr. President &quot;</span> <span class="o">+</span> <span class="n">first</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">middle</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">last</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">output</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></div>
+

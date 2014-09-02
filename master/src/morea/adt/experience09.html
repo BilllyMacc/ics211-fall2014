@@ -1,0 +1,55 @@
+<h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that does the following.</p>
+
+<ol>
+  <li>For this program, add on to the code for Assignment #8.</li>
+  <li>Add a (non-static) method to the Person class that adds the String “Dr.” to the beginning of the name of a Person object. The name of this method should be phd(). The return type is void. The method has no parameters. In other words, this method changes the value of the data field for the name.</li>
+  <li>Add a (non-static) method to the Person class that adds 1 (one) to the age of a Person object. The name of this method should be birthday(). The return type is void. The method has no parameters. In other words, this method changes the value of the data field for the age.</li>
+  <li>In the main method, print out the Person object (person variable), using the toString() method. Do NOT use the System.out.println() method, instead use the JOptionPane.showMessageDialog() method.</li>
+  <li>Then call both the phd() method and birthday() methods. Again, output the object using the toString() method, and the JOptionPane.showMessageDialog() method.</li>
+  <li>Use the second name and age to instantiate another Person object. Use the toString() method, and the JOptionPane.showMessageDialog() method to output the information.</li>
+  <li>Then call both the phd() method and birthday() methods for the second Person object. Again, output the object using the toString() method, and the JOptionPane.showMessageDialog() method.</li>
+  <li>Below your LastnameFirstname9 class, create a second class in your LastnameFirstname9.java file.</li>
+  <li>Unlike your LastnameFirstname9 class, do NOT include the public modifier. In other words, the code for your Person class should look like this:</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">Person</span><span class="o">{</span>
+		<span class="c1">//data fields for name and age</span>
+		<span class="c1">//constructor</span>
+		<span class="c1">//toString() method</span>
+		<span class="c1">//phd() method</span>
+		<span class="c1">//birthday() method</span>
+	<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.</li>
+  <li>Create two data fields. One data field for name and a second data field for age in your Person class.</li>
+  <li>Write the constructor for your Person class. You should have a String and Integer (or int) parameters, which initialize your two data fields.</li>
+  <li>Write the toString() method for your Person class. The return value should have the format: “X is Y years old.”</li>
+  <li>Write the phd() method for your Person class. The return type is void. The method has no parameters.</li>
+  <li>Write the birthday() method for your Person class. The return type is void. The method has no parameters.</li>
+  <li>Make sure your code follows the ICS 211 Java Coding Standard, in particular the Java documentation (Javadoc) comments that go above each method.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: In the edit method, do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Make sure your code follows the ICS 211 Java Coding Standard, in particular the Java documentation (Javadoc) comments that go above each method.</li>
+</ol>
+
+<h2 id="example-output">Example output</h2>
+
+<p>Here is example output for commandline arguments: <b>Nami 20 Nalu 25</b></p>
+
+<p>
+	<br />
+	<img style="border: #3c8dc5 solid 5px" src="output1.jpg" alt="Nami is 20 years old." />
+	<br />
+  	<br />	
+	<img style="border: #3c8dc5 solid 5px" src="output3.jpg" alt="Dr. Nami is 21 years old." />
+	<br />
+  	<br />		
+	<img style="border: #3c8dc5 solid 5px" src="output2.jpg" alt="Nalu is 25 years old." />
+	<br />	
+  	<br />	
+	<img style="border: #3c8dc5 solid 5px" src="output4.jpg" alt="Dr. Nalu is 26 years old." />
+</p>
+

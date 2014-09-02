@@ -1,0 +1,30 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/DoNotCatch.java">DoNotCatch.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * Shows exception propagation when a exception is not caught.</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DoNotCatch</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * main() method: begins program</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param arguments is not used</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;program starting&quot;</span><span class="o">);</span>
+    <span class="c1">// Give a denominator of zero (0)</span>
+    <span class="c1">// note the &quot;exception propagation&quot; in the error message</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">50</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;program pau already&quot;</span><span class="o">);</span>
+  <span class="o">}</span><span class="c1">// End of Main.</span>
+
+<span class="o">}</span><span class="c1">// End of Class.</span></code></pre></div>
+

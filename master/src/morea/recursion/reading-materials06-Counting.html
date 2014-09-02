@@ -1,0 +1,63 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/Counting.java">Counting.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * Count 1 to 5 using iteration &amp; recursion</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Counting</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Program starts with this method</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param args Nnone</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Integer</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Counting</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Iterative solution: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Counting</span><span class="o">.</span><span class="na">recursion</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Recursive solution: &quot;</span> <span class="o">+</span> <span class="n">result</span><span class="o">);</span>
+    <span class="c1">// make infinite loop (DO NOT DO THIS!)</span>
+    <span class="c1">// result = Counting.recursion(6);</span>
+    <span class="c1">// System.out.println(&quot;Recursive solution: &quot; + result);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Counts 1 to 5 using iteration.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param number should use Integer 1 (one)</span>
+<span class="cm">   * @return sum of 1 to 5</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">loop</span><span class="o">(</span><span class="n">Integer</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Integer</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">number</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Counts 1 to 5 using recursion.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param number should use Integer 1 (one)</span>
+<span class="cm">   * @return sum of 1 to 5</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">recursion</span><span class="o">(</span><span class="n">Integer</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// base case:</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">==</span> <span class="mi">5</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">number</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// recursive case:</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="n">Counting</span><span class="o">.</span><span class="na">recursion</span><span class="o">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of else</span>
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+

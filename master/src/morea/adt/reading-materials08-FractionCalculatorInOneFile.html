@@ -1,0 +1,422 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/FractionCalculatorInOneFile.java">FractionCalculatorInOneFile.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+<span class="c1">//An interface used to compare two objects.</span>
+<span class="c1">//Must implement method compareTo()</span>
+<span class="kn">import</span> <span class="nn">java.lang.Comparable</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * SHOWS HOW TO PUT SEVERAL CLASSES IN ONE FILE. Ask user for numerator &amp; denominator, output fraction</span>
+<span class="cm"> * addition &amp; subtraction using the Fraction class</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+
+<span class="c1">// when we put multiple classes in one file,</span>
+<span class="c1">// the class with the main method is &quot;public&quot;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FractionCalculatorInOneFile</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * main() method: begins program</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param arguments is not used</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Create two Default Fraction object</span>
+    <span class="c1">// If A Class Implements an Interface,</span>
+    <span class="c1">// Then We Can Use The Interface To Declare A Variable.</span>
+    <span class="c1">// Syntax: InterfaceName variableName = new Constructor(parameters);</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">FractionInterface</span> <span class="n">fraction3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="c1">// get user input</span>
+    <span class="n">String</span> <span class="n">number1</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the numerator&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number2</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the denominator&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number3</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the 2nd numerator&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">number4</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Please enter the 2nd denominator&quot;</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// Convert String To Integer.</span>
+      <span class="n">Integer</span> <span class="n">numerator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number1</span><span class="o">);</span>
+      <span class="n">Integer</span> <span class="n">denominator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number2</span><span class="o">);</span>
+      <span class="c1">// Set first Fraction object</span>
+      <span class="n">fraction1</span><span class="o">.</span><span class="na">setNumerator</span><span class="o">(</span><span class="n">numerator</span><span class="o">);</span>
+      <span class="n">fraction1</span><span class="o">.</span><span class="na">setDenominator</span><span class="o">(</span><span class="n">denominator</span><span class="o">);</span>
+      <span class="c1">// Convert String To Integer.</span>
+      <span class="n">numerator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number3</span><span class="o">);</span>
+      <span class="n">denominator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number4</span><span class="o">);</span>
+      <span class="c1">// Set second Fraction object</span>
+      <span class="n">fraction2</span><span class="o">.</span><span class="na">setNumerator</span><span class="o">(</span><span class="n">numerator</span><span class="o">);</span>
+      <span class="n">fraction2</span><span class="o">.</span><span class="na">setDenominator</span><span class="o">(</span><span class="n">denominator</span><span class="o">);</span>
+      <span class="c1">// calculate addition</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; + &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="c1">// calculate subtraction</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">subtract</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="c1">// multiply</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; * &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="c1">// divide</span>
+      <span class="n">fraction3</span> <span class="o">=</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">divide</span><span class="o">(</span><span class="n">fraction2</span><span class="o">);</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span> <span class="o">+</span> <span class="n">fraction1</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; / &quot;</span> <span class="o">+</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span>
+          <span class="o">+</span> <span class="n">fraction3</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if user does not enter an integer</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">exception1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="s">&quot;Please enter a whole number.&quot;</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of catch</span>
+     <span class="c1">// if user enters 0 for the denominator</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalFractionException</span> <span class="n">exception2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">exception2</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of catch</span>
+
+    <span class="c1">// will not compile because method greatestCommonDivisor() is &quot;private&quot;</span>
+    <span class="c1">// Fraction f = new Fraction(1,2);</span>
+    <span class="c1">// f.greatestCommonDivisor(1,2);</span>
+
+  <span class="o">}</span><span class="c1">// End of Main.</span>
+
+<span class="o">}</span><span class="c1">// End of Class.</span>
+
+<span class="c1">// *********************************************************************</span>
+<span class="cm">/**</span>
+<span class="cm"> * Interface is a list of method prototypes that other classes must implement (like a contract)</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+
+<span class="c1">// for multiple classes &amp; interfaces in one file,</span>
+<span class="c1">// interfaces MUST NOT have a &quot;public&quot; modifier</span>
+<span class="kd">interface</span> <span class="nc">FractionInterface</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Adds Two Fractions Together.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param fraction2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Result</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">add</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">fraction2</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Subtracts Two Fractions Together.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param fraction2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Result</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">fraction2</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Multiplies Two Fractions .</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param fraction2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Product</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">multiply</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">fraction2</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Divides Two Fractions .</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param fraction2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Quotient</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">divide</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">fraction2</span><span class="o">);</span>
+
+  <span class="cm">/** This method reduces a fraction to its lowest terms. */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reduceToLowestTerms</span><span class="o">();</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the numerator</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getNumerator</span><span class="o">();</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the denominator</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getDenominator</span><span class="o">();</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is A &quot;Mutator&quot; Method - Used To Set A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param numeratorParameter is the first name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNumerator</span><span class="o">(</span><span class="n">Integer</span> <span class="n">numeratorParameter</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is A &quot;Mutator&quot; Method - Used To Set A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param lastNameParameter is the last name.</span>
+<span class="cm">   * @exception IllegalFractionException if the denominator is zero</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDenominator</span><span class="o">(</span><span class="n">Integer</span> <span class="n">denominatorParameter</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IllegalFractionException</span><span class="o">;</span>
+
+<span class="o">}</span><span class="c1">// End of interface.</span>
+
+<span class="c1">// *********************************************************************</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Implements the &quot;FractionInterface&quot; Interface. Syntax: public class ClassName implements</span>
+<span class="cm"> * InterfaceName{</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">Fraction</span> <span class="kd">implements</span> <span class="n">FractionInterface</span><span class="o">,</span> <span class="n">Comparable</span> <span class="o">{</span>
+
+  <span class="c1">// These Are The Data Fields.</span>
+  <span class="c1">// Used to STore EACH Object&#39;s Data.</span>
+  <span class="c1">// Syntax: private ClassName variableName;</span>
+  <span class="c1">// Usually I go ahead and initialize the data field here.</span>
+  <span class="c1">// This prevents a NullPointerException later on.</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="n">numerator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="n">denominator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor - Used To Create EAch Object &amp; Initialize DAta Fields.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param numeratorParameter is the Fraction&#39;s Numerator.</span>
+<span class="cm">   * @param denominatorParameter is the Fraction&#39;s Denominator.</span>
+<span class="cm">   * @exception IllegalFractionException if the denominator is zero</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">Fraction</span><span class="o">(</span><span class="n">Integer</span> <span class="n">numeratorParameter</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">denominatorParameter</span><span class="o">)</span>
+      <span class="kd">throws</span> <span class="n">IllegalFractionException</span> <span class="o">{</span>
+    <span class="c1">// This Code Initializes The Data Fields.</span>
+    <span class="c1">// Syntax: dataField = parameter;</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">numeratorParameter</span><span class="o">;</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">denominatorParameter</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">denominator</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">0</span><span class="o">))</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalFractionException</span><span class="o">(</span><span class="s">&quot;Cannot have 0 as the denominator!&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Used to Display The Data Stored In EAch Object&#39;s DAta Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return a Fraction in format: numerator / denominator</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Create a Local VAriable.</span>
+    <span class="n">String</span> <span class="n">fractionString</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">+</span> <span class="s">&quot; / &quot;</span> <span class="o">+</span> <span class="n">denominator</span><span class="o">;</span>
+    <span class="c1">// Return the Local Variable.</span>
+    <span class="k">return</span> <span class="n">fractionString</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Adds Two Fractions.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param f2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Result</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">add</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">f2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Get the Numbertor &amp; Denominator Of f2.</span>
+    <span class="n">Integer</span> <span class="n">numerator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getNumerator</span><span class="o">();</span>
+    <span class="n">Integer</span> <span class="n">denominator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">();</span>
+    <span class="c1">// Cross Multiply &amp; Add to Get Numerator.</span>
+    <span class="n">Integer</span> <span class="n">numerator3</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">denominator2</span> <span class="o">+</span> <span class="n">numerator2</span> <span class="o">*</span> <span class="n">denominator</span><span class="o">;</span>
+    <span class="c1">// Multiply Both denominators.</span>
+    <span class="n">Integer</span> <span class="n">denominator3</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">*</span> <span class="n">denominator2</span><span class="o">;</span>
+    <span class="c1">// Create (instantiate) new Fraction and reduce to lowest terms</span>
+    <span class="n">FractionInterface</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">numerator3</span><span class="o">,</span> <span class="n">denominator3</span><span class="o">);</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">reduceToLowestTerms</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Subtracts Two Fractions.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param f2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Result</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">subtract</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">f2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Get the Numbertor &amp; Denominator Of f2.</span>
+    <span class="n">Integer</span> <span class="n">numerator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getNumerator</span><span class="o">();</span>
+    <span class="n">Integer</span> <span class="n">denominator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">();</span>
+    <span class="c1">// Cross Multiply &amp; Subtract to Get Numerator.</span>
+    <span class="n">Integer</span> <span class="n">numerator3</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">denominator2</span> <span class="o">-</span> <span class="n">numerator2</span> <span class="o">*</span> <span class="n">denominator</span><span class="o">;</span>
+    <span class="c1">// Multiply Both denominators.</span>
+    <span class="n">Integer</span> <span class="n">denominator3</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">*</span> <span class="n">denominator2</span><span class="o">;</span>
+    <span class="c1">// Create (instantiate) new Fraction and reduce to lowest terms</span>
+    <span class="n">FractionInterface</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">numerator3</span><span class="o">,</span> <span class="n">denominator3</span><span class="o">);</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">reduceToLowestTerms</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Multiplies Two Fractions.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param f2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Product</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">multiply</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">f2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Get the Numbertor &amp; Denominator Of f2.</span>
+    <span class="n">Integer</span> <span class="n">numerator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getNumerator</span><span class="o">();</span>
+    <span class="n">Integer</span> <span class="n">denominator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">();</span>
+    <span class="c1">// Multiply Numerators.</span>
+    <span class="n">Integer</span> <span class="n">numerator3</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">numerator2</span><span class="o">;</span>
+    <span class="c1">// Multiply denominators.</span>
+    <span class="n">Integer</span> <span class="n">denominator3</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">*</span> <span class="n">denominator2</span><span class="o">;</span>
+    <span class="c1">// Create (instantiate) new Fraction and reduce to lowest terms</span>
+    <span class="n">FractionInterface</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">numerator3</span><span class="o">,</span> <span class="n">denominator3</span><span class="o">);</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">reduceToLowestTerms</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Divides Two Fractions.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param f2 Is The 2nd Fraction.</span>
+<span class="cm">   * @return a 3rd Fraction The Is The Quotient</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">FractionInterface</span> <span class="nf">divide</span><span class="o">(</span><span class="n">FractionInterface</span> <span class="n">f2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Get the Numbertor &amp; Denominator Of f2.</span>
+    <span class="n">Integer</span> <span class="n">numerator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getNumerator</span><span class="o">();</span>
+    <span class="n">Integer</span> <span class="n">denominator2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">();</span>
+    <span class="c1">// Multiply num1 * den2.</span>
+    <span class="n">Integer</span> <span class="n">numerator3</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">denominator2</span><span class="o">;</span>
+    <span class="c1">// Multiply den1 * num2.</span>
+    <span class="n">Integer</span> <span class="n">denominator3</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">*</span> <span class="n">numerator2</span><span class="o">;</span>
+    <span class="c1">// Create (instantiate) new Fraction and reduce to lowest terms</span>
+    <span class="n">FractionInterface</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">numerator3</span><span class="o">,</span> <span class="n">denominator3</span><span class="o">);</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">reduceToLowestTerms</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/** This method reduces a fraction to its lowest terms. */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reduceToLowestTerms</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// determine the greatest common divisor</span>
+    <span class="n">Integer</span> <span class="n">gcd</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">greatestCommonDivisor</span><span class="o">(</span><span class="n">numerator</span><span class="o">,</span> <span class="n">denominator</span><span class="o">);</span>
+    <span class="c1">// if GCD is negative, change to positive</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">gcd</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">gcd</span> <span class="o">=</span> <span class="o">-</span><span class="n">gcd</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// divide gcd into both numerator and denominator</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">gcd</span><span class="o">;</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">denominator</span> <span class="o">/</span> <span class="n">gcd</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Euclid&#39;s algorithm from 200 BCE, which determines the greatest common divisior of two numbers.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param a is the first number.</span>
+<span class="cm">   * @param b is the second number.</span>
+<span class="cm">   * @return the gcd of the two numbers</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="n">Integer</span> <span class="nf">greatestCommonDivisor</span><span class="o">(</span><span class="n">Integer</span> <span class="n">a</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// &quot;private&quot;</span>
+    <span class="c1">// % is modulus which is the remainder of a division</span>
+    <span class="c1">// base case</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">b</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// recursive case</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="nf">greatestCommonDivisor</span><span class="o">(</span><span class="n">b</span><span class="o">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the numerator</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getNumerator</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Return the Data Field.</span>
+    <span class="k">return</span> <span class="n">numerator</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the denominator</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getDenominator</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Return the Data Field.</span>
+    <span class="k">return</span> <span class="n">denominator</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is A &quot;Mutator&quot; Method - Used To Set A Data Field.</span>
+<span class="cm">   *</span>
+<span class="cm">   * @param numeratorParameter is the first name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setNumerator</span><span class="o">(</span><span class="n">Integer</span> <span class="n">numeratorParameter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// SEt the Data Field.</span>
+    <span class="n">numerator</span> <span class="o">=</span> <span class="n">numeratorParameter</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is A &quot;Mutator&quot; Method - Used To Set A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param lastNameParameter is the last name.</span>
+<span class="cm">   * @exception IllegalFractionException if the denominator is zero</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setDenominator</span><span class="o">(</span><span class="n">Integer</span> <span class="n">denominatorParameter</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IllegalFractionException</span> <span class="o">{</span>
+    <span class="c1">// set the Data Field.</span>
+    <span class="n">denominator</span> <span class="o">=</span> <span class="n">denominatorParameter</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">denominator</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalFractionException</span><span class="o">(</span><span class="s">&quot;Cannot have a denominator that is zero!&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span><span class="c1">// end of setDenominator()</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Compares this object with the specified object for order. Returns a negative integer, zero, or</span>
+<span class="cm">   * a positive integer as this object is less than, equal to, or greater than the specified object.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param object2 The 2nd Object to be compared.</span>
+<span class="cm">   * @return A negative integer, zero, or a positive integer as this object is less than, equal to,</span>
+<span class="cm">   *         or greater than the specified object.</span>
+<span class="cm">   * @exception ClassCastException If the specified object&#39;s type prevents it from being compared to</span>
+<span class="cm">   *            this Object.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Object</span> <span class="n">object2</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ClassCastException</span> <span class="o">{</span>
+    <span class="c1">// The parameter should be a Fraction, so we will cast it,</span>
+    <span class="c1">// so that the compiler will let us call Fraction methods</span>
+    <span class="n">Fraction</span> <span class="n">fraction2</span> <span class="o">=</span> <span class="o">(</span><span class="n">Fraction</span><span class="o">)</span> <span class="n">object2</span><span class="o">;</span>
+    <span class="c1">// cross multiply the two fractions,</span>
+    <span class="c1">// so that denominator will be the same for both</span>
+    <span class="kt">int</span> <span class="n">numerator1</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">getDenominator</span><span class="o">();</span>
+    <span class="kt">int</span> <span class="n">numerator2</span> <span class="o">=</span> <span class="n">fraction2</span><span class="o">.</span><span class="na">getNumerator</span><span class="o">()</span> <span class="o">*</span> <span class="n">denominator</span><span class="o">;</span>
+    <span class="c1">// subtract to get the result</span>
+    <span class="c1">// if numerator1 &gt; numerator2, then will have positive integer</span>
+    <span class="c1">// if numerator1 == numerator2, then will have zero (0)</span>
+    <span class="c1">// if numerator1 &lt; numerator2, then will have negative integer</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">numerator1</span> <span class="o">-</span> <span class="n">numerator2</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+  <span class="o">}</span>
+
+<span class="o">}</span><span class="c1">// End of Class.</span>
+
+<span class="c1">// ******************************************************************</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * An Exception for use with the Fraction class</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+
+<span class="c1">// note that &quot;public&quot; is omitted, so that we can put many classes in one file</span>
+<span class="kd">class</span> <span class="nc">IllegalFractionException</span> <span class="kd">extends</span> <span class="n">RuntimeException</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Constructor</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param message Describes the cause of the error</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">IllegalFractionException</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+

@@ -1,0 +1,96 @@
+<p>File: </p>
+
+<ul>
+  <li><a href="../examples/Backwards.java">Backwards.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * Writes a word backwards using iteration &amp; recursion The results are returned to the main() method</span>
+<span class="cm"> * and printed there</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Backwards</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Program starts with this method</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param args The 1st commandline argument should be String to be printed backwards</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">arguments</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: Please enter at least one commandline argument.&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="n">String</span> <span class="n">word</span> <span class="o">=</span> <span class="n">arguments</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+      <span class="n">String</span> <span class="n">backwards</span> <span class="o">=</span> <span class="n">Backwards</span><span class="o">.</span><span class="na">iterativeBack</span><span class="o">(</span><span class="n">word</span><span class="o">);</span> <span class="c1">// A (return address)</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;Iterative solution: &quot;</span> <span class="o">+</span> <span class="n">backwards</span><span class="o">);</span>
+      <span class="n">backwards</span> <span class="o">=</span> <span class="n">Backwards</span><span class="o">.</span><span class="na">recursiveBack</span><span class="o">(</span><span class="n">word</span><span class="o">);</span> <span class="c1">// B (return address)</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\n\nRecursive solution: &quot;</span> <span class="o">+</span> <span class="n">backwards</span><span class="o">);</span>
+      <span class="n">backwards</span> <span class="o">=</span> <span class="n">Backwards</span><span class="o">.</span><span class="na">recursiveBack2</span><span class="o">(</span><span class="n">word</span><span class="o">);</span> <span class="c1">// C (return address)</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;\n\nRecursive solution2: &quot;</span> <span class="o">+</span> <span class="n">backwards</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Writes a character string backward using iteration.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param string a character string</span>
+<span class="cm">   * @return a backwards string</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">iterativeBack</span><span class="o">(</span><span class="n">String</span> <span class="n">string</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">backWord</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+      <span class="n">backWord</span> <span class="o">=</span> <span class="n">backWord</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">backWord</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Writes a character string backward using recursion.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param string a character string</span>
+<span class="cm">   * @return a backwards string</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">recursiveBack</span><span class="o">(</span><span class="n">String</span> <span class="n">string</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="c1">// base case: output string if only has one character</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">string</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// recursive case: display last character,</span>
+    <span class="c1">// then call method again with shorter string</span>
+    <span class="c1">// that has the last character cut off</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">length</span><span class="o">)</span>
+          <span class="o">+</span> <span class="n">Backwards</span><span class="o">.</span><span class="na">recursiveBack</span><span class="o">(</span><span class="n">string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">));</span>
+      <span class="c1">// D (return address)</span>
+    <span class="o">}</span><span class="c1">// end of else</span>
+  <span class="o">}</span><span class="c1">// end of recursiveBack()</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Writes a character string backward using recursion.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param string a character string</span>
+<span class="cm">   * @return a backwards string</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">recursiveBack2</span><span class="o">(</span><span class="n">String</span> <span class="n">string</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="na">length</span><span class="o">();</span>
+    <span class="c1">// base case: output string if only has one character</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">length</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">string</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// recursive case: call method again with shorter string</span>
+    <span class="c1">// that has the first character cut off,</span>
+    <span class="c1">// then display first character</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">Backwards</span><span class="o">.</span><span class="na">recursiveBack2</span><span class="o">(</span><span class="n">string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">length</span><span class="o">))</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">// E (return address)</span>
+    <span class="o">}</span><span class="c1">// end of else</span>
+  <span class="o">}</span><span class="c1">// end of recursiveBack2()</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+

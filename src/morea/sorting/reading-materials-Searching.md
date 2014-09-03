@@ -1,3 +1,22 @@
+---
+title: "Searching.java"
+published: true
+morea_id: reading-materials-Searching
+morea_summary: "Searches for a Fraction with an array of Fractions"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# Searching.java
+
+File:
+
+[Searching.java](../examples/Searching.java)
+
+Source: 
+
+{% highlight java %}
 //A class to generate "random" numbers.
 import java.util.Random;
 //An interface used to compare two objects.
@@ -156,3 +175,5 @@ public class Searching {
 
 }// end of class
 
+
+{% endhighlight %}

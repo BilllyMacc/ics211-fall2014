@@ -1,3 +1,22 @@
+---
+title: "GroceryListProgram5.java"
+published: true
+morea_id: reading-materials-GroceryListProgram5
+morea_summary: "Implements a Grocery List Version 5: displays items in alphabetical order"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# GroceryListProgram5.java
+
+File:
+
+[GroceryListProgram5.java](../examples/GroceryListProgram5.java)
+
+Source: 
+
+{% highlight java %}
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.io.File;
@@ -275,3 +294,5 @@ public class GroceryListProgram5 {
 
 }// end of class
 
+
+{% endhighlight %}

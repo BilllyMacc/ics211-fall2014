@@ -1,3 +1,22 @@
+---
+title: "Sorting.java"
+published: true
+morea_id: reading-materials-Sorting
+morea_summary: "5 sorting methods"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# Sorting.java
+
+File:
+
+[Sorting.java](../examples/Sorting.java)
+
+Source: 
+
+{% highlight java %}
 //An interface used to compare two objects.
 import java.lang.Comparable;
 
@@ -425,4 +444,4 @@ public class Sorting {
   }// end of method
 
 }// end of class
-
+{% endhighlight %}

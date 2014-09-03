@@ -1,3 +1,22 @@
+---
+title: "TestComparable.java"
+published: true
+morea_id: reading-materials-TestComparable
+morea_summary: "A test for the compareTo() method for several classes"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+# TestComparable.java
+
+File:
+
+  * [TestComparable.java](../examples/TestComparable.java)
+
+Source code:
+
+{% highlight java %}
 //An interface used to compare two objects.
 import java.lang.Comparable;
 
@@ -59,4 +78,7 @@ public class TestComparable {
   }// end of method
 
 }// end of class
+
+
+{% endhighlight %}
 

@@ -1,3 +1,22 @@
+---
+title: "Comparable.java"
+published: true
+morea_id: reading-materials-Comparable
+morea_summary: "A Comparable interface based on Java API's Comparable interface"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+# Comparable.java
+
+File: 
+
+  * [Comparable.java](../examples/Comparable.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * A Comparable interface based on Java API's Comparable interface
  * 
@@ -17,3 +36,7 @@ public interface Comparable {
    */
   public int compareTo(Object object) throws ClassCastException;
 }
+
+{% endhighlight %}
+  
+  

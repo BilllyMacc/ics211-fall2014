@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on Sorting - Part II (asmt #12) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that does the following.</p>
+
+<ol>
+  <li>Use the first argument of commandline input as the input file name.</li>
+  <li>For example, args[0] will be the name of your input file.</li>
+  <li>The name of your input file should be typed into the Run Arguments text box at the top of jGRASP.</li>
+  <li>Your main method should be short with only two (2) method calls. You might also need some error checking for commandline input and other possible errors, so you should use if statements and/or try-catch blocks.</li>
+  <li>Store each word in the input file in an array of Strings.</li>
+  <li>Write a method to accomplish this.</li>
+  <li>The parameter of the method is the input file name.</li>
+  <li>The method should return an array of Strings with all the words in the input file.</li>
+  <li>You need to make a connection to the input file and read each word.</li>
+  <li>If you&#8217;re not sure how to read one word at a time from an input file, check out the methods of the Scanner class in the Java API.</li>
+  <li>Print out all the words in the array in ASCII order by using the compareTo() method of class String. The compareTo() method of class String will be called by the sorting methods in the Sorting.java program. You DO NOT need to write or use the compareTo() method in your code. It will be automatically called by sorting methods in the Sorting.java program.</li>
+  <li>Write a method to accomplish this.</li>
+  <li>The parameters of the method are the array of Strings and the file name.</li>
+  <li>Sort the words in the array in ASCII order by <b>choosing the appropriate sorting method</b> in the Sorting.java program. Note that if you try to sort NULL elements, you will get a NullPointerException. To prevent this, sort from 0 to the last word that is inserted into the array. For example: Sorting.quickSort(array, 0, indexOfLastWord);</li>
+  <li>To do this, you need to save the Sorting.java program in the same folder as your LastnameFirstname12.java program.</li>
+  <li>You DO NOT need to change any code in the Sorting.java program.</li>
+  <li>To prevent the automatic output of the Sorting.java program, use this code before you sort: Sorting.display = false;</li>
+  <li>You DO NOT need to write a separate sorting method in your LastnameFirstname12.java program. The point of this assignment is to learn how to recycle (reuse) code.</li>
+  <li><b>Justify your choice of sorting method in the comments at the top of your program</b></li>
+  <li>Print the name of the file.</li>
+  <li>Print all of the words that are stored in the array.</li>
+  <li>Your output should be similar to the output below.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: Do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Don&#8217;t forget to add &#8220;JavaDoc&#8221; style comments above each method. See ICS 211 Java Coding Standard (Comments: Methods) for details.</li>
+</ol>
+
+<h2 id="outline-of-program">Outline of Program</h2>
+
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LastnameFirstname12</span> <span class="o">{</span>	 	
+       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="o">[</span> <span class="o">]</span> <span class="n">commandlineArguments</span><span class="o">){</span>
+         <span class="n">String</span><span class="o">[</span> <span class="o">]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">readFileReturnWords</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+         <span class="n">sortAndPrintArray</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>      	     
+      <span class="o">}</span>
+       <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="o">[]</span> <span class="n">readFileReturnWords</span><span class="o">(</span><span class="n">String</span> <span class="n">filename</span><span class="o">){</span>
+         <span class="c1">//create array</span>
+         <span class="c1">//read one word at a time from file and store in array</span>
+         <span class="c1">//return the array</span>
+      <span class="o">}</span>
+       <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sortAndPrintArray</span><span class="o">(</span><span class="n">String</span> <span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="n">String</span> <span class="n">filename</span><span class="o">){</span>
+         <span class="c1">//sort the array</span>
+         <span class="c1">//print the array</span>
+      <span class="o">}</span>   
+   <span class="o">}</span></code></pre></div>
+
+<h2 id="output">Output</h2>
+
+<p>Here is example output for input file <a href="../examples/10.txt">10.txt</a></p>
+
+<div class="highlight"><pre><code class="java"><span class="n">ASCII</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">words</span> <span class="n">in</span> <span class="nl">file:</span> <span class="mi">10</span><span class="o">.</span><span class="na">txt</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">11</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">13</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">17</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">19</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">4</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">5</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">23</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">6</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">29</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">7</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">8</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">5</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">9</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">7</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">The</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">11</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">and</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">12</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="nl">are:</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">13</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">first</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">14</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">primes</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">15</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">ten</span></code></pre></div>
+
+<p>Here is example output for input file <a href="../examples/groceries.csv">groceries.csv</a></p>
+
+<div class="highlight"><pre><code class="java"><span class="n">ASCII</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">words</span> <span class="n">in</span> <span class="nl">file:</span> <span class="n">groceries</span><span class="o">.</span><span class="na">csv</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">2</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">3</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">4</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">5</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">6</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">Name</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">7</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">Number</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">8</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">eggs</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">9</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">garlic</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">natto</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">11</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">negi</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">12</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">shiitake</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">13</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">umeboshi</span><span class="o">,</span></code></pre></div>
+
+<p>Here is example output for input file <a href="../examples/electricity.txt">electricity.txt</a></p>
+
+<div class="highlight"><pre><code class="java"><span class="n">ASCII</span> <span class="n">listing</span> <span class="n">of</span> <span class="n">words</span> <span class="n">in</span> <span class="nl">file:</span> <span class="n">electricity</span><span class="o">.</span><span class="na">txt</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="s">&quot;A</span>
+<span class="s">index = 1, element = &quot;</span><span class="n">bulldozer</span><span class="s">&quot;</span>
+<span class="s">index = 2, element = &quot;</span><span class="n">electrons</span><span class="s">&quot;,</span>
+<span class="s">index = 3, element = &quot;</span><span class="n">eyeball</span><span class="s">&quot;.</span>
+<span class="s">index = 4, element = (this</span>
+<span class="s">index = 5, element = (this</span>
+<span class="s">index = 6, element = ...</span>
+<span class="s">index = 7, element = 1877</span>
+<span class="s">index = 8, element = 1879</span>
+<span class="s">index = 9, element = 1923</span>
+<span class="s">index = 10, element = 1937.</span>
+<span class="s">index = 11, element = 2000</span>
+<span class="s">index = 12, element = AMAZING</span>
+<span class="s">index = 13, element = AMP,</span>
+<span class="s">index = 14, element = After</span>
+<span class="s">index = 15, element = Although</span>
+<span class="s">index = 16, element = Barry</span>
+<span class="s">index = 17, element = Benjamin</span>
+<span class="s">index = 18, element = Bob</span>
+<span class="s">index = 19, element = Dave</span>
+<span class="s">index = 20, element = Did</span>
+<span class="s">index = 21, element = ELECTRICITY</span>
+<span class="s">index = 22, element = ELECTRONIC</span>
+<span class="s">index = 23, element = Edison</span>
+<span class="s">index = 24, element = Edison&#39;s</span>
+<span class="s">index = 25, element = Edison&#39;s</span>
+<span class="s">index = 26, element = Edison&#39;s</span>
+<span class="s">index = 27, element = Edison.</span>
+<span class="s">index = 28, element = Eventually</span>
+<span class="s">index = 29, element = FACT:</span>
+<span class="s">index = 30, element = Franklin</span>
+<span class="s">index = 31, element = Franklin&#39;s</span>
+<span class="s">index = 32, element = Franklin,</span>
+<span class="s">index = 33, element = Franklin,</span>
+<span class="s">index = 34, element = Galvani</span>
+<span class="s">index = 35, element = Galvani&#39;s</span>
+<span class="s">index = 36, element = Galvani&#39;s,</span>
+<span class="s">index = 37, element = He</span>
+<span class="s">index = 38, element = Here</span>
+<span class="s">index = 39, element = IS:</span>
+<span class="s">index = 40, element = If</span>
+<span class="s">index = 41, element = In</span>
+<span class="s">index = 42, element = In</span>
+<span class="s">index = 43, element = It</span>
+<span class="s">index = 44, element = It</span>
+<span class="s">index = 45, element = James</span>
+<span class="s">index = 46, element = Jersey.</span>
+<span class="s">index = 47, element = Louise</span>
+<span class="s">index = 48, element = Mary</span>
+<span class="s">index = 49, element = Myron</span>
+<span class="s">index = 50, element = NEW</span>
+<span class="s">index = 51, element = New</span>
+<span class="s">index = 52, element = On</span>
+<span class="s">index = 53, element = QUESTION</span>
+<span class="s">index = 54, element = SCIENCE</span>
+<span class="s">index = 55, element = SCIENTIFIC</span>
+<span class="s">index = 56, element = TODAY&#39;S</span>
+<span class="s">index = 57, element = The</span>
+<span class="s">index = 58, element = The</span>
+<span class="s">index = 59, element = The</span>
+<span class="s">index = 60, element = Then</span>
+<span class="s">index = 61, element = Then</span>
+<span class="s">index = 62, element = These</span>
+<span class="s">index = 63, element = This</span>
+<span class="s">index = 64, element = This</span>
+<span class="s">index = 65, element = This</span>
+<span class="s">index = 66, element = This</span>
+<span class="s">index = 67, element = Thomas</span>
+<span class="s">index = 68, element = Today</span>
+<span class="s">index = 69, element = Today,</span>
+<span class="s">index = 70, element = Transformer,</span>
+<span class="s">index = 71, element = Volt,</span>
+<span class="s">index = 72, element = Watt,</span>
+<span class="s">index = 73, element = What</span>
+<span class="s">index = 74, element = When</span>
+<span class="s">index = 75, element = a</span>
+<span class="s">index = 76, element = a</span>
+<span class="s">index = 77, element = a</span>
+<span class="s">index = 78, element = a</span>
+<span class="s">index = 79, element = a</span>
+<span class="s">index = 80, element = a</span>
+<span class="s">index = 81, element = a</span>
+<span class="s">index = 82, element = a</span>
+<span class="s">index = 83, element = a</span>
+<span class="s">index = 84, element = a</span>
+<span class="s">index = 85, element = a</span>
+<span class="s">index = 86, element = a</span>
+<span class="s">index = 87, element = a</span>
+<span class="s">index = 88, element = a</span>
+<span class="s">index = 89, element = a</span>
+<span class="s">index = 90, element = a</span>
+<span class="s">index = 91, element = a</span>
+<span class="s">index = 92, element = a</span>
+<span class="s">index = 93, element = a</span>
+<span class="s">index = 94, element = about</span>
+<span class="s">index = 95, element = about</span>
+<span class="s">index = 96, element = achievment</span>
+<span class="s">index = 97, element = adaptation</span>
+<span class="s">index = 98, element = advances</span>
+<span class="s">index = 99, element = after</span>
+<span class="s">index = 100, element = again.</span>
+<span class="s">index = 101, element = ago</span>
+<span class="s">index = 102, element = all</span>
+<span class="s">index = 103, element = almost</span>
+<span class="s">index = 104, element = almost.</span>
+<span class="s">index = 105, element = along</span>
+<span class="s">index = 106, element = along</span>
+<span class="s">index = 107, element = also</span>
+<span class="s">index = 108, element = also</span>
+<span class="s">index = 109, element = american</span>
+<span class="s">index = 110, element = amphibian</span>
+<span class="s">index = 111, element = an</span>
+<span class="s">index = 112, element = an</span>
+<span class="s">index = 113, element = an</span>
+<span class="s">index = 114, element = an</span>
+<span class="s">index = 115, element = an</span>
+<span class="s">index = 116, element = an</span>
+<span class="s">index = 117, element = and</span>
+<span class="s">index = 118, element = and</span>
+<span class="s">index = 119, element = and</span>
+<span class="s">index = 120, element = and</span>
+<span class="s">index = 121, element = and</span>
+<span class="s">index = 122, element = and</span>
+<span class="s">index = 123, element = and</span>
+<span class="s">index = 124, element = and</span>
+<span class="s">index = 125, element = and</span>
+<span class="s">index = 126, element = and</span>
+<span class="s">index = 127, element = and</span>
+<span class="s">index = 128, element = and</span>
+<span class="s">index = 129, element = and</span>
+<span class="s">index = 130, element = another</span>
+<span class="s">index = 131, element = any</span>
+<span class="s">index = 132, element = any</span>
+<span class="s">index = 133, element = anything,</span>
+<span class="s">index = 134, element = anyway.</span>
+<span class="s">index = 135, element = are</span>
+<span class="s">index = 136, element = as</span>
+<span class="s">index = 137, element = as</span>
+<span class="s">index = 138, element = as</span>
+<span class="s">index = 139, element = at</span>
+<span class="s">index = 140, element = attached</span>
+<span class="s">index = 141, element = attached</span>
+<span class="s">index = 142, element = attract</span>
+<span class="s">index = 143, element = back</span>
+<span class="s">index = 144, element = back</span>
+<span class="s">index = 145, element = back</span>
+<span class="s">index = 146, element = back</span>
+<span class="s">index = 147, element = batch</span>
+<span class="s">index = 148, element = batches</span>
+<span class="s">index = 149, element = be</span>
+<span class="s">index = 150, element = be</span>
+<span class="s">index = 151, element = be</span>
+<span class="s">index = 152, element = become</span>
+<span class="s">index = 153, element = been</span>
+<span class="s">index = 154, element = benefits</span>
+<span class="s">index = 155, element = bloodstream</span>
+<span class="s">index = 156, element = brain</span>
+<span class="s">index = 157, element = brillian</span>
+<span class="s">index = 158, element = brilliant</span>
+<span class="s">index = 159, element = brilliant</span>
+<span class="s">index = 160, element = build</span>
+<span class="s">index = 161, element = bulldozer</span>
+<span class="s">index = 162, element = but</span>
+<span class="s">index = 163, element = but</span>
+<span class="s">index = 164, element = by</span>
+<span class="s">index = 165, element = by</span>
+<span class="s">index = 166, element = came</span>
+<span class="s">index = 167, element = came</span>
+<span class="s">index = 168, element = came</span>
+<span class="s">index = 169, element = can</span>
+<span class="s">index = 170, element = can</span>
+<span class="s">index = 171, element = can</span>
+<span class="s">index = 172, element = can</span>
+<span class="s">index = 173, element = can</span>
+<span class="s">index = 174, element = carpet</span>
+<span class="s">index = 175, element = carpet,</span>
+<span class="s">index = 176, element = carpet,</span>
+<span class="s">index = 177, element = carpeting.</span>
+<span class="s">index = 178, element = carpets</span>
+<span class="s">index = 179, element = carpets,</span>
+<span class="s">index = 180, element = caught,</span>
+<span class="s">index = 181, element = change</span>
+<span class="s">index = 182, element = circut</span>
+<span class="s">index = 183, element = circut.</span>
+<span class="s">index = 184, element = circut.</span>
+<span class="s">index = 185, element = closely.</span>
+<span class="s">index = 186, element = collect</span>
+<span class="s">index = 187, element = company</span>
+<span class="s">index = 188, element = company</span>
+<span class="s">index = 189, element = company.</span>
+<span class="s">index = 190, element = completing</span>
+<span class="s">index = 191, element = conducted</span>
+<span class="s">index = 192, element = cool</span>
+<span class="s">index = 193, element = could</span>
+<span class="s">index = 194, element = cried</span>
+<span class="s">index = 195, element = current</span>
+<span class="s">index = 196, element = customer</span>
+<span class="s">index = 197, element = customer</span>
+<span class="s">index = 198, element = customer,</span>
+<span class="s">index = 199, element = customers</span>
+<span class="s">index = 200, element = damaged</span>
+<span class="s">index = 201, element = day</span>
+<span class="s">index = 202, element = day,</span>
+<span class="s">index = 203, element = dead</span>
+<span class="s">index = 204, element = decade,</span>
+<span class="s">index = 205, element = delicate</span>
+<span class="s">index = 206, element = dental</span>
+<span class="s">index = 207, element = design</span>
+<span class="s">index = 208, element = despite</span>
+<span class="s">index = 209, element = developed</span>
+<span class="s">index = 210, element = developed</span>
+<span class="s">index = 211, element = device</span>
+<span class="s">index = 212, element = did</span>
+<span class="s">index = 213, element = different</span>
+<span class="s">index = 214, element = dirt.</span>
+<span class="s">index = 215, element = discovered</span>
+<span class="s">index = 216, element = discovery</span>
+<span class="s">index = 217, element = doctors</span>
+<span class="s">index = 218, element = does</span>
+<span class="s">index = 219, element = down</span>
+<span class="s">index = 220, element = earned&quot;</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">221</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">education</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">222</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electric</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">223</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electric</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">224</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electric</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">225</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electric</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">226</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">227</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">228</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">229</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">230</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">231</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">232</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">233</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">234</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">235</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">236</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrical</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">237</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">238</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">239</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">240</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">241</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">242</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">243</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">244</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">245</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electricity</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">246</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electronic</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">247</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrons</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">248</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">electrons</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">249</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">enormous</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">250</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">enough</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">251</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">etc</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">252</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">etc</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">253</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">even</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">254</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">examine</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">255</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">experiment</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">256</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">experiments</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">257</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">explode</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">258</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">eyeball</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">259</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">fact</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">260</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">fact</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">261</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">feet</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">262</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">feet</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">263</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">feet</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">264</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">feet</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">265</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">few</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">266</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">filling</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">267</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">fillings</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">268</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">finger</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">269</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">finger</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">270</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">first</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">271</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">first</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">272</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">flew</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">273</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="k">for</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">274</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">force</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">275</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">force</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">276</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">form</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">277</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">formal</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">278</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">found</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">279</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">friend</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">280</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">friend</span><span class="err">&#39;</span><span class="n">s</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">281</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">friends</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">282</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">frog</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">283</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">frog</span><span class="err">&#39;</span><span class="n">s</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">284</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">frog</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">285</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">frog</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">286</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">frogs</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">287</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">from</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">288</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">from</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">289</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">generated</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">290</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">get</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">291</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">gets</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">292</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">given</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">293</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">go</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">294</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">granted</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">295</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">greatest</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">296</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">greatest</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">297</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">had</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">298</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">had</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">299</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">hand</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">300</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">has</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">301</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">have</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">302</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">have</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">303</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">have</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">304</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">have</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">305</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">he</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">306</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">he</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">307</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">he</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">308</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">he</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">309</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">he</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">310</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">herd</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">311</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">his</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">312</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">his</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">313</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">homes</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">314</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">hop</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">315</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">how</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">316</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">how</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">317</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">human</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">318</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">hundreds</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">319</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">hurt</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">320</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">illustrates</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">321</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">immediately</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">322</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">implant</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">323</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">important</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">324</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">important</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">325</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">important</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">326</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">327</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">328</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">329</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">330</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">331</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">332</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">333</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">334</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">335</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">336</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">337</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">in</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">338</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">incomprehensible</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">339</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">injured</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">340</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">into</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">341</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">into</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">342</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">into</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">343</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">into</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">344</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">invented</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">345</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">invented</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">346</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">invention</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">347</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">inventor</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">348</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">349</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">350</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">351</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">352</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">353</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">354</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">is</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">355</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">356</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">357</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">358</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">359</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">360</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">361</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">362</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">363</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">364</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">it</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">365</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">its</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">366</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">job</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">367</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">just</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">368</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">kicked</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">369</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">killed</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">370</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">kinds</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">371</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">kite</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">372</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">laser</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">373</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">last</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">374</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">leaps</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">375</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">learn</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">376</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">leaves</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">377</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">led</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">378</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">leg</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">379</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">leg</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">380</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">lesson</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">381</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">lesson</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">382</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">lightning</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">383</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">lights</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">384</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">like</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">385</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">like</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">386</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">little</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">387</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">lived</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">388</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="kt">long</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">389</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">longer</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">390</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">major</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">391</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">manufacturers</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">392</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">many</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">393</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">many</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">394</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">maxims</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">395</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">means</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">396</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">medicine</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">397</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">men</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">398</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">metal</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">399</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">metal</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">400</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">mixers</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">401</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">modern</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">402</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">mouth</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">403</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">muscles</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">404</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">must</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">405</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">names</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">406</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">need</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">407</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">never</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">408</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">never</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">409</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">no</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">410</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">no</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">411</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">not</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">412</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">nothing</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">413</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">notice</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">414</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">objects</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">415</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">416</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">417</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">418</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">419</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">420</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">421</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">422</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">423</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">424</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">425</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">426</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">427</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">428</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">of</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">429</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">office</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">430</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">on</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">431</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">one</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">432</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">one</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">433</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">only</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">434</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">operations</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">435</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">or</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">436</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">others</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">437</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">our</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">438</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">our</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">439</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">out</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">440</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pain</span><span class="o">?</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">441</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">part</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">442</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">part</span><span class="o">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">443</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">past</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">444</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">penny</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">445</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">penny</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">446</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">people</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">447</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">perform</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">448</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">persons</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">449</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">phonograph</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">450</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">picked</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">451</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pieces</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">452</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pioneer</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">453</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pioneer</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">454</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pioneers</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">455</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pioneers</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">456</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">place</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">457</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">plug</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">458</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">pond</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">459</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">post</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">460</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">power</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">461</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">powered</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">462</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">powerful</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">463</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">powerful</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">464</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">precise</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">465</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">proved</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">466</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">provided</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">467</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">radios</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">468</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">reach</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">469</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">receive</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">470</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">received</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">471</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">record</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">472</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">remember</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">473</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">right</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">474</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">running</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">475</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">same</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">476</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">same</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">477</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">sat</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">478</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">saved</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">479</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">scientists</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">480</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">scuff</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">481</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">scuffed</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">482</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">scuffed</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">483</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">sell</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">484</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">send</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">485</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">sends</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">486</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">serious</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">487</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">seriously</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">488</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">setting</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">489</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">severely</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">490</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">shock</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">491</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">simple</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">492</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">simple</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">493</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">since</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">494</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">since</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">495</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">skilled</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">496</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">small</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">497</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">so</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">498</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">so</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">499</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">so</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">500</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">so</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">501</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">so</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">502</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">spark</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">503</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">speaking</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">504</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">started</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">505</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">storm</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">506</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">such</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">507</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">surgeons</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">508</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">take</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">509</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">take</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">510</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">take</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">511</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">teach</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">512</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">teaches</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">513</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">tend</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">514</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="nl">terminology:</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">515</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">thanks</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">516</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">517</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">518</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">519</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">520</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">521</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">522</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">523</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">524</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">525</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">526</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">527</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">528</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">that</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">529</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">530</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">531</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">532</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">533</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">534</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">535</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">536</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">537</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">538</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">539</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">540</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">541</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">542</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">543</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">544</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">545</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">546</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">547</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">548</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">549</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">550</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">551</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">552</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">553</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">554</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">555</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">556</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">557</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">558</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">the</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">559</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">their</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">560</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">them</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">561</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">them</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">562</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">then</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">563</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">then</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">564</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">then</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">565</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">there</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">566</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">these</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">567</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">they</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">568</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">they</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">569</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">they</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">570</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">they</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">571</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">things</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">572</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">though</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">573</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">thousands</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">574</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">thousands</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">575</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">through</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">576</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">through</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">577</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">through</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">578</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">thus</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">579</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">time</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">580</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">times</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">581</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">582</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">583</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">584</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">585</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">586</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">587</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">588</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">589</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">590</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">591</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">592</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">593</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">594</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">595</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">596</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">597</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">598</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">to</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">599</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">toaster</span><span class="o">?</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">600</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">touch</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">601</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">touching</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">602</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">travel</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">603</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">travel</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">604</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">truth</span><span class="o">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">605</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">twitched</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">606</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">two</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">607</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">unless</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">608</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">unless</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">609</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">unlimited</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">610</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">until</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">611</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">up</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">612</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">up</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">613</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">use</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">614</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">use</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">615</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">vaporize</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">616</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">very</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">617</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">very</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">618</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">very</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">619</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">very</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">620</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">veterinary</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">621</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">violently</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">622</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">623</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">624</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">625</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">626</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">627</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">628</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">629</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">630</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">631</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">632</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">was</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">633</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">watch</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">634</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">we</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">635</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">we</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">636</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">we</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">637</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">we</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">638</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">weave</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">639</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">well</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">640</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">when</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">641</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">when</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">642</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">when</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">643</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">where</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">644</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">where</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">645</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">where</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">646</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">which</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">647</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">which</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">648</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">which</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">649</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">who</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">650</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">whose</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">651</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">will</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">652</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">will</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">653</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">wire</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">654</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">wire</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">655</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">without</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">656</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">works</span><span class="o">.</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">657</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">world</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">658</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">worry</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">659</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">would</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">660</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">would</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">661</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">yards</span><span class="o">,</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">662</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">year</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">663</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">years</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">664</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">yet</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">665</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">666</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">667</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">668</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">669</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">670</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">671</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">you</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">672</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">673</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">674</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">675</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">676</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">677</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">678</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">679</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">680</span><span class="o">,</span> <span class="n">element</span> <span class="o">=</span> <span class="n">your</span></code></pre></div>
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-02 17:40:44 -1000</span></p>
+    <p style="margin: 0">
+      7 modules
+      
+        | 16 outcomes
+      
+      
+        | 84 readings
+      
+      
+        | 12 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Sorting.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="sortingjava">Sorting.java</h1>
+
+<p>File:</p>
+
+<p><a href="../examples/Sorting.java">Sorting.java</a></p>
+
+<p>Source: </p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">//An interface used to compare two objects.</span>
+<span class="kn">import</span> <span class="nn">java.lang.Comparable</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * 5 sorting methods</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Sorting</span> <span class="o">{</span>
+
+  <span class="cm">/* Set this to &quot;false&quot; to turn off display */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Boolean</span> <span class="n">display</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * main method starts the program</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param args must be Integers only</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[])</span> <span class="o">{</span>
+    <span class="c1">// selectionSort</span>
+    <span class="n">Integer</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">Sorting</span><span class="o">.</span><span class="na">arrayCopy</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;selectionSort&quot;</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">selectionSort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// bubbleSort</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">arrayCopy</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;bubbleSort&quot;</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">bubbleSort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// insertionSort</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">arrayCopy</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;insertionSort&quot;</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">insertionSort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// mergeSort</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">arrayCopy</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;mergeSort&quot;</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">mergeSort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+
+    <span class="c1">// quickSort</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">arrayCopy</span><span class="o">(</span><span class="n">args</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;quickSort&quot;</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">quickSort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+  <span class="o">}</span><span class="c1">// end of main</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * selection sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">selectionSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">selectionSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * selection sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">selectionSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// loop from first element to 2nd to last element</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// find index of smallest element</span>
+      <span class="kt">int</span> <span class="n">smallest</span> <span class="o">=</span> <span class="n">findSmallest</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+      <span class="c1">// swap smallest with current position in array</span>
+      <span class="n">Comparable</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">smallest</span><span class="o">];</span>
+      <span class="n">array</span><span class="o">[</span><span class="n">smallest</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+      <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+      <span class="c1">// print the array to show each step</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * find index of smallest item</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   * @return the index of the smallest element</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">findSmallest</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">smallest</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="c1">// the index of the smallest element</span>
+    <span class="c1">// loop from current position to end of array</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// if find a smaller element, then save the index</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">smallest</span><span class="o">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">smallest</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// details on smallest index</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;start index = &quot;</span> <span class="o">+</span> <span class="n">start</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;smallest index = &quot;</span> <span class="o">+</span> <span class="n">smallest</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;swap &quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; with &quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">smallest</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">smallest</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * bubble sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bubbleSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">bubbleSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * bubble sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">bubbleSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// flag to see if an item was swapped or not</span>
+    <span class="kt">boolean</span> <span class="n">swap</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="c1">// loop size - 1 times</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">swap</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+      <span class="c1">// loop from beginning of array to (last element - i)</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">i</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="c1">// swap if 1st item greater than 2nd item</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// swap</span>
+          <span class="n">Comparable</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+          <span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">];</span>
+          <span class="n">array</span><span class="o">[</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+          <span class="n">swap</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+          <span class="c1">// display each swap</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">j</span><span class="o">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="c1">// display each step of algorithm</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="c1">// if no swap, array is in order</span>
+      <span class="c1">// so break out of loop early</span>
+      <span class="k">if</span> <span class="o">(!</span><span class="n">swap</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">break</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * insertion sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">insertionSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">insertionSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * insertion sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">insertionSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// loop from 2nd item to end of array</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// store the item being inserted</span>
+      <span class="n">Comparable</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+      <span class="c1">// display inserted item</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;inserted item = &quot;</span> <span class="o">+</span> <span class="n">temp</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+      <span class="c1">// loop through sorted part of array</span>
+      <span class="k">while</span> <span class="o">((</span><span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">temp</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">))</span> <span class="o">{</span>
+        <span class="c1">// shift elements to the right</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">];</span>
+        <span class="c1">// display each shift</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">j</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">j</span><span class="o">--;</span>
+      <span class="o">}</span>
+      <span class="c1">// insert next item into sorted part</span>
+      <span class="n">array</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+      <span class="c1">// display each step of algorithm</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * merge sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// overloading: two methods with same name, but different parameter type and/or count</span>
+    <span class="c1">// calls mergeSort method with 3 parameters</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">mergeSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * merge sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">mergeSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// if start index is less than end index</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">half</span> <span class="o">=</span> <span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+      <span class="c1">// show array split</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;SPLIT: start=&quot;</span> <span class="o">+</span> <span class="n">start</span> <span class="o">+</span> <span class="s">&quot;, half=&quot;</span> <span class="o">+</span> <span class="n">half</span> <span class="o">+</span> <span class="s">&quot;, end=&quot;</span> <span class="o">+</span> <span class="n">end</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="c1">// sort left &amp; right half of array</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">mergeSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">half</span><span class="o">);</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">mergeSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">half</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+      <span class="c1">// merge left &amp; right half of array</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">half</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * merge: merges the two arrays back together</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param half is the middle element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">merge</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">half</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// display 2 arrays before merge</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">half</span><span class="o">);</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">half</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// temporary array</span>
+    <span class="n">Comparable</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Comparable</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+    <span class="c1">// index for 2 subarrays</span>
+    <span class="kt">int</span> <span class="n">start1</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">end1</span> <span class="o">=</span> <span class="n">half</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">start2</span> <span class="o">=</span> <span class="n">half</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">end2</span> <span class="o">=</span> <span class="n">end</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start1</span><span class="o">;</span>
+    <span class="c1">// loop &amp; copy to temp array, so that elements are sorted</span>
+    <span class="k">while</span> <span class="o">((</span><span class="n">start1</span> <span class="o">&lt;=</span> <span class="n">end1</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">start2</span> <span class="o">&lt;=</span> <span class="n">end2</span><span class="o">))</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">start1</span><span class="o">].</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">start2</span><span class="o">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">temp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">start1</span><span class="o">];</span>
+        <span class="c1">// increment i &amp; start1</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">start1</span> <span class="o">=</span> <span class="n">start1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">else</span> <span class="o">{</span>
+        <span class="n">temp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">start2</span><span class="o">];</span>
+        <span class="c1">// increment i &amp; start2</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">start2</span> <span class="o">=</span> <span class="n">start2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// loop through either the first or second subarray &amp; copy to temp array</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">start1</span> <span class="o">&lt;=</span> <span class="n">end1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">temp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">start1</span><span class="o">];</span>
+      <span class="c1">// increment i &amp; start1</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="n">start1</span> <span class="o">=</span> <span class="n">start1</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">start2</span> <span class="o">&lt;=</span> <span class="n">end2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">temp</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">start2</span><span class="o">];</span>
+      <span class="c1">// increment i &amp; start2</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="n">start2</span> <span class="o">=</span> <span class="n">start2</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// copy back to actual array</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+      <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// result after merge</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * quick sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">quickSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// overloading: two methods with same name, but different parameter type and/or count</span>
+    <span class="c1">// calls quickSort method with 3 parameters</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">quickSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * quick sort</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">quickSort</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// split the table into two parts</span>
+      <span class="kt">int</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">Sorting</span><span class="o">.</span><span class="na">partition</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+      <span class="c1">// sort the two parts</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">quickSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">pivot</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">quickSort</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">pivot</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * partitions the array into two parts: smaller or greater/equal part</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   * @return the index of the partition element</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">partition</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// display array before partition</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// get pivot item (1st item)</span>
+    <span class="n">Comparable</span> <span class="n">pivot</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+    <span class="c1">// display pivot</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;pivot=&quot;</span> <span class="o">+</span> <span class="n">pivot</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// index of end element in smaller part</span>
+    <span class="kt">int</span> <span class="n">split</span> <span class="o">=</span> <span class="n">start</span><span class="o">;</span>
+    <span class="c1">// loop from 2nd element to end of array</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// put element in smaller or greater/equal part</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">pivot</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// increase size of smaller part</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="n">split</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="c1">// swap, so item is in smaller part</span>
+        <span class="n">Comparable</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">split</span><span class="o">];</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">split</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+        <span class="c1">// display swapped numbers</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;swap &quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">split</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; and &quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// swap pivot with last element in smaller part</span>
+    <span class="c1">// so pivot is between the two parts</span>
+    <span class="n">Comparable</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+    <span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">[</span><span class="n">split</span><span class="o">];</span>
+    <span class="n">array</span><span class="o">[</span><span class="n">split</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+    <span class="c1">// display swapped numbers</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">Sorting</span><span class="o">.</span><span class="na">display</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;swap &quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">split</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; and &quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">start</span><span class="o">]);</span>
+      <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">split</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * prints out an array from start index to ending index</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// overloading: two methods with same name, but different parameter type and/or count</span>
+    <span class="c1">// calls print method with 3 parameters</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * prints out an array from start index to ending index</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Comparable objects</span>
+<span class="cm">   * @param start is the first element in the array</span>
+<span class="cm">   * @param end is the last element in the array</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">start</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">);</span>
+      <span class="o">}</span>
+      <span class="k">else</span> <span class="o">{</span>
+        <span class="c1">// display blanks for proper placement of elements</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;   &quot;</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * copies &amp; converts an array of Strings to an array of Integers</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is an array of Strings</span>
+<span class="cm">   * @return an array of Integers</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span><span class="o">[]</span> <span class="nf">arrayCopy</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">array</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Integer</span><span class="o">[]</span> <span class="n">array2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[</span><span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">array2</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">array2</span><span class="o">;</span>
+  <span class="o">}</span><span class="c1">// end of method</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-02 17:40:44 -1000</span></p>
+    <p style="margin: 0">
+      7 modules
+      
+        | 16 outcomes
+      
+      
+        | 84 readings
+      
+      
+        | 12 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

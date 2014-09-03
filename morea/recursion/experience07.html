@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on Recursion - Part II (asmt #7) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that executes the following 5 recursive methods, each of which returns a value (do NOT use System.out.print() inside the method definitions), and prints that value in the main() method, where X is a positive integer on the commandline (1st argument), and S is a String on the commandline (2nd argument).</p>
+
+<ol>
+  <li>Method 1: Return and print in main() X number of S (SSSS&#8230;), in other words print the String S, X times.</li>
+  <li>Method 2: Return and print in main() the first character in S, X number of times (ssss&#8230;), where &#8220;s&#8221; is the first letter in String &#8220;S&#8221;.</li>
+  <li>Method 3: Return and print in main() each letter in S two times (s0s0s1s1s2s2s3s3&#8230;) where s0 is the first letter, s1 is the second letter, s2 is the third letter, etc.</li>
+  <li>Method 4: Return and print in main() each letter in S three times backwards (sn-1sn-1sn-1sn-2sn-2sn-2sn-3sn-3sn-3sn-4sn-4sn-4&#8230;) where sn-1 is the last letter, sn-2 is the second to last letter, sn-3 is the third to last letter, etc.</li>
+  <li>Method 5: Return and print in main() a String which counts down by 1 for X, and deletes one letter for each recursion for S, until X becomes 1, or until S has only 1 letter (X S, X-1 S1 letter deleted, X-2 S2 letters deleted, X-3 S3 letters deleted&#8230;)</li>
+  <li>Use the commandline arguments to enter one positive integer argument.</li>
+  <li>X is the input for your methods.</li>
+  <li>You may find it useful to use more than one parameter for some of your methods.</li>
+  <li>At the beginning of the main method, check to make sure that the user entered the correct input.</li>
+  <li>If exactly one (1) positive integer argument is not entered on the commandline, then display an error message and end the program.</li>
+  <li>You also need to have a try-catch statement just in case a non-integer is inputted as a commandline argument.</li>
+  <li>Make sure your code follows the ICS 211 Java Coding Standard, in particular the Java documentation (Javadoc) comments that go above each method.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: Do NOT copy my code or my comments. Use my code as a guide to write your own code.   </li>
+</ol>
+
+<h2 id="output">Output</h2>
+
+<p>Example output for commandline arguments: 5 natto</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">nattonattonattonattonatto</span>
+<span class="n">nnnnn</span>
+<span class="n">nnaattttoo</span>
+<span class="n">ooottttttaaannn</span>
+<span class="mi">5</span> <span class="n">natto</span><span class="o">,</span> <span class="mi">4</span> <span class="n">atto</span><span class="o">,</span> <span class="mi">3</span> <span class="n">tto</span><span class="o">,</span> <span class="mi">2</span> <span class="n">to</span><span class="o">,</span> <span class="mi">1</span> <span class="n">o</span><span class="o">,</span></code></pre></div>
+
+<p>Example output for commandline arguments&#8221; 10 ten</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">tentententententententententen</span>
+<span class="n">tttttttttt</span>
+<span class="n">tteenn</span>
+<span class="n">nnneeettt</span>
+<span class="mi">10</span> <span class="n">ten</span><span class="o">,</span> <span class="mi">9</span> <span class="n">en</span><span class="o">,</span> <span class="mi">8</span> <span class="n">n</span><span class="o">,</span></code></pre></div>
+
+<p>Example output for commandline arguments: 10 abracadabra</p>
+
+<div class="highlight"><pre><code class="java"><span class="n">abracadabraabracadabraabracadabraabracadabraabracadabraabracadabraabracadabraabracadabraabracadabraabracadabra</span>
+<span class="n">aaaaaaaaaa</span>
+<span class="n">aabbrraaccaaddaabbrraa</span>
+<span class="n">aaarrrbbbaaadddaaacccaaarrrbbbaaa</span>
+<span class="mi">10</span> <span class="n">abracadabra</span><span class="o">,</span> <span class="mi">9</span> <span class="n">bracadabra</span><span class="o">,</span> <span class="mi">8</span> <span class="n">racadabra</span><span class="o">,</span> <span class="mi">7</span> <span class="n">acadabra</span><span class="o">,</span> <span class="mi">6</span> <span class="n">cadabra</span><span class="o">,</span> <span class="mi">5</span> <span class="n">adabra</span><span class="o">,</span> <span class="mi">4</span> <span class="n">dabra</span><span class="o">,</span> <span class="mi">3</span> <span class="n">abra</span><span class="o">,</span> <span class="mi">2</span> <span class="n">bra</span><span class="o">,</span> <span class="mi">1</span> <span class="n">ra</span><span class="o">,</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-02 17:40:44 -1000</span></p>
+    <p style="margin: 0">
+      7 modules
+      
+        | 16 outcomes
+      
+      
+        | 84 readings
+      
+      
+        | 12 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on Sorting - Part I (asmt #11) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that does the following.</p>
+
+<ol>
+  <li>Takes 5 String/Integer pairs as commandline input.</li>
+  <li>These 10 variables represent a name, an age (in years), a second name, a second age (in years), etc.</li>
+  <li>In the main method, instantiate an array of 5 Person objects The 1st element in the array is the Person object with the 1st name and age pair in the commandline input. The 2nd element in the array is the Person object with the 2nd name and age pair in the commandline input. Etc.</li>
+  <li>In the main method, print out all the Person objects (person variables), in the array of 5 Persons. Do NOT use the System.out.println() method, instead use the JOptionPane.showMessageDialog() method.</li>
+  <li><b>Choose the appropriate sorting method</b> in the Sorting.java program to sort the array of 5 Persons IN ORDER by increasing AGE.</li>
+  <li>To do this, you need to save the Sorting.java program in the same folder as your LastnameFirstname11.java program.</li>
+  <li>You DO NOT need to change any code in the Sorting.java program.</li>
+  <li>To prevent the automatic output of the Sorting.java program, use this code before you sort: Sorting.display = false;</li>
+  <li><b>Justify your choice of sorting method in the comments at the top of your program</b></li>
+  <li>In the main method, print out all the Person objects (person variables), in the array of 5 Persons. Do NOT use the System.out.println() method, instead use the JOptionPane.showMessageDialog() method.</li>
+  <li>Below your LastnameFirstname11 class, create a second class in your LastnameFirstname11.java file.</li>
+  <li>Unlike your LastnameFirstname11 class, do NOT include the public modifier. You also need to implement the Comparable interface and include a getAge() method. In other words, the code for your Person class should look like this:</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">Person</span> <span class="kd">implements</span> <span class="n">Comparable</span><span class="o">{</span>
+		<span class="c1">//data fields</span>
+		<span class="c1">//constructor</span>
+		<span class="c1">//toString() method</span>
+		<span class="c1">//getAge() method</span>
+		<span class="c1">//compareTo() method</span>
+	<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.</li>
+  <li>Create two data fields. One data field for name and a second data field for age in your Person class.</li>
+  <li>Write the constructor for your Person class. You should have a String and Integer (or int) parameters, which initialize your two data fields.</li>
+  <li>Write the toString() method for your Person class. The return value should have the format: &#8220;X is Y years old.&#8221;</li>
+  <li>Write the getAge() method for your Person class. This method returns the age of the Person.</li>
+  <li>Write the compareTo() method for your Person class. The parameter of the compareTo() method is of class Object. You need to cast the class Object parameter to a class Person variable. See the Fraction class for an example of casting in the compareTo() method. Next, you need to subtract the age of the first person object from the second person object. For example: int result = this.getAge() - person2.getAge(); Finally, you return the result.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: Do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Don&#8217;t forget to add &#8220;JavaDoc&#8221; style comments above each method. See ICS 211 Java Coding Standard (Comments: Methods) for details.</li>
+</ol>
+
+<h2 id="output">Output</h2>
+
+<p>
+	Here is example output for commandline arguments: <b>Nami 20 Nalu 25 Ned 18 Nellie 5 Norm 37</b>
+<br />
+	<br />
+	<img style="border: #3c8dc5 solid 5px" src="sort-output1.jpg" alt="Names and ages in input order" />
+	<br />
+  	<br />
+	<img style="border: #3c8dc5 solid 5px" src="sort-output2.jpg" alt="Names and ages in order by increasing age" />
+<br />
+</p>
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-02 17:40:44 -1000</span></p>
+    <p style="margin: 0">
+      7 modules
+      
+        | 16 outcomes
+      
+      
+        | 84 readings
+      
+      
+        | 12 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

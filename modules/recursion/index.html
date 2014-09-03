@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Recursion | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+  <h1><small>Module: </small> Recursion </h1>
+  <p><p>A detailed explanation of how recursion works with examples.</p>
+</p>
+</div>
+
+
+<div class="section-background-1">
+  <div class="container">
+    <h2>Learning Outcomes</h2>
+
+    
+      
+      <h3>Modularity</h3>
+      <p>
+        
+      </p>
+      <p>Organize your program into methods.</p>
+
+    
+      
+      <h3>Recursion</h3>
+      <p>
+        
+      </p>
+      <p>Write recursive methods.</p>
+
+    
+
+  </div>
+</div>
+
+
+
+
+
+<div class="section-background-2">
+  <div class="container">
+  <h2>Readings</h2>
+
+    <div class="row">
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0470128704&bcsId=5643">Textbook reading on recursion</a></h4>
+            <p>Chapter 5.1-5.3</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session06_Recursion.mov">Podcast for Recursion - Part I</a></h4>
+            <p>A detailed explanation of how recursion works with examples</p>
+
+            <p>
+              
+              <span class="badge">Screencast</span>
+              
+              <span class="badge">55 min</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://speakerdeck.com/billlymacc/lecture06">Slides for Recursion - Part I</a></h4>
+            <p>A detailed explanation of how recursion works with examples</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/reading-materials06-Backwards.html">Backwards.java</a></h4>
+            <p>Writes a word backwards using iteration &amp; recursion. The results are returned to the main() method and printed there</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+       </div><div class="row">
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/reading-materials06-Counting.html">Counting.java</a></h4>
+            <p>Count 1 to 5 using iteration &amp; recursion</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/arrays/reading-java-coding-standard.html">Java Coding Standard</a></h4>
+            <p>Follow this standard for the Java code in your program assignments</p>
+
+            <p>
+              
+              <span class="badge">use for each assignment</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://laulima.hawaii.edu/access/content/group/LEE.52916.201430/Podcasts/ICS211_Session07_Recursion%20II.mov">Podcast for Recursion - Part II</a></h4>
+            <p>More examples of recursion</p>
+
+            <p>
+              
+              <span class="badge">Screencast</span>
+              
+              <span class="badge">55 min</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://speakerdeck.com/billlymacc/lecture07">Slides for Recursion - Part II</a></h4>
+            <p>More examples of recursion</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      </div><div class="row">
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/reading-materials07-Factorials.html">Factorials.java</a></h4>
+            <p>Calculates and displays the factorial for an number entered on the command line. Both Iterative and Recursive methods are used.</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/reading-materials07-Powers.html">Powers.java</a></h4>
+            <p>Calculates and displays the result of x to y power for two integers entered on the command line. Both Iterative and Recursive methods are used.</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/reading-materials07-Fibonacci.html">Fibonacci.java</a></h4>
+            <p>Calculates and displays the Fibbonaci value for an number entered on the command line. Both Iterative and Recursive methods are used.</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section-background-1">
+  <div class="container">
+  <h2>Experiential Learning</h2>
+
+    <div class="row">
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/experience06.html">Assignment on Recursion - Part I (asmt #6)</a></h4>
+            <p>Write a Java application that executes recursive methods</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/recursion/experience07.html">Assignment on Recursion - Part II (asmt #7)</a></h4>
+            <p>Write a Java application that executes more recursive methods</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-02 17:40:44 -1000</span></p>
+    <p style="margin: 0">
+      7 modules
+      
+        | 16 outcomes
+      
+      
+        | 84 readings
+      
+      
+        | 12 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

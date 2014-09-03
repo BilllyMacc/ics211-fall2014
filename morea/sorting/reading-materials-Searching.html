@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Searching.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="searchingjava">Searching.java</h1>
+
+<p>File:</p>
+
+<p><a href="../examples/Searching.java">Searching.java</a></p>
+
+<p>Source: </p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">//A class to generate &quot;random&quot; numbers.</span>
+<span class="kn">import</span> <span class="nn">java.util.Random</span><span class="o">;</span>
+<span class="c1">//An interface used to compare two objects.</span>
+<span class="kn">import</span> <span class="nn">java.lang.Comparable</span><span class="o">;</span>
+<span class="c1">//displays mini-windows</span>
+<span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Searches for a Fraction with an array of Fractions. Enter two numbers on commandline for your</span>
+<span class="cm"> * guess. 1st argument is numerator, 2nd argument is denominator. Outputs the index of your guess</span>
+<span class="cm"> * (if correct). If guess correct, reduces Fraction to lowest terms, sorts, and outputs again. If</span>
+<span class="cm"> * guess incorrect, sets 1st element to your guess, sorts, and outputs again.</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Searching</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * main() method: begins program</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param arguments 1st argument is numerator, 2nd argument is denominator</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// initialize all variables</span>
+    <span class="c1">// size of array</span>
+    <span class="n">Integer</span> <span class="n">MAX</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">numerator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">denominator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;no message&quot;</span><span class="o">);</span>
+    <span class="n">Fraction</span> <span class="n">guess</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="c1">// instantiate Random object</span>
+    <span class="n">Random</span> <span class="n">generator</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">();</span>
+    <span class="c1">// fill array with random numbers</span>
+    <span class="n">Fraction</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">[</span><span class="n">MAX</span><span class="o">];</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">MAX</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// nextInt() outputs &quot;random&quot; integer between 0 and n-1</span>
+      <span class="n">numerator</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">MAX</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="n">denominator</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="n">MAX</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+      <span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">numerator</span><span class="o">,</span> <span class="n">denominator</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// display array</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">// get number from commandline</span>
+      <span class="n">numerator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+      <span class="n">denominator</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">arguments</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+      <span class="n">guess</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Fraction</span><span class="o">(</span><span class="n">numerator</span><span class="o">,</span> <span class="n">denominator</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">ArrayIndexOutOfBoundsException</span> <span class="n">exception1</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// output information about exception</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: Please enter 2 integers as commandline arguments&quot;</span><span class="o">);</span>
+      <span class="c1">// Immediately terminate program</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalFractionException</span> <span class="n">exception2</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exception2</span><span class="o">);</span>
+      <span class="c1">// Immediately terminate program</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">exception3</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;ERROR: Please enter INTEGERS as commandline arguments&quot;</span><span class="o">);</span>
+      <span class="c1">// Immediately terminate program</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// sequential search for first occurrence of number in array</span>
+    <span class="n">Integer</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Searching</span><span class="o">.</span><span class="na">sequentialSearch</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">guess</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">index</span><span class="o">.</span><span class="na">equals</span><span class="o">(-</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">+</span> <span class="s">&quot; is NOT in the array&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">+</span> <span class="s">&quot; is at index = &quot;</span> <span class="o">+</span> <span class="n">index</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// display message</span>
+    <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+    <span class="c1">// if guess not found, change the 1st element to your guess!</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">index</span><span class="o">.</span><span class="na">equals</span><span class="o">(-</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">setNumerator</span><span class="o">(</span><span class="n">numerator</span><span class="o">);</span>
+      <span class="n">array</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">setDenominator</span><span class="o">(</span><span class="n">denominator</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// set Sorting.display to &quot;false&quot; to prevent System.out.println() statements</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">display</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="c1">// sort the array</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">quickSort</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="c1">// display array</span>
+    <span class="n">Sorting</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">array</span><span class="o">);</span>
+    <span class="c1">// binary search for any occurance of number in array</span>
+    <span class="c1">// binary search only works with SORTED array!</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">Searching</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">guess</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">index</span><span class="o">.</span><span class="na">equals</span><span class="o">(-</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">+</span> <span class="s">&quot; is NOT in the array&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="n">message</span> <span class="o">=</span> <span class="n">guess</span> <span class="o">+</span> <span class="s">&quot; is at index = &quot;</span> <span class="o">+</span> <span class="n">index</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// display message</span>
+    <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Sequential search through an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is the array of Comparable objects</span>
+<span class="cm">   * @param guess is an object that might be in the array</span>
+<span class="cm">   * @return -1, if element not found; index of element, if found</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">sequentialSearch</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="n">Comparable</span> <span class="n">guess</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">guess</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// if not found, return negative index number</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span><span class="c1">// end of method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Binary search through an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is the array of Comparable objects</span>
+<span class="cm">   * @param guess is an object that might be in the array</span>
+<span class="cm">   * @return -1, if element not found; index of element, if found</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="n">Comparable</span> <span class="n">guess</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">Searching</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">guess</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">array</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+  <span class="o">}</span><span class="c1">// end of method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Binary search through an array</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param array is the array of Comparable objects</span>
+<span class="cm">   * @param guess is an object that might be in the array</span>
+<span class="cm">   * @param start is the index of first element in the array</span>
+<span class="cm">   * @param end is the index of last element in the array</span>
+<span class="cm">   * @return -1, if element not found; index of element, if found</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">Comparable</span><span class="o">[]</span> <span class="n">array</span><span class="o">,</span> <span class="n">Comparable</span> <span class="n">guess</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">start</span><span class="o">,</span>
+      <span class="n">Integer</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// base case, NOT in array</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">&gt;</span> <span class="n">end</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// base case, if found!</span>
+    <span class="n">Integer</span> <span class="n">half</span> <span class="o">=</span> <span class="o">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">guess</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">half</span><span class="o">])</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">half</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">// recursive case, if in 1st half of array</span>
+    <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="n">guess</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">array</span><span class="o">[</span><span class="n">half</span><span class="o">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">guess</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">half</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// recursive case, if in 2nd half of array</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">array</span><span class="o">,</span> <span class="n">guess</span><span class="o">,</span> <span class="n">half</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span><span class="c1">// end of method</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-02 17:40:44 -1000</span></p>
+    <p style="margin: 0">
+      7 modules
+      
+        | 16 outcomes
+      
+      
+        | 84 readings
+      
+      
+        | 12 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

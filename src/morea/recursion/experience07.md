@@ -39,7 +39,7 @@ ooottttttaaannn
 5 natto, 4 atto, 3 tto, 2 to, 1 o,
 {% endhighlight %}
     
-Example output for commandline arguments" 10 ten
+Example output for commandline arguments: 10 ten
 {% highlight java %}
 tentententententententententen
 tttttttttt

@@ -4,7 +4,7 @@ published: true
 morea_id: experience11
 morea_type: experience
 morea_summary: "Write a program to sort the array of 5 Persons IN ORDER by increasing AGE"
-morea_sort_order: 2
+morea_sort_order: 11
 ---
 
 ## Instructions

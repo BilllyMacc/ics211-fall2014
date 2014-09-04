@@ -4,7 +4,7 @@ published: true
 morea_id: experience08
 morea_type: experience
 morea_summary: "Write a Java application for class Person"
-morea_sort_order: 2
+morea_sort_order: 8
 ---
 
 ## Instructions

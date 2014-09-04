@@ -13,7 +13,7 @@ Write a Java application that does the following.
 
 1. Instantiate an array of 200 integers.
 2. Use a 'for' or 'while' loop to initialize the array with the numbers. The numbers should start at 5, increase by 5, and negate all even numbers. For example: 5, -10, 15, -20, 25, ...
-3. You need to use modulus to alternate the negative and positive numbers. See the ArraysLoopsModulus.java example program.
+3. You need to use modulus to alternate the negative and positive numbers, and an "if-statement(s)". For an example of modulus operator, see the ArraysLoopsModulus.java example program.
 4. Use another 'for' or 'while' loop to print out the array, displaying the index and the element on each line.
 5. You should have two (2) loops in your program. The first loop initializes the array. The second loop outputs the array. The purpose of this assignment is to practice using arrays and loops.
 6. Write your original comments every 3-5 lines of code.

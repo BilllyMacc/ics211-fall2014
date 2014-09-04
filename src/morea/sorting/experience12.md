@@ -4,7 +4,7 @@ published: true
 morea_id: experience12
 morea_type: experience
 morea_summary: "Write a program to store data from a file into an array and catch exceptions"
-morea_sort_order: 3
+morea_sort_order: 12
 ---
 
 ## Instructions 

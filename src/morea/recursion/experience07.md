@@ -4,7 +4,7 @@ published: true
 morea_id: experience07
 morea_type: experience
 morea_summary: "Write a Java application that executes more recursive methods"
-morea_sort_order: 3
+morea_sort_order: 7
 ---
 
 ## Instructions 

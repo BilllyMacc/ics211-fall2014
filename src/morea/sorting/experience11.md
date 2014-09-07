@@ -16,6 +16,7 @@ Write a Java application that does the following.
 1. In the main method, instantiate an array of 5 Person objects The 1st element in the array is the Person object with the 1st name and age pair in the commandline input. The 2nd element in the array is the Person object with the 2nd name and age pair in the commandline input. Etc.
 1. In the main method, print out all the Person objects (person variables), in the array of 5 Persons. Do NOT use the System.out.println() method, instead use the JOptionPane.showMessageDialog() method.
 1. <b>Choose the appropriate sorting method</b> in the Sorting.java program to sort the array of 5 Persons IN ORDER by increasing AGE.
+1. For example: Sorting.selectionSort(array);
 1. To do this, you need to save the Sorting.java program in the same folder as your LastnameFirstname11.java program.
 1. You DO NOT need to change any code in the Sorting.java program.
 1. To prevent the automatic output of the Sorting.java program, use this code before you sort: Sorting.display = false;

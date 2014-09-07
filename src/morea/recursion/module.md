@@ -24,7 +24,7 @@ morea_assessments:
 morea_type: module
 morea_icon_url: /morea/recursion/recursion.jpg
 morea_labels:
-morea_sort_order: 5
+morea_sort_order: 4
 ---
 
 A detailed explanation of how recursion works with examples.

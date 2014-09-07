@@ -23,7 +23,7 @@ morea_assessments:
 morea_type: module
 morea_icon_url: /morea/modularity/bento.jpg
 morea_labels:
-morea_sort_order: 4
+morea_sort_order: 3
 ---
 
 Organize your code into modules using methods.

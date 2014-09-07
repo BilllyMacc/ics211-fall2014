@@ -37,7 +37,7 @@ morea_assessments:
 morea_type: module
 morea_icon_url: /morea/sorting/sorting.jpg
 morea_labels:
-morea_sort_order: 8
+morea_sort_order: 7
 ---
 
 An introduction to sorting and searching algorithms.

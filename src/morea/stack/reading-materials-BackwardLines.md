@@ -1,3 +1,22 @@
+---
+title: "BackwardLines.java"
+published: true
+morea_id: reading-materials-BackwardLines
+morea_summary: "Displays each line of a file backwards using a stack"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# BackwardLines.java
+
+File:
+
+[BackwardLines.java](../examples/BackwardLines.java)
+
+Source: 
+
+{% highlight java %}
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -99,3 +118,5 @@ EXAMPLE OUTPUT:
 !niaga uoy eeS
 
  */
+
+{% endhighlight %}

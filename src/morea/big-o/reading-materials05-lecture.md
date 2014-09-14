@@ -1,5 +1,5 @@
 ---
-title: "Session #5 Lecture"
+title: "Podcast for Big-O"
 published: true
 morea_id: reading-materials05-lecture
 morea_summary: "Lecture on explanation and examples of Big-O"

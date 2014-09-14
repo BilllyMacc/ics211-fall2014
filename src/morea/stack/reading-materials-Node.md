@@ -1,3 +1,22 @@
+---
+title: "Node.java"
+published: true
+morea_id: reading-materials-Node
+morea_summary: "A generic Node class that stores a reference to data and the next Node"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# Node.java
+
+File:
+
+[Node.java](../examples/Node.java)
+
+Source: 
+
+{% highlight java %}
 /**
  * A generic Node class that Stores a reference to Data and the next Node
  * 
@@ -129,3 +148,4 @@ carrot
 banana
 doughnut
 */
+{% endhighlight %}

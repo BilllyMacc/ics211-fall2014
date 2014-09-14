@@ -1,5 +1,5 @@
 ---
-title: "Session #5 Slides"
+title: "Slides for Big-O"
 published: true
 morea_id: reading-materials05-slides
 morea_summary: "Slides on explanation and examples of Big-O"

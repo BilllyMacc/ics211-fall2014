@@ -1,3 +1,22 @@
+---
+title: "TwoThings.java"
+published: true
+morea_id: reading-materials-TwoThings
+morea_summary: "A Generic class that stores objects of any two classes"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+# TwoThings.java
+
+File: 
+
+  * [TwoThings.java](../examples/TwoThings.java)
+
+Source code:
+
+{% highlight java %}
 /**
  * A Generic class that stores objects of any two classes
  * 
@@ -103,3 +122,6 @@ PROGRAM OUTPUT:
     Suzuki, Nalu; 5 / 2
     Suzuki, Sally; 5 / 2
 */
+{% endhighlight %}
+  
+  

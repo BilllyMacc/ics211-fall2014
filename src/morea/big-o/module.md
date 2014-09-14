@@ -18,7 +18,7 @@ morea_assessments:
 morea_type: module
 morea_icon_url: /morea/big-o/graph.png
 morea_labels:
-morea_sort_order: 5
+morea_sort_order: 4
 ---
 
 Estimate the time it takes for a program to process large sets of data.

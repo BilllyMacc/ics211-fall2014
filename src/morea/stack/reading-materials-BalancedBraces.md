@@ -1,3 +1,22 @@
+---
+title: "BalancedBraces.java"
+published: true
+morea_id: reading-materials-BalancedBraces
+morea_summary: "Checks for balanced curly braces using a stack"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+# BalancedBraces.java
+
+File:
+
+  * [BalancedBraces.java](../examples/BalancedBraces.java)
+
+Source code:
+
+{% highlight java %}
 //for GUI dialogue windows
 import javax.swing.JOptionPane;
 import java.util.EmptyStackException;
@@ -113,4 +132,7 @@ public class BalancedBraces {
   }
 
 }// end of classs
+
+
+{% endhighlight %}
 

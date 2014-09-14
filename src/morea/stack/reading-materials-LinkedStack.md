@@ -1,3 +1,22 @@
+---
+title: "LinkedStack.java"
+published: true
+morea_id: reading-materials-LinkedStack
+morea_summary: "A generic Stack class implemented with linked nodes"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+# LinkedStack.java
+
+File:
+
+  * [LinkedStack.java](../examples/LinkedStack.java)
+
+Source code:
+
+{% highlight java %}
 import java.util.EmptyStackException;
 
 /**
@@ -172,4 +191,5 @@ C
 B
 A
 */
+{% endhighlight %}
 

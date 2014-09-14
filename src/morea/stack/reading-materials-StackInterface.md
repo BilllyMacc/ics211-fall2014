@@ -1,3 +1,22 @@
+---
+title: "StackInterface.java"
+published: true
+morea_id: reading-materials-StackInterface
+morea_summary: "A generic Stack interface roughly based on Java API's class Stack"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# StackInterface.java
+
+File:
+
+[StackInterface.java](../examples/StackInterface.java)
+
+Source: 
+
+{% highlight java %}
 import java.util.EmptyStackException;
 
 /**
@@ -38,3 +57,5 @@ public interface StackInterface<T> {
   public void push(T item);
 
 }// end interface
+
+{% endhighlight %}

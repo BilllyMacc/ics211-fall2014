@@ -1,3 +1,22 @@
+---
+title: "ArrayStack.java"
+published: true
+morea_id: reading-materials-ArrayStack
+morea_summary: "A generic Stack class implemented with an array"
+morea_type: reading
+morea_sort_order: 3
+morea_labels:
+---
+
+# ArrayStack.java
+
+File:
+
+[ArrayStack.java](../examples/ArrayStack.java)
+
+Source: 
+
+{% highlight java %}
 import java.util.EmptyStackException;
 
 /**
@@ -386,3 +405,4 @@ Top of stack is: Z, X Y
 Pop off elements: Z, X Y; C, A B; 
  
  */
+{% endhighlight %}

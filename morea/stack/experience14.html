@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on Stacks - Part II (asmt #14) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that does the following.</p>
+
+<ol>
+  <li>Implement a Postfix Calculator using a Stack by using the algorithm in the slides. See slides 35 and 36 titled &#8220;Postfix Evaluation Algorithm&#8221; for the algorithm.</li>
+  <li>Use the interface StackInterface.java, the class LinkedStack.java, and the class Node.java in your program.</li>
+  <li>Save the three files in the same folder (directory) as your LastnameFirstname14.java file.</li>
+  <li>Do not make any changes to these files.</li>
+  <li>Your program should use command-line input to read from a file. The file name is only argument on the command-line input, so args[0] is the file name. In you main method, read one line of data from the input file, calculate the result, then output to the screen. Repeat this until you reach the end of the file. Each line in the file will contain a postfix expression.</li>
+  <li>Make sure your program is robust. It should not crash when a user enters invalid input. Instead, it should display an appropriate error message. Use exceptions and/or if-statements to do this.</li>
+  <li>Your output should be similar to the output below.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: Do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Don&#8217;t forget to add &#8220;JavaDoc&#8221; style comments above each method. See ICS 211 Java Coding Standard (Comments: Methods) for details.</li>
+</ol>
+
+<h2 id="output">Output</h2>
+
+<p>Here is example output for input file <a href="../examples/input14.txt">input14.txt</a></p>
+
+<div class="highlight"><pre><code class="java"><span class="n">Reading</span> <span class="n">from</span> <span class="nl">file:</span> <span class="n">input14</span><span class="o">.</span><span class="na">txt</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">11</span><span class="o">+</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">93</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">932</span><span class="o">/-</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">149657</span><span class="o">%/*-+</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">14</span><span class="o">+</span><span class="mi">96</span><span class="o">*</span><span class="mi">5</span><span class="o">/</span><span class="mi">7</span><span class="o">%-</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">149</span><span class="o">-+</span><span class="mi">6</span><span class="o">*</span><span class="mi">57</span><span class="o">%/</span>
+<span class="n">Calculate</span> <span class="n">result</span>   <span class="o">=</span> <span class="o">-</span><span class="mi">4</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span>      
+<span class="nl">ERROR:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">RuntimeException</span><span class="o">:</span> <span class="n">Bad</span> <span class="n">character</span> <span class="nl">input:</span> <span class="s">&quot; &quot;</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<span class="nl">ERROR:</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">EmptyStackException</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">11</span><span class="o">+*</span>
+<span class="nl">ERROR:</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">EmptyStackException</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="o">+</span><span class="mi">11</span>
+<span class="nl">ERROR:</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">EmptyStackException</span>
+
+<span class="n">Postfix</span> <span class="n">expression</span> <span class="o">=</span> <span class="mi">11</span><span class="err">@</span>
+<span class="nl">ERROR:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">RuntimeException</span><span class="o">:</span> <span class="n">Bad</span> <span class="n">character</span> <span class="nl">input:</span> <span class="s">&quot;@&quot;</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-13 15:15:04 -1000</span></p>
+    <p style="margin: 0">
+      8 modules
+      
+        | 17 outcomes
+      
+      
+        | 96 readings
+      
+      
+        | 14 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

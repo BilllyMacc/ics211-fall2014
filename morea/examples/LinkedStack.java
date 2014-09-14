@@ -1,137 +1,151 @@
-   import java.util.EmptyStackException;
-	
+import java.util.EmptyStackException;
+
 /**
-* A generic Stack class implemented with linked nodes
-* @author William McDaniel Albritton
-*/		 	
-    public class LinkedStack<T> implements StackInterface<T> {
-   
-   // data fields
-      private Node<T> top = null;
-   
-   /**Constructor*/
-       public LinkedStack() {
-         //data fields already initialized 
-      } 
-   
-   /**Tests if the stack is empty
-    * @return true/false if empty/not empty */  
-       public boolean empty() {
-         return top == null;
+ * A generic Stack class implemented with linked nodes
+ * 
+ * @author William McDaniel Albritton
+ */
+public class LinkedStack<T> implements StackInterface<T> {
+
+  // data fields
+  private Node<T> top = null;
+
+  /** Constructor */
+  public LinkedStack() {
+    // data fields already initialized
+  }
+
+  /**
+   * Tests if the stack is empty
+   * 
+   * @return true/false if empty/not empty
+   */
+  public boolean empty() {
+    return top == null;
+  }
+
+  /**
+   * Looks at the object at the top of the stack without removing it from the stack.
+   * 
+   * @return an addressed to the top item on the stack
+   * @exception EmptyStackException if the stack is empty
+   */
+  public T peek() throws EmptyStackException {
+    // check to see if empty
+    if (this.empty()) {
+      throw new EmptyStackException();
+    }
+    // return pointer (address) to top element in array
+    // but do NOT take it off the stack!
+    return top.getData();
+  }
+
+  /**
+   * Removes the object at the top of stack and returns the address of this object
+   * 
+   * @return an addressed to the top item on the stack
+   * @exception EmptyStackException if the stack is empty
+   */
+  public T pop() {
+    // check to see if stack is empty
+    if (this.empty()) {
+      throw new EmptyStackException();
+    }
+    // Store a temporary variable
+    // that points to the top of stack.
+    Node<T> node = top;
+    // Take the first element off the stack,
+    // by pointing the top to the next node.
+    top = top.getNext();
+    // Return pointer (address) to top element in array
+    return node.getData();
+  }
+
+  /**
+   * Pushes an item onto the top of this stack
+   * 
+   * @param item the item that is pushed on the stack
+   */
+  public void push(T item) {
+    // top is assigned a Node,
+    // which points to the new item
+    // and the previous top Node.
+    top = new Node<T>(item, top);
+  }
+
+  /**
+   * Driver code to test class
+   * 
+   * @param arguments Commandline arguments not used
+   */
+  public static void main(String[] arguments) {
+    // use interface in declaration (left of equals)
+    // use class to instantiate object (right of equals)
+    // syntax: Interface variable = new Class();
+    // make Stack of Strings
+    StackInterface<String> stack2 = new LinkedStack<String>();
+    // test empty
+    System.out.println("Is the empty stack empty? " + stack2.empty());
+    // test push, peek, pop
+    System.out.println("push on stack");
+    final int MAX = 100;
+    for (int i = 1; i <= MAX; i++) {
+      // convert integer to String
+      String number = i + ", ";
+      stack2.push(number);
+      System.out.print(stack2.peek());
+      // output newline every 20 loops
+      if (i % 20 == 0) {
+        System.out.println();
       }
-   
-   /**Looks at the object at the top of the stack 
-   * without removing it from the stack.
-   * @return an addressed to the top item on the stack 
-   * @exception EmptyStackException if the stack is empty*/  
-       public T peek() throws EmptyStackException {
-       //check to see if empty
-         if(this.empty()){
-            throw new EmptyStackException();
-         }
-      //return pointer (address) to top element in array
-      //but do NOT take it off the stack!			
-         return top.getData();
-      } 
-   
-   /**Removes the object at the top of stack 
-   * and returns the address of this object
-   * @return an addressed to the top item on the stack 
-   * @exception EmptyStackException if the stack is empty*/
-       public T pop() {
-      //check to see if stack is empty		 
-         if(this.empty()){
-            throw new EmptyStackException();
-         }
-      //Store a temporary variable 
-      //that points to the top of stack.		
-         Node<T> node = top;
-      //Take the first element off the stack, 
-      //by pointing the top to the next node.			
-         top = top.getNext();
-      //Return pointer (address) to top element in array			
-         return node.getData();
+    }
+    System.out.println("Is the " + MAX + " item stack empty? " + stack2.empty());
+    System.out.println("pop off stack: ");
+    for (int i = 1; i <= MAX; i++) {
+      System.out.print(stack2.pop());
+      // output newline every 20 loops
+      if (i % 20 == 0) {
+        System.out.println();
       }
-   
-   /**Pushes an item onto the top of this stack 
-   * @param item the item that is pushed on the stack */
-       public void push(T item) {
-      //top is assigned a Node, 
-      //which points to the new item
-      //and the previous top Node.       
-         top = new Node<T>(item, top);
-      }
-      
-     /**Driver code to test class
-   * @param arguments Commandline arguments not used */
-       public static void main(String[] arguments) { 
-       //use interface in declaration (left of equals)
-       //use class to instantiate object (right of equals)
-       //syntax: Interface variable = new Class();
-      //make Stack of Strings 
-         StackInterface<String> stack2 = new LinkedStack<String>();
-      //test empty   
-         System.out.println("Is the empty stack empty? " + stack2.empty());
-       //test push, peek, pop
-         System.out.println("push on stack");
-         final int MAX = 100;
-         for(int i = 1; i <=MAX; i++){
-         //convert integer to String
-            String number = i + ", ";
-            stack2.push(number);
-            System.out.print(stack2.peek());
-            //output newline every 20 loops
-            if(i%20==0){
-               System.out.println();
-            }
-         }
-         System.out.println("Is the " + MAX + " item stack empty? " + stack2.empty());
-         System.out.println("pop off stack: ");
-         for(int i = 1; i <=MAX; i++){
-            System.out.print(stack2.pop());
-            //output newline every 20 loops
-            if(i%20==0){
-               System.out.println();
-            }
-         }		    
-         System.out.println();
-      //test exceptions
-         try{
-            stack2.pop();
-         }	
-             catch(Exception exception){
-               System.out.println(exception);
-            }
-         try{
-            stack2.peek();
-         }	
-             catch(Exception exception){
-               System.out.println(exception);
-            }      
-            
-      //example code (from slides)
-         StackInterface<String> stack = new LinkedStack<String>();
-         String letter = new String("A");
-         stack.push(letter);
-         letter = new String("B");
-         stack.push(letter);
-         letter = new String("C");
-         stack.push(letter);
-         letter = new String("D");
-         stack.push(letter);
-         letter = stack.pop();
-         System.out.println(letter);
-         letter = stack.peek();
-         System.out.println(letter);
-         letter = stack.pop();
-         System.out.println(letter);
-         letter = stack.pop();
-         System.out.println(letter);
-         letter = stack.pop();
-         System.out.println(letter);		
-      }//end main()
-      
-   }//end class
+    }
+    System.out.println();
+    // test exceptions
+    try {
+      stack2.pop();
+    }
+    catch (Exception exception) {
+      System.out.println(exception);
+    }
+    try {
+      stack2.peek();
+    }
+    catch (Exception exception) {
+      System.out.println(exception);
+    }
+
+    // example code (from slides)
+    StackInterface<String> stack = new LinkedStack<String>();
+    String letter = new String("A");
+    stack.push(letter);
+    letter = new String("B");
+    stack.push(letter);
+    letter = new String("C");
+    stack.push(letter);
+    letter = new String("D");
+    stack.push(letter);
+    letter = stack.pop();
+    System.out.println(letter);
+    letter = stack.peek();
+    System.out.println(letter);
+    letter = stack.pop();
+    System.out.println(letter);
+    letter = stack.pop();
+    System.out.println(letter);
+    letter = stack.pop();
+    System.out.println(letter);
+  }// end main()
+
+}// end class
 
 /*
 PROGRAM OUTPUT:
@@ -158,3 +172,4 @@ C
 B
 A
 */
+

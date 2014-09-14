@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> BackwardLines.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="backwardlinesjava">BackwardLines.java</h1>
+
+<p>File:</p>
+
+<p><a href="../examples/BackwardLines.java">BackwardLines.java</a></p>
+
+<p>Source: </p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Displays each line of a file backwards using a stack</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BackwardLines</span> <span class="o">{</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * The &quot;main&quot; Method Starts The Program.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param commandlineArguments The 1st Arugment Is The File Name.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">commandlineArguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Error Checking For Command Line Arguments..</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">commandlineArguments</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Please enter the file name &quot;</span> <span class="o">+</span> <span class="s">&quot;as the 1st commandline argument.&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// call method to read from file</span>
+      <span class="c1">// and print out each line backwards</span>
+      <span class="n">BackwardLines</span><span class="o">.</span><span class="na">readFromFile</span><span class="o">(</span><span class="n">commandlineArguments</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+    <span class="o">}</span><span class="c1">// end of &quot;else&quot; for commandlineArguments</span>
+  <span class="o">}</span><span class="c1">// end of main() method</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Reads one line at a time from a file and prints each line backwards to the screen</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param inputFile is the INPUT File</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">readFromFile</span><span class="o">(</span><span class="n">String</span> <span class="n">inputFile</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// connect to file (does NOT create new file)</span>
+    <span class="n">File</span> <span class="n">file</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">inputFile</span><span class="o">);</span>
+    <span class="n">Scanner</span> <span class="n">scanFile</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">scanFile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">file</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// Print error message.</span>
+      <span class="c1">// In order to print double quotes(&quot;),</span>
+      <span class="c1">// the escape sequence for double quotes (\&quot;) must be used.</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;ERROR: File not found for \&quot;&quot;</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">inputFile</span> <span class="o">+</span> <span class="s">&quot;\&quot;&quot;</span><span class="o">);</span>
+      <span class="c1">// if no file, quit program</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if made connection to file, read from file</span>
+    <span class="c1">// keeps looping if file has more lines..</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">scanFile</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">())</span> <span class="o">{</span>
+      <span class="c1">// get a line of text..</span>
+      <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">scanFile</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+      <span class="c1">// display a line of text to screen backwards</span>
+      <span class="n">String</span> <span class="n">backwardsLine</span> <span class="o">=</span> <span class="n">BackwardLines</span><span class="o">.</span><span class="na">reverse</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">backwardsLine</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span><span class="c1">// end of readFromFile()</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Reverses each character in a string</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param sentence is the INPUT String</span>
+<span class="cm">   * @return a backwards string</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">reverse</span><span class="o">(</span><span class="n">String</span> <span class="n">sentence</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// instantiate a stack of Strings</span>
+    <span class="n">StackInterface</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayStack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+    <span class="c1">// loop through each character of the string</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sentence</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// isolate each character</span>
+      <span class="n">String</span> <span class="n">character</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+      <span class="c1">// push each character to the stack</span>
+      <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">character</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// instantiate an empty string</span>
+    <span class="n">String</span> <span class="n">reverseLine</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">();</span>
+    <span class="c1">// loop through each character of the string</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">sentence</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// pop off each charater from the stack and add to end of string</span>
+      <span class="n">reverseLine</span> <span class="o">=</span> <span class="n">reverseLine</span> <span class="o">+</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">reverseLine</span><span class="o">;</span>
+  <span class="o">}</span><span class="c1">// end of reverse()</span>
+
+<span class="o">}</span><span class="c1">// end of class</span>
+
+<span class="cm">/*</span>
+
+<span class="cm">EXAMPLE INPUT FILE: file1.txt</span>
+<span class="cm">This is a pen.</span>
+<span class="cm">I am a bozu.</span>
+<span class="cm">See you again!</span>
+
+<span class="cm">EXAMPLE OUTPUT:</span>
+<span class="cm">.nep a si sihT</span>
+<span class="cm">.uzob a ma I</span>
+<span class="cm">!niaga uoy eeS</span>
+
+<span class="cm"> */</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-13 15:15:04 -1000</span></p>
+    <p style="margin: 0">
+      8 modules
+      
+        | 17 outcomes
+      
+      
+        | 96 readings
+      
+      
+        | 14 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

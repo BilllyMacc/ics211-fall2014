@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Stacks | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+  <h1><small>Module: </small> Stacks </h1>
+  <p><p>An introduction to class Stack - implemented with an array or linked nodes.</p>
+</p>
+</div>
+
+
+<div class="section-background-1">
+  <div class="container">
+    <h2>Learning Outcomes</h2>
+
+    
+      
+      <h3>Arrays</h3>
+      <p>
+        
+      </p>
+      <p>Create, initialize, store data in, and display arrays.</p>
+
+    
+      
+      <h3>Exception Handling</h3>
+      <p>
+        
+      </p>
+      <p>Create try and catch blocks to catch potential exceptions.</p>
+
+    
+      
+      <h3>Modularity</h3>
+      <p>
+        
+      </p>
+      <p>Organize your program into methods.</p>
+
+    
+      
+      <h3>Big-O</h3>
+      <p>
+        
+      </p>
+      <p>Estimate the execution time of an algorithm .</p>
+
+    
+      
+      <h3>Abstract Data Types (ADT)</h3>
+      <p>
+        
+      </p>
+      <p>Use procedural abstraction, data abstraction, and information hiding in creating and using classes and objects in a program</p>
+
+    
+      
+      <h3>Stacks</h3>
+      <p>
+        
+      </p>
+      <p>Use the methods of the Stack class to write a program.</p>
+
+    
+
+  </div>
+</div>
+
+
+
+
+
+<div class="section-background-2">
+  <div class="container">
+  <h2>Readings</h2>
+
+    <div class="row">
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0470128704&bcsId=5643">Textbook reading on sorting</a></h4>
+            <p>Chapter 3</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://laulima.hawaii.edu/portal/site/LEE.50593.201510/page/d198d215-69bc-438f-bd53-8b6a3e1e79a1">Podcast for Stacks - Part I (lecture #13)</a></h4>
+            <p>Generic types, Array stacks, Infix and postfix expressions</p>
+
+            <p>
+              
+              <span class="badge">Screencast</span>
+              
+              <span class="badge">55 min</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://speakerdeck.com/billlymacc/lecture13">Slides for Stacks - Part I</a></h4>
+            <p>Generic types, Array stacks, Infix and postfix expressions</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-TwoThings.html">TwoThings.java</a></h4>
+            <p>A Generic class that stores objects of any two classes</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+       </div><div class="row">
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-StackInterface.html">StackInterface.java</a></h4>
+            <p>A generic Stack interface roughly based on Java API’s class Stack</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-ArrayStack.html">ArrayStack.java</a></h4>
+            <p>A generic Stack class implemented with an array</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-BackwardLines.html">BackwardLines.java</a></h4>
+            <p>Displays each line of a file backwards using a stack</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://laulima.hawaii.edu/portal/site/LEE.50593.201510/page/d198d215-69bc-438f-bd53-8b6a3e1e79a1">Podcast for Stacks - Part II</a></h4>
+            <p>Node class, Linked stack, Evaluating postfix expressions</p>
+
+            <p>
+              
+              <span class="badge">Screencast</span>
+              
+              <span class="badge">55 min</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      </div><div class="row">
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="https://speakerdeck.com/billlymacc/lecture14">Slides for Stacks - Part II</a></h4>
+            <p>Node class, Linked stack, Evaluating postfix expressions</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-Node.html">Node.java</a></h4>
+            <p>A generic Node class that stores a reference to data and the next Node</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-LinkedStack.html">LinkedStack.java</a></h4>
+            <p>A generic Stack class implemented with linked nodes</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/reading-materials-BalancedBraces.html">BalancedBraces.java</a></h4>
+            <p>Checks for balanced curly braces using a stack</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      </div><div class="row">
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/arrays/reading-java-coding-standard.html">Java Coding Standard</a></h4>
+            <p>Follow this standard for the Java code in your program assignments</p>
+
+            <p>
+              
+              <span class="badge">use for each assignment</span>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="section-background-1">
+  <div class="container">
+  <h2>Experiential Learning</h2>
+
+    <div class="row">
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/experience13.html">Assignment on Stacks - Part I (asmt #13)</a></h4>
+            <p>Implement a Postfix Calculator using a Stack by using the algorithm in the slides. </p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+        
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <h4><a href="/ics211-fall2014/morea/stack/experience14.html">Assignment on Stacks - Part II (asmt #14)</a></h4>
+            <p>Implement a Postfix Calculator using a Stack by using the algorithm in the slides</p>
+
+            <p>
+              
+            </p>
+          </div>
+        </div>
+      
+      
+      
+      
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-13 15:15:04 -1000</span></p>
+    <p style="margin: 0">
+      8 modules
+      
+        | 17 outcomes
+      
+      
+        | 96 readings
+      
+      
+        | 14 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

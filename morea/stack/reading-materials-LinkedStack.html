@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> LinkedStack.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 id="linkedstackjava">LinkedStack.java</h1>
+
+<p>File:</p>
+
+<ul>
+  <li><a href="../examples/LinkedStack.java">LinkedStack.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">java.util.EmptyStackException</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * A generic Stack class implemented with linked nodes</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedStack</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">StackInterface</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="c1">// data fields</span>
+  <span class="kd">private</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">top</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="cm">/** Constructor */</span>
+  <span class="kd">public</span> <span class="nf">LinkedStack</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// data fields already initialized</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Tests if the stack is empty</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return true/false if empty/not empty</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">empty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">top</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Looks at the object at the top of the stack without removing it from the stack.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return an addressed to the top item on the stack</span>
+<span class="cm">   * @exception EmptyStackException if the stack is empty</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">T</span> <span class="nf">peek</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">EmptyStackException</span> <span class="o">{</span>
+    <span class="c1">// check to see if empty</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">EmptyStackException</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">// return pointer (address) to top element in array</span>
+    <span class="c1">// but do NOT take it off the stack!</span>
+    <span class="k">return</span> <span class="n">top</span><span class="o">.</span><span class="na">getData</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Removes the object at the top of stack and returns the address of this object</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return an addressed to the top item on the stack</span>
+<span class="cm">   * @exception EmptyStackException if the stack is empty</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">T</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// check to see if stack is empty</span>
+    <span class="k">if</span> <span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">EmptyStackException</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">// Store a temporary variable</span>
+    <span class="c1">// that points to the top of stack.</span>
+    <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span> <span class="o">=</span> <span class="n">top</span><span class="o">;</span>
+    <span class="c1">// Take the first element off the stack,</span>
+    <span class="c1">// by pointing the top to the next node.</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">top</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+    <span class="c1">// Return pointer (address) to top element in array</span>
+    <span class="k">return</span> <span class="n">node</span><span class="o">.</span><span class="na">getData</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Pushes an item onto the top of this stack</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param item the item that is pushed on the stack</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="n">T</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// top is assigned a Node,</span>
+    <span class="c1">// which points to the new item</span>
+    <span class="c1">// and the previous top Node.</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">item</span><span class="o">,</span> <span class="n">top</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Driver code to test class</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param arguments Commandline arguments not used</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">arguments</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// use interface in declaration (left of equals)</span>
+    <span class="c1">// use class to instantiate object (right of equals)</span>
+    <span class="c1">// syntax: Interface variable = new Class();</span>
+    <span class="c1">// make Stack of Strings</span>
+    <span class="n">StackInterface</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stack2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedStack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+    <span class="c1">// test empty</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Is the empty stack empty? &quot;</span> <span class="o">+</span> <span class="n">stack2</span><span class="o">.</span><span class="na">empty</span><span class="o">());</span>
+    <span class="c1">// test push, peek, pop</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;push on stack&quot;</span><span class="o">);</span>
+    <span class="kd">final</span> <span class="kt">int</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">MAX</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// convert integer to String</span>
+      <span class="n">String</span> <span class="n">number</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span><span class="o">;</span>
+      <span class="n">stack2</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">stack2</span><span class="o">.</span><span class="na">peek</span><span class="o">());</span>
+      <span class="c1">// output newline every 20 loops</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Is the &quot;</span> <span class="o">+</span> <span class="n">MAX</span> <span class="o">+</span> <span class="s">&quot; item stack empty? &quot;</span> <span class="o">+</span> <span class="n">stack2</span><span class="o">.</span><span class="na">empty</span><span class="o">());</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;pop off stack: &quot;</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">MAX</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">stack2</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+      <span class="c1">// output newline every 20 loops</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+    <span class="c1">// test exceptions</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">stack2</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exception</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">stack2</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exception</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// example code (from slides)</span>
+    <span class="n">StackInterface</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedStack</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+    <span class="n">String</span> <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+    <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+    <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+    <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;D&quot;</span><span class="o">);</span>
+    <span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+  <span class="o">}</span><span class="c1">// end main()</span>
+
+<span class="o">}</span><span class="c1">// end class</span>
+
+<span class="cm">/*</span>
+<span class="cm">PROGRAM OUTPUT:</span>
+<span class="cm">Is the empty stack empty? true</span>
+<span class="cm">push on stack</span>
+<span class="cm">1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, </span>
+<span class="cm">21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, </span>
+<span class="cm">41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, </span>
+<span class="cm">61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, </span>
+<span class="cm">81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, </span>
+<span class="cm">Is the 100 item stack empty? false</span>
+<span class="cm">pop off stack: </span>
+<span class="cm">100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, </span>
+<span class="cm">80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, </span>
+<span class="cm">60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, </span>
+<span class="cm">40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, </span>
+<span class="cm">20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, </span>
+
+<span class="cm">java.util.EmptyStackException</span>
+<span class="cm">java.util.EmptyStackException</span>
+<span class="cm">D</span>
+<span class="cm">C</span>
+<span class="cm">C</span>
+<span class="cm">B</span>
+<span class="cm">A</span>
+<span class="cm">*/</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-09-13 15:15:04 -1000</span></p>
+    <p style="margin: 0">
+      8 modules
+      
+        | 17 outcomes
+      
+      
+        | 96 readings
+      
+      
+        | 14 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

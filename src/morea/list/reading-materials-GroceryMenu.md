@@ -1,3 +1,20 @@
+---
+title: "GroceryMenu.java"
+published: true
+morea_id: reading-materials-examples-GroceryMenu
+morea_summary: "Has data fields for the numerator and denominator of a Fraction and methods for Fraction operations"
+morea_type: reading
+morea_sort_order: 2
+morea_labels:
+---
+
+File: 
+
+  * [GroceryMenu.java](../examples/GroceryMenu.java)
+
+Source code:
+
+{% highlight java %}
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 import java.io.PrintWriter;
@@ -229,4 +246,6 @@ public class GroceryMenu {
   }// end of writeToDatabase()
 
 }// end of class
-
+{% endhighlight %}
+  
+  

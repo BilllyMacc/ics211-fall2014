@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> LinkedList.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>File: </p>
+
+<ul>
+  <li><a href="../examples/LinkedList.java">LinkedList.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="cm">/**</span>
+<span class="cm"> * A generic list of linked nodes</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">ListInterface</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="c1">// reference to first node in the linked list (linked nodes)</span>
+  <span class="kd">protected</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">head</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="c1">// Total number of items, which is used</span>
+  <span class="c1">// for error checking and node removal.</span>
+  <span class="kd">protected</span> <span class="n">Integer</span> <span class="n">size</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+  <span class="kd">public</span> <span class="nf">LinkedList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// no code, because data fields already initialized</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Adds an item (of any class) to the list</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param item is the object that is added to the list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">T</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// case 1: if empty list</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// list is empty, so add to beginning of list</span>
+      <span class="c1">// make new node and assign to head of list</span>
+      <span class="n">head</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">item</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if not empty list</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// case2: add to end of list</span>
+      <span class="c1">// current starts at 2nd node in list</span>
+      <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">previous</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+      <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+      <span class="c1">// while not at end of list</span>
+      <span class="k">while</span> <span class="o">(</span><span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// advance to next node</span>
+        <span class="n">previous</span> <span class="o">=</span> <span class="n">current</span><span class="o">;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="c1">// Add new node to end of list:</span>
+      <span class="c1">// Make new node that has &quot;null&quot; for next.</span>
+      <span class="c1">// A node with &quot;null&quot; is always the last node</span>
+      <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">item</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+      <span class="c1">// Point previous node (last node) to new node</span>
+      <span class="n">previous</span><span class="o">.</span><span class="na">setNext</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// increase size of list</span>
+    <span class="n">size</span><span class="o">++;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Gets an item (address to an item) from the list.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param position The position of an item in the list.</span>
+<span class="cm">   * @returns the address to the requested item</span>
+<span class="cm">   * @exception ItemException if an item does not exist at that position</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">T</span> <span class="nf">get</span><span class="o">(</span><span class="n">Integer</span> <span class="n">position</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ListException</span> <span class="o">{</span>
+    <span class="c1">// check if empty list</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">ListException</span><span class="o">(</span><span class="s">&quot;Cannot get an item from an empty list!&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if position is outside range, throw exception</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">position</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">ListException</span><span class="o">(</span><span class="n">position</span> <span class="o">+</span> <span class="s">&quot; is outside list range!&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// Find node:</span>
+    <span class="c1">// counter to keep track of loops</span>
+    <span class="n">Integer</span> <span class="n">counter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="c1">// point to current node</span>
+    <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(!</span><span class="n">counter</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">position</span><span class="o">))</span> <span class="o">{</span>
+      <span class="c1">// BAD CODE: while(counter != position){</span>
+      <span class="c1">// goto next node for current pointer</span>
+      <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+      <span class="c1">// add 1 to counter</span>
+      <span class="n">counter</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="c1">// return the data (item) stored by the node</span>
+    <span class="k">return</span> <span class="n">current</span><span class="o">.</span><span class="na">getData</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Removes an item from a list.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param position The position of an item in the list.</span>
+<span class="cm">   * @exception ItemException if an item does not exist at that position</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">remove</span><span class="o">(</span><span class="n">Integer</span> <span class="n">position</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">ListException</span> <span class="o">{</span>
+    <span class="c1">// check if empty list</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">ListException</span><span class="o">(</span><span class="s">&quot;cannot remove from empty list&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if position is outside range, throw exception</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">position</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">position</span> <span class="o">&gt;</span> <span class="n">size</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">ListException</span><span class="o">(</span><span class="n">position</span> <span class="o">+</span> <span class="s">&quot; is outside list range.&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// if at beginning of list</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">position</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="mi">1</span><span class="o">))</span> <span class="o">{</span>
+      <span class="c1">// remove 1st node</span>
+      <span class="n">head</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">// if not at beginning of list</span>
+    <span class="k">else</span> <span class="o">{</span>
+      <span class="c1">// Find node:</span>
+      <span class="c1">// point previous to 1st node</span>
+      <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">previous</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+      <span class="c1">// point current to 2nd node</span>
+      <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+      <span class="c1">// loop position-2 number of times</span>
+      <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">position</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="c1">// goto next node for previous and current</span>
+        <span class="n">previous</span> <span class="o">=</span> <span class="n">current</span><span class="o">;</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">getNext</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="c1">// Point the previous node to node after current node.</span>
+      <span class="c1">// This &quot;skips&quot; over one node, thus removing it!</span>
+      <span class="n">previous</span><span class="o">.</span><span class="na">setNext</span><span class="o">(</span><span class="n">current</span><span class="o">.</span><span class="na">getNext</span><span class="o">());</span>
+    <span class="o">}</span>
+    <span class="c1">// decrease size of list</span>
+    <span class="n">size</span><span class="o">--;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Automatically called by println() or print()</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return a String of the List in CSV (comma separated values) format</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// instantiate empty string</span>
+    <span class="n">String</span> <span class="n">csvFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">);</span>
+    <span class="c1">// display position of each item to user</span>
+    <span class="n">Integer</span> <span class="n">position</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="c1">// loop through all the nodes in linked list</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span> <span class="n">current</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">;</span> <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">.</span><span class="na">getNext</span><span class="o">())</span> <span class="o">{</span>
+      <span class="c1">// keep adding to end of string</span>
+      <span class="n">csvFormat</span> <span class="o">=</span> <span class="n">csvFormat</span> <span class="o">+</span> <span class="n">position</span> <span class="o">+</span> <span class="s">&quot;, &quot;</span> <span class="o">+</span> <span class="n">current</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;\n&quot;</span><span class="o">;</span>
+      <span class="c1">// add one to position for each loop</span>
+      <span class="n">position</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">csvFormat</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * This Is An &quot;Accessor&quot; Method - Used To Get A Data Field.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @return the size of the list</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getSize</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">size</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Method main is used as a driver to test the class.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param args Not used.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Test list of Strings:</span>
+    <span class="c1">// test construtor</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test construtor&quot;</span><span class="o">);</span>
+    <span class="n">ListInterface</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+    <span class="c1">// test toString() for empty list</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;empty list: &quot;</span> <span class="o">+</span> <span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="n">String</span> <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;A&quot;</span><span class="o">);</span>
+    <span class="c1">// test add</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test add() 1 node&quot;</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="c1">// test toString() for list of 1</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;list of 1:\n&quot;</span> <span class="o">+</span> <span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="c1">// test add() for several nodes</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test add() several nodes&quot;</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;B&quot;</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;C&quot;</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;D&quot;</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">letter</span><span class="o">);</span>
+    <span class="c1">// test toString() for empty list of many</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;list of many:\n&quot;</span> <span class="o">+</span> <span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="c1">// test get</span>
+    <span class="n">Integer</span> <span class="n">currentSize</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">getSize</span><span class="o">();</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">currentSize</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test get(), letter: &quot;</span> <span class="o">+</span> <span class="n">letter</span><span class="o">);</span>
+    <span class="c1">// test remove</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;remove #1, 3: &quot;</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="c1">// test remove</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;remove #2, 1: &quot;</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">list</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+    <span class="c1">// Test list of Items</span>
+    <span class="c1">// test constructor</span>
+    <span class="n">ListInterface</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;();</span>
+    <span class="c1">// test add</span>
+    <span class="n">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;chopsticks&quot;</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;eel&quot;</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;carrot&quot;</span><span class="o">,</span> <span class="mi">30</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;doughnut&quot;</span><span class="o">,</span> <span class="mi">40</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;banana&quot;</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;zucchini&quot;</span><span class="o">,</span> <span class="mi">60</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+    <span class="c1">// test remove</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;remove #6, 1, 3: &quot;</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">6</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">list2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+    <span class="c1">// test get</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test get() and setNumber() #1, 3: &quot;</span><span class="o">);</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="n">item</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="mi">999</span><span class="o">);</span>
+    <span class="n">currentSize</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">getSize</span><span class="o">();</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">currentSize</span><span class="o">);</span>
+    <span class="n">item</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="mi">555</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+    <span class="c1">// test exceptions</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test remove() for size+1&quot;</span><span class="o">);</span>
+      <span class="n">currentSize</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">getSize</span><span class="o">();</span>
+      <span class="n">list2</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">currentSize</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">ListException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exception</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;test get() for 0&quot;</span><span class="o">);</span>
+      <span class="n">item</span> <span class="o">=</span> <span class="n">list2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">ListException</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">exception</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="c1">// code from slides on get() method</span>
+    <span class="n">ListInterface</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="n">list3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;();</span>
+    <span class="n">list3</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;negi&quot;</span><span class="o">,</span> <span class="mi">5</span><span class="o">));</span>
+    <span class="n">list3</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="s">&quot;natto&quot;</span><span class="o">,</span> <span class="mi">7</span><span class="o">));</span>
+    <span class="n">Item</span> <span class="n">food</span> <span class="o">=</span> <span class="n">list3</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+    <span class="n">food</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list3</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  <span class="o">}</span><span class="c1">// end of main</span>
+
+<span class="o">}</span><span class="c1">// end of class</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * PROGRAM OUTPUT: </span>
+
+<span class="cm">test construtor</span>
+<span class="cm">empty list: </span>
+<span class="cm">test add() 1 node</span>
+<span class="cm">list of 1:</span>
+<span class="cm">1, A</span>
+
+<span class="cm">test add() several nodes</span>
+<span class="cm">list of many:</span>
+<span class="cm">1, A</span>
+<span class="cm">2, B</span>
+<span class="cm">3, C</span>
+<span class="cm">4, D</span>
+
+<span class="cm">test get(), letter: D</span>
+<span class="cm">remove #1, 3: </span>
+<span class="cm">1, B</span>
+<span class="cm">2, D</span>
+
+<span class="cm">remove #2, 1: </span>
+
+<span class="cm">1, chopsticks, 10</span>
+<span class="cm">2, eel, 20</span>
+<span class="cm">3, carrot, 30</span>
+<span class="cm">4, doughnut, 40</span>
+<span class="cm">5, banana, 50</span>
+<span class="cm">6, zucchini, 60</span>
+
+<span class="cm">remove #6, 1, 3: </span>
+<span class="cm">1, eel, 20</span>
+<span class="cm">2, carrot, 30</span>
+<span class="cm">3, banana, 50</span>
+
+<span class="cm">test get() and setNumber() #1, 3: </span>
+<span class="cm">1, eel, 999</span>
+<span class="cm">2, carrot, 30</span>
+<span class="cm">3, banana, 555</span>
+
+<span class="cm">test remove() for size+1</span>
+<span class="cm">ListException: 4 is outside list range.</span>
+<span class="cm">test get() for 0</span>
+<span class="cm">ListException: 0 is outside list range!</span>
+<span class="cm">1, negi, 5</span>
+<span class="cm">2, natto, 9</span>
+<span class="cm"> </span>
+<span class="cm">  */</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-10-05 10:40:30 -1000</span></p>
+    <p style="margin: 0">
+      9 modules
+      
+        | 18 outcomes
+      
+      
+        | 108 readings
+      
+      
+        | 17 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

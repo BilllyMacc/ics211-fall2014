@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> GroceryMenu.java | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <p>File: </p>
+
+<ul>
+  <li><a href="../examples/GroceryMenu.java">GroceryMenu.java</a></li>
+</ul>
+
+<p>Source code:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kn">import</span> <span class="nn">javax.swing.JOptionPane</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Scanner</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.PrintWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.FileNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * A console menu for a grocery list (add, edit, remove, &amp; display items) Note that each string in</span>
+<span class="cm"> * file database.csv has to separated by a comma and a space (&quot;, &quot;) or the program cannot read from</span>
+<span class="cm"> * file database.csv</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author William McDaniel Albritton</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GroceryMenu</span> <span class="o">{</span>
+
+  <span class="c1">// data fields:</span>
+  <span class="c1">// linked list of items</span>
+  <span class="kd">private</span> <span class="n">ListInterface</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span> <span class="n">groceryList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;();</span>
+  <span class="c1">// name of the database (file that stores all data in grocery list)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">database</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;database.csv&quot;</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * No-parameter constructor</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="nf">GroceryMenu</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// data fields already initialized</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Starts the menu.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @param args Not used</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Cannot use driver program to test GroceryMenu class,</span>
+    <span class="c1">// instead use database and user input.</span>
+
+    <span class="c1">// Instantiate menu and display menu</span>
+    <span class="n">GroceryMenu</span> <span class="n">menu</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GroceryMenu</span><span class="o">();</span>
+    <span class="n">menu</span><span class="o">.</span><span class="na">displayLoop</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Displays a menu, asks for choice, executes choice.</span>
+<span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayLoop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">readFromDatabase</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">exception</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">// list of choices</span>
+    <span class="n">String</span><span class="o">[]</span> <span class="n">choices</span> <span class="o">=</span> <span class="o">{</span> <span class="s">&quot;Add Item&quot;</span><span class="o">,</span> <span class="s">&quot;Edit Item&quot;</span><span class="o">,</span> <span class="s">&quot;Remove Item&quot;</span><span class="o">,</span> <span class="s">&quot;Display List&quot;</span><span class="o">,</span> <span class="s">&quot;Exit Program&quot;</span> <span class="o">};</span>
+    <span class="c1">// display loop</span>
+    <span class="kt">int</span> <span class="n">theChoice</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">theChoice</span> <span class="o">!=</span> <span class="n">choices</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">// add 1, because start at 0</span>
+      <span class="n">theChoice</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showOptionDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="c1">// put in center</span>
+          <span class="c1">// of screen</span>
+          <span class="s">&quot;Select a Command&quot;</span><span class="o">,</span> <span class="c1">// message to user</span>
+          <span class="s">&quot;Shopping List Main Menu&quot;</span><span class="o">,</span> <span class="c1">// title of window</span>
+          <span class="n">JOptionPane</span><span class="o">.</span><span class="na">YES_NO_CANCEL_OPTION</span><span class="o">,</span> <span class="c1">// type of option</span>
+          <span class="n">JOptionPane</span><span class="o">.</span><span class="na">QUESTION_MESSAGE</span><span class="o">,</span> <span class="c1">// type of message</span>
+          <span class="kc">null</span><span class="o">,</span> <span class="c1">// icon</span>
+          <span class="n">choices</span><span class="o">,</span> <span class="c1">// array of strings</span>
+          <span class="n">choices</span><span class="o">[</span><span class="n">choices</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="o">]);</span> <span class="c1">// default choice (last one)</span>
+      <span class="c1">// add to list</span>
+      <span class="k">if</span> <span class="o">(</span><span class="mi">1</span> <span class="o">==</span> <span class="n">theChoice</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">addToList</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+          <span class="c1">// &quot;null&quot; puts message in center of screen</span>
+          <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="s">&quot;Unable to add item to grocery list.&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="c1">// edit the list</span>
+      <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="mi">2</span> <span class="o">==</span> <span class="n">theChoice</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">editList</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="s">&quot;Unable to edit item in grocery list.&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="c1">// remove from list</span>
+      <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="mi">3</span> <span class="o">==</span> <span class="n">theChoice</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">removeFromList</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="s">&quot;Unable to remove item from grocery list.&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+      <span class="o">}</span>
+      <span class="c1">// display the list</span>
+      <span class="k">else</span> <span class="nf">if</span> <span class="o">(</span><span class="mi">4</span> <span class="o">==</span> <span class="n">theChoice</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">displayList</span><span class="o">();</span>
+      <span class="o">}</span><span class="c1">// last if statement</span>
+    <span class="o">}</span><span class="c1">// end of while loop</span>
+     <span class="c1">// before exit program, write grocery data to database</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="k">this</span><span class="o">.</span><span class="na">writeToDatabase</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">exception</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">exception</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span><span class="c1">// end of displayLoop()</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Prompt user for item &amp; add item to the list.</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">addToList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// get user input</span>
+    <span class="n">String</span> <span class="n">name</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Enter item&#39;s name&quot;</span><span class="o">);</span>
+    <span class="n">String</span> <span class="n">numberString</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Enter item&#39;s number&quot;</span><span class="o">);</span>
+    <span class="c1">// convert string to integer</span>
+    <span class="kt">int</span> <span class="n">numberInteger</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">numberString</span><span class="o">);</span>
+    <span class="c1">// instantiate item and add to list</span>
+    <span class="n">Item</span> <span class="n">groceryItem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">numberInteger</span><span class="o">);</span>
+    <span class="n">groceryList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">groceryItem</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Prompt user for item&#39;s position and item&#39;s number; and edit item in the list.</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">editList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// get user input</span>
+    <span class="n">String</span> <span class="n">positionString</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Enter item&#39;s position in the list&quot;</span><span class="o">);</span>
+    <span class="c1">// convert from String to an Integer</span>
+    <span class="n">Integer</span> <span class="n">positionInteger</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">positionString</span><span class="o">);</span>
+    <span class="c1">// get grocery item</span>
+    <span class="n">Item</span> <span class="n">groceryItem</span> <span class="o">=</span> <span class="n">groceryList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">positionInteger</span><span class="o">);</span>
+    <span class="c1">// get item&#39;s number</span>
+    <span class="n">String</span> <span class="n">numberString</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Enter item&#39;s number&quot;</span><span class="o">);</span>
+    <span class="c1">// convert from String to an Integer</span>
+    <span class="n">Integer</span> <span class="n">numberInteger</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">numberString</span><span class="o">);</span>
+    <span class="c1">// edit item</span>
+    <span class="n">groceryItem</span><span class="o">.</span><span class="na">setNumber</span><span class="o">(</span><span class="n">numberInteger</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Prompt user for item&#39;s position in list &amp; remove from list.</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">removeFromList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// get user input</span>
+    <span class="n">String</span> <span class="n">number</span> <span class="o">=</span> <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showInputDialog</span><span class="o">(</span><span class="s">&quot;Enter item&#39;s position&quot;</span><span class="o">);</span>
+    <span class="c1">// convert from string to integer</span>
+    <span class="kt">int</span> <span class="n">position</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+    <span class="c1">// remove item</span>
+    <span class="n">groceryList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Display list.</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">displayList</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;position, name, number \n&quot;</span> <span class="o">+</span> <span class="n">groceryList</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="n">JOptionPane</span><span class="o">.</span><span class="na">showMessageDialog</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">message</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * read grocery list from database and store in list.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @exception FileNotFoundException if cannot find the specified file</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">readFromDatabase</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">FileNotFoundException</span> <span class="o">{</span>
+    <span class="c1">// Connect to the file in the current directory</span>
+    <span class="n">File</span> <span class="n">fileConnection</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">database</span><span class="o">);</span>
+    <span class="c1">// may throw FileNotFoundException</span>
+    <span class="n">Scanner</span> <span class="n">fileReader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">fileConnection</span><span class="o">);</span>
+    <span class="c1">// declare variables</span>
+    <span class="n">String</span> <span class="n">position</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="n">String</span> <span class="n">number</span><span class="o">;</span>
+    <span class="c1">// get rid of 1st line</span>
+
+    <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">fileReader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+    <span class="c1">// while the file still has more lines in it</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">fileReader</span><span class="o">.</span><span class="na">hasNextLine</span><span class="o">())</span> <span class="o">{</span>
+      <span class="c1">// read one full line from the file</span>
+      <span class="n">line</span> <span class="o">=</span> <span class="n">fileReader</span><span class="o">.</span><span class="na">nextLine</span><span class="o">();</span>
+      <span class="c1">// Breaks the line into tokens (words, numbers, etc.)</span>
+      <span class="c1">// Each token separated by comma and a space (&quot;, &quot;)</span>
+      <span class="n">Scanner</span> <span class="n">tokenInput</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scanner</span><span class="o">(</span><span class="n">line</span><span class="o">).</span><span class="na">useDelimiter</span><span class="o">(</span><span class="s">&quot;, &quot;</span><span class="o">);</span>
+      <span class="c1">// returns 1st token (all characters up to the first comma)</span>
+      <span class="n">position</span> <span class="o">=</span> <span class="n">tokenInput</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+      <span class="c1">// returns 2nd token (2nd column in csv file)</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="n">tokenInput</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+      <span class="c1">// returns 3rd token</span>
+      <span class="n">number</span> <span class="o">=</span> <span class="n">tokenInput</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+      <span class="c1">// instantiate new item</span>
+      <span class="n">Item</span> <span class="n">newItem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Item</span><span class="o">(</span><span class="n">name</span><span class="o">,</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">number</span><span class="o">));</span>
+      <span class="c1">// add new item to grocery list</span>
+      <span class="n">groceryList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newItem</span><span class="o">);</span>
+    <span class="o">}</span><span class="c1">// end of while loop</span>
+    <span class="n">fileReader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="o">}</span><span class="c1">// end of readFromDatabase()</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * write grocery list from list and store in database.</span>
+<span class="cm">   * </span>
+<span class="cm">   * @exception FileNotFoundException if cannot find the specified file</span>
+<span class="cm">   */</span>
+  <span class="kd">private</span> <span class="kt">void</span> <span class="nf">writeToDatabase</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">FileNotFoundException</span> <span class="o">{</span>
+    <span class="c1">// make connection to database</span>
+    <span class="n">PrintWriter</span> <span class="n">fileWriter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PrintWriter</span><span class="o">(</span><span class="n">database</span><span class="o">);</span>
+    <span class="c1">// write to file: title of each column (top row)</span>
+    <span class="n">fileWriter</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;position, name, number&quot;</span><span class="o">);</span>
+    <span class="c1">// write to file: all the data in the list</span>
+    <span class="n">String</span> <span class="n">allData</span> <span class="o">=</span> <span class="n">groceryList</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="c1">// loop from 0 to lenght of string</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">allData</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+      <span class="c1">// isolate a single character</span>
+      <span class="n">String</span> <span class="n">character</span> <span class="o">=</span> <span class="n">allData</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+      <span class="c1">// Since class PrintWriter will not create a newline in a file for &quot;\n&quot;,</span>
+      <span class="c1">// we have to use println() instead of &quot;\n&quot;</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">character</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&quot;\n&quot;</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">fileWriter</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="c1">// otherwise, we write all other characters to the file</span>
+      <span class="k">else</span> <span class="o">{</span>
+        <span class="n">fileWriter</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">character</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="c1">// don&#39;t forget to close the file connection!</span>
+    <span class="c1">// may not write to file if not closed!</span>
+    <span class="n">fileWriter</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+  <span class="o">}</span><span class="c1">// end of writeToDatabase()</span>
+
+<span class="o">}</span><span class="c1">// end of class</span></code></pre></div>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-10-05 10:40:30 -1000</span></p>
+    <p style="margin: 0">
+      9 modules
+      
+        | 18 outcomes
+      
+      
+        | 108 readings
+      
+      
+        | 17 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

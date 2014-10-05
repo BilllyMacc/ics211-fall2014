@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on Linked Lists - Part III (asmt #17) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions1-write-a-java-application-that-does-the-following">Instructions1. Write a Java application that does the following.</h2>
+
+<ol>
+  <li>In the main() method, take 1 file name as the commandline input.</li>
+  <li>The file is a CSV (comma separated values) file with a top row of headings, a first row of names, and a second row of ages. For example, see input17.csv</li>
+  <li>In the main() method, read the data in the file, and store each row of names and ages as a PersonNode in a LinkedList.</li>
+  <li>For the add() method of the LinkedList class, the parameters should be the name and age. The add() method should add each node to the end of the list.</li>
+  <li>In the main() method, use the toString() method of the LinkedList object to display all the PersonNode objects in the LinkedList object.</li>
+  <li>In the main() method, repeatedly ask the user to enter the age. Use a while loop and JOptionPane.showInputDialog() to do this.</li>
+  <li>List all the PersonNodes that have the same age as the user entered. To do this, in the same while loop, call the displayPeopleWithSameAge() method and the JOptionPane.showMessageDialog() method.</li>
+  <li>If there are no matching ages, you need to display &#8220;There are no matching ages for age X&#8221;, where &#8220;X&#8221; is the age that the user entered.</li>
+  <li>Quit the program, when the user enters -1 (negative one) for the age.</li>
+  <li>Use the JOptionPane.showMessageDialog() method for your input and output.</li>
+  <li>Below your LastnameFirstname17 class, create a second class in your LastnameFirstname17.java file, which is the class LinkedList.</li>
+  <li>Unlike your LastnameFirstname17 class, do NOT include the public modifier. The code for your LinkedList class should look like this:</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">{</span>
+  <span class="c1">//data field(s)</span>
+  <span class="c1">//void add(String, Integer) method</span>
+  <span class="c1">//String toString() method</span>
+  <span class="c1">//String displayPeopleWithSameAge(Integer) method</span>
+<span class="o">}</span></code></pre></div>
+
+<p>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.
+The linked list in your assignment is NOT a generic linked list that is provided as example code. You can use the example generic linked list as a guide on how to design a linked list; however, the methods for your linked list, and the nodes used in your linked list are somewhat different than the generic linked list and generic node class in the example code.
+The add() method should have parameters for the name and age. In the method definition, the add() method should create a new PersonNode object. In the method definition, loop to the end of the linked list, and add the new PersonNode object to the end of the linked list.
+The toString() method should return a String that displays the toString() output for each PersonNode object on a separate line. See the example output below.
+The displayPeopleWithSameAge() method should return a String that displays the all the PersonNode objects that have the same age on a separate line. The only parameter to the method should be an Integer that represents the age of a person. See the example output below.
+Note that the point of this assignment is to learn how to loop through a linked list. Therefore, your displayPeopleWithSameAge() method should loop through the linked PersonNodes and then use an if-statement to find the PersonNodes which have the same age as the user&#8217;s input. You need to add a getAge() method to your PersonNode class.
+Below your LastnameFirstname17 class, create a third class in your LastnameFirstname17.java file, which is the class PersonNode.
+Unlike your LastnameFirstname17 class, do NOT include the public modifier. The code for your PersonNode class should look like this:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">PersonNode</span><span class="o">{</span>
+		<span class="c1">//data fields</span>
+		<span class="c1">//constructor</span>
+		<span class="c1">//toString() method</span>
+		<span class="c1">//getNext() method</span>
+		<span class="c1">//setNext() method</span>
+		<span class="c1">//getAge() method</span>
+	<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.</li>
+  <li>In the PersonNode class, use a data field for the name of the person, a data field for the age of the person, and a data field that points (contains the address of) the next PersonNode object.</li>
+  <li>The PersonNode constructor should initialize the data fields for name and age.</li>
+  <li>The PersonNode method toString() should output: &#8220;X is Y years old.&#8221;</li>
+  <li>The PersonNode method getNext() should return a pointer (address) to the next PersonNode object.</li>
+  <li>The PersonNode method setNext() should set the next data field to point to (contain the address of) the next PersonNode object.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: In the edit method, do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Don&#8217;t forget to add &#8220;JavaDoc&#8221; style comments above each method. See ICS 211 Java Coding Standard (Comments: Methods) for details.</li>
+</ol>
+
+<h2 id="example-output">Example output</h2>
+
+<p>Here is example output for commandline arguments: <b><a href="input17.csv">input17.csv</a></b></p>
+
+<p>
+<br />
+<br />  
+	<img style="border: #3c8dc5 solid 5px" src="message17_1.png" title="Names and ages from input file" alt="Names and ages from input file" width="264" height="259" />
+<br />
+<br />  	
+	<img style="border: #3c8dc5 solid 5px" src="input17_1.png" title="Enter age 33" alt="Enter age 33" width="296" height="131" />
+<br />
+<br /> 	
+	<img style="border: #3c8dc5 solid 5px" src="message17_2.png" title="People of age 33" alt="People of age 33" width="264" height="144" />	
+<br />
+<br />
+	<img style="border: #3c8dc5 solid 5px" src="input17_4.png" title="Enter age 44" alt="Enter age 44" width="293" height="131" />
+<br />
+<br />	
+	<img style="border: #3c8dc5 solid 5px" src="message17_4.png" title="People of age 44" alt="People of age 44" width="265" height="126" />
+<br />
+<br />
+	<img style="border: #3c8dc5 solid 5px" src="input17_2.png" title="Enter age 22" alt="Enter age 22" width="293" height="131" />
+<br />
+<br />
+	<img style="border: #3c8dc5 solid 5px" src="message17_3.png" title="People of age 22" alt="People of age 22" width="265" height="126" />
+<br />
+<br />
+	<img style="border: #3c8dc5 solid 5px" src="input17_3.png" title="Enter age -1" alt="Enter age -1" width="293" height="129" />
+<br />
+<br />  
+</p>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-10-05 10:40:30 -1000</span></p>
+    <p style="margin: 0">
+      9 modules
+      
+        | 18 outcomes
+      
+      
+        | 108 readings
+      
+      
+        | 17 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Assignment on Linked Lists - Part II (asmt #16) | ICS 211 Fall 2014 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+
+  <!--  Load bootswatch-based Morea theme file. -->
+  <link rel="stylesheet" href="/ics211-fall2014/css/themes/cerulean/bootstrap.min.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/style.css">
+  <link rel="stylesheet" href="/ics211-fall2014/css/syntax.css">
+  <link rel="shortcut icon" href="/ics211-fall2014/favicon.ico" type="image/x-icon" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+  <![endif]-->
+
+  <!-- Load Bootstrap JavaScript components -->
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Responsive navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <!--  Display three horizontal lines when navbar collapsed. -->
+        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"> ICS 211 Fall 2014 </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/ics211-fall2014/index.html">Home</a></li>
+        <li><a href="/ics211-fall2014/modules/">Modules</a></li>
+        
+          <li><a href="/ics211-fall2014/outcomes/">Outcomes</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/readings/">Readings</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/experiences/">Experiences</a></li>
+        
+        
+          <li><a href="/ics211-fall2014/schedule/">Schedule</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <h2 id="instructions">Instructions</h2>
+
+<p>Write a Java application that does the following.</p>
+
+<ol>
+  <li>In the main() method, take 1 file name as the commandline input.</li>
+  <li>The file is a CSV (comma separated values) file with a top row of headings, a first row of names, and a second row of ages. For example, see input16.csv</li>
+  <li>Using the String args[0], create a file object.</li>
+  <li>Using the file object, create a Scanner object to connect to the file.</li>
+  <li>When you read the file, skip over the first line in the file. For example: </li>
+  <li>String firstLineInFile = scanner.nextLine();</li>
+  <li>Does your program work so far? Compile and run your program. Use either the jGRASP debugger (see lesson #3 slides and podcast for instructions) or System.out.println() statements to check your code. And continue to take small steps (compile, run, and check values of variables) whenever you write a program. When you no longer need your output statements, comment them out. For example: </li>
+  <li>System.out.println(&#8220;firstLineInFile = &#8220; + firstLineInFile);</li>
+  <li>You might need to use the useDelimiter() method to separate the name from the age. Breaks the line into tokens (words, numbers, etc.). Each token separated by comma (&#8220;,&#8221;). Then use method next() to get name and use next() again to get the age. For example: </li>
+  <li>String line = scanner.nextLine(); Scanner tokenInput = new Scanner(line).useDelimiter(&#8220;,&#8221;);</li>
+  <li>name = tokenInput.next();</li>
+  <li>age = tokenInput.next();</li>
+  <li>In the main() method, read the data in the file, and store each row of names and ages as a PersonNode in a LinkedList. Your LinkedList is similar to my LinkedList, but your LinkedList is NOT generic type, so don&#8217;t use <t>. Instead of Node, use PersonNode to store the data of each person.</t></li>
+  <li>For the add() method of the LinkedList class, the parameters should be the name and age. The add() method should add each node to the end of the list. For example: </li>
+  <li>LinkedList list = new LinkedList;</li>
+  <li>list.add(name, age);</li>
+  <li>In the main() method, use the toString() method of the LinkedList object to display all the PersonNode objects in the LinkedList object.</li>
+  <li>Use the JOptionPane.showMessageDialog() method for your output.</li>
+  <li>Below your LastnameFirstname16 class, create a second class in your LastnameFirstname16.java file, which is the class LinkedList.</li>
+  <li>Unlike your LastnameFirstname16 class, do NOT include the public modifier. The code for your LinkedList class should look like this:</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">LinkedList</span><span class="o">{</span>
+		<span class="c1">//data field (private PersonNode head)</span>
+		<span class="c1">//add() method with two parameters (name and age)</span>
+		<span class="c1">//toString() method</span>
+	<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.</li>
+  <li>The linked list in your assignment is NOT a generic linked list that is provided as example code. You can use the example generic linked list as a guide on how to design a linked list; however, the methods for your linked list, and the nodes used in your linked list are PersonNode, so somewhat different than the generic linked list and generic node class in the example code.</li>
+  <li>The add() method should have parameters for the name and age. In the method definition, the add() method should create a new PersonNode object. In the method definition, loop to the end of the linked list, and add the new PersonNode object to the end of the linked list.</li>
+  <li>The toString() method should return a String that displays the toString() output for each PersonNode object on a separate line. See the example output below.</li>
+  <li>Below your LastnameFirstname16 class, create a third class in your LastnameFirstname16.java file, which is the class PersonNode.</li>
+  <li>Unlike your LastnameFirstname16 class, do NOT include the public modifier. The code for your PersonNode class should look like this:</li>
+</ol>
+
+<div class="highlight"><pre><code class="java"><span class="kd">class</span> <span class="nc">PersonNode</span><span class="o">{</span>
+		<span class="c1">//data fields are name, age, and next</span>
+		<span class="c1">//constructor to initialize all 3 data fields</span>
+		<span class="c1">//toString() method returns &quot;X is Y years old&quot;</span>
+		<span class="c1">//getNext() method returns next</span>
+		<span class="c1">//setNext() method sets next to the parameter&#39;s value</span>
+	<span class="o">}</span></code></pre></div>
+
+<ol>
+  <li>See FractionCalculatorInOneFile.java for an example of several classes in one Java file.</li>
+  <li>In the PersonNode class, use a data field for the name of the person, a data field for the age of the person, and a data field that points (contains the address of) the next PersonNode object.</li>
+  <li>The PersonNode constructor should initialize the data fields for name and age.</li>
+  <li>The PersonNode method toString() should output: </li>
+  <li>&#8220;X is Y years old.&#8221;</li>
+  <li>The PersonNode method getNext() should return a pointer (address) to the next PersonNode object.</li>
+  <li>The PersonNode method setNext() should set the next data field to point to (contain the address of) the next PersonNode object.</li>
+  <li>Write your original comments every 3-5 lines of code.</li>
+  <li>WARNING: In the edit method, do NOT copy my code or my comments. Use my code as a guide to write your own code.</li>
+  <li>Don&#8217;t forget to add &#8220;JavaDoc&#8221; style comments above each method. See ICS 211 Java Coding Standard (Comments: Methods) for details.</li>
+</ol>
+
+<h2 id="example-output">Example output</h2>
+
+<p>Here is example output for commandline arguments: <b><a href="input16.csv">input16.csv</a></b></p>
+
+<p>
+	<br />
+	<img style="border: #3c8dc5 solid 5px" src="output16.png" alt="Names and ages from input file" />
+	<br />
+</p>
+
+
+</div>
+
+
+
+<div class="footer-background">
+<footer>
+  <div class="container page-footer">
+    
+      <p>William McDaniel Albritton | Information and Computer Sciences |Leeward Community College <br />
+walbritt AT hawaii.edu<br /></p>
+
+    
+    <p style="margin: 0">Powered by the <a href="http://morea-framework.github.io/">Morea Framework</a> (Theme: cerulean)<br>
+       Last update on: <span>2014-10-05 10:40:30 -1000</span></p>
+    <p style="margin: 0">
+      9 modules
+      
+        | 18 outcomes
+      
+      
+        | 108 readings
+      
+      
+        | 17 experiences
+      
+      
+    </p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
